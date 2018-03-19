@@ -1,0 +1,8 @@
+.ContactCard {
+    /*-fx-background-color: blue;*/
+}
+
+.EditableLabel {
+    -fx-background-color: transparent;
+    -fx-border-color: #888;
+}

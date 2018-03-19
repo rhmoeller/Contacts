@@ -1,0 +1,39 @@
+.ContactNavigation {
+    /*-fx-border-color: transparent;*/
+    /*-fx-pref-width: 180px;*/
+    -fx-padding: 10px;
+}
+
+.CategorisedListView {
+    /*-fx-border-color: transparent;*/
+    /*-fx-pref-width: 180px;*/
+}
+
+.CategoryHeader {
+    /*-fx-border-color: red;*/
+    /*-fx-border-width: 0 0 1px 0;*/
+    /*-fx-border-color: black;*/
+    /*-fx-padding: 0 10px;*/
+    /*-fx-padding: 0 5px;*/
+}
+
+.Separator {
+    /*-fx-pref-width: 10px;*/
+}
+
+.ContactNavigationTab {
+    /*-fx-border-color: transparent;*/
+    /*-fx-background-color: black;*/
+    /*-fx-pref-width: 180px;*/
+    /*-fx-padding: 2px 0 2px 12px;*/
+    -fx-padding: 2px 10px;
+
+}
+
+.selected {
+    /*-fx-background-color: rgba(0, 0, 0, .1);*/
+}
+
+.CustomGrid {
+    -fx-background-color: transparent;
+}

@@ -1,0 +1,9 @@
+.root {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+}
+
+.Window {
+    /*background-color: blue;*/
+    /*-fx-background-radius: 5em;*/
+}

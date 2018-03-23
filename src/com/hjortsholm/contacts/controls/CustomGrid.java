@@ -20,7 +20,7 @@ public class CustomGrid extends GridPane {
 
     public void addChild(Node... nodes) {
         for (Node node: nodes)
-            this.addRow(this.rows, Anchor.anchorAll(node, 0.0));
+            this.add(node,this.columns, /*Anchor.anchorAll(node, 0.0)*/this.rows);
     }
 
     public void addRow(Node node) {

@@ -3,6 +3,7 @@ package com.hjortsholm.contacts;
 import com.hjortsholm.contacts.database.Database;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.Field;
+import com.hjortsholm.contacts.models.FieldType;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -10,9 +11,8 @@ import java.util.Arrays;
 
 public class Test {
     public static void main(String[] args) throws SQLException {
-
-        Database db = new Database("contacts.db");
-        database(db);
+//        Database db = new Database("contacts.db");
+//        database(db);
     }
 
     public static void database(Database db) {

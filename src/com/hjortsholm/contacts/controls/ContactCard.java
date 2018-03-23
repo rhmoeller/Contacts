@@ -20,7 +20,8 @@ public class ContactCard extends CompositeControl {
         this.firstName = new EditableLabel();
         this.lastName = new EditableLabel();
 
-        this.addChild(this.emptyCard);
+        this.addColumn(new Spacer(1,20));
+        this.addRow(this.emptyCard);
         this.addChild(this.firstName);
         this.addChild(this.lastName);
         refresh();

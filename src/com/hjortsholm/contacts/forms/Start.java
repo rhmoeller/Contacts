@@ -80,7 +80,7 @@ public class Start extends Window {
 
     private void onTabChanged(ContactNavigationTab navigationTab)  {
         contactCard.setContact(navigationTab.getContact());
-        System.out.println(navigationTab.getContact().getFirstName() + " selected..");
+//        System.out.println(navigationTab.getContact().getFirstName() + " selected..");
     }
 
 

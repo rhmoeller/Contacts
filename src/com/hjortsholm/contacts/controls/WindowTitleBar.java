@@ -7,6 +7,7 @@ import javafx.scene.input.MouseEvent;
 
 public class WindowTitleBar extends CompositeControl {
     public WindowTitleBar(EventHandler<? super MouseEvent> onWindowExit, EventHandler<? super MouseEvent> onWindowMinimise) {
+        super();
         SystemButton exitButton = new SystemButton("x");
         SystemButton minimiseButton = new SystemButton("-");
         Label title = new Label(Application.getTitle());
@@ -14,13 +15,12 @@ public class WindowTitleBar extends CompositeControl {
         exitButton.setOnMouseClicked(onWindowExit);
         minimiseButton.setOnMouseClicked(onWindowMinimise);
 
-        super.init(
-                    new Spacer(8, 20),
-                    exitButton,
-                    new Spacer(7, 20),
-                    minimiseButton,
-                    new Spacer(30,1),
-                    title
-        );
+        this.addColumn(new Spacer(8, 20));
+        this.addColumn(exitButton);
+        this.addColumn(new Spacer(7, 20));
+        this.addColumn(minimiseButton);
+        this.addColumn(new Spacer(30, 1));
+        this.addColumn(title);
+
     }
 }

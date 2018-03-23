@@ -14,7 +14,20 @@ public class EditableLabel extends TextField {
         this.textProperty().addListener(observable -> this.setToMinimumWidth());
         this.setEditable(false);
         this.setText(text);
+        Style.addStylesheet(this,"TextFields");
         Style.addGenericStyleClass(this);
+
+        this.setOnMouseClicked((mouseEvent)->{
+            edit(!this.editableProperty().get());
+        });
+    }
+
+    public void edit(boolean editable) {
+        this.setEditable(editable);
+        if (editable)
+            Style.addStyleClass(this,"editable");
+        else
+            Style.removeStyleClass(this, "editable");
     }
 
     private void setToMinimumWidth() {

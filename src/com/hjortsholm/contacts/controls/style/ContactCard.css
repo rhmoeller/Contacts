@@ -2,7 +2,11 @@
     /*-fx-background-color: blue;*/
 }
 
-.EditableLabel {
-    -fx-background-color: transparent;
-    -fx-border-color: #888;
-}
+/*.EditableLabel {*/
+    /*-fx-padding: 2px 5px;*/
+    /*-fx-background-color: transparent;*/
+    /*-fx-border-color: transparent;*/
+    /*-fx-border-radius: 5px;*/
+
+/*}*/
+

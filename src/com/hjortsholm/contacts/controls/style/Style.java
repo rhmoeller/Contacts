@@ -16,6 +16,10 @@ public class Style {
         control.getStyleClass().add(styleClass);
     }
 
+    public static void removeStyleClass(Region control, String styleClass) {
+        control.getStyleClass().removeAll(styleClass);
+    }
+
     public static void addStylesheet(Region control, String styleSheet) {
         control.getStylesheets().add(Resource.get("controls/style/"+styleSheet+".css"));
     }

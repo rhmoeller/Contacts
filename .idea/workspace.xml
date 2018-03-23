@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Created basic navigation gui.">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/TextFields.css" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/controls/CategoryHeader.class" afterPath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/controls/CategoryHeader.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/controls/CompositeControl.class" afterPath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/controls/CompositeControl.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/controls/ContactCard.class" afterPath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/controls/ContactCard.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/controls/ContactNavigation.class" afterPath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/controls/ContactNavigation.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/controls/WindowTitleBar.class" afterPath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/controls/WindowTitleBar.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/controls/style/ContactNavigation.css" afterPath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/controls/style/ContactNavigation.css" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/controls/style/Window.css" afterPath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/controls/style/Window.css" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CategoryHeader.java" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CategoryHeader.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CompositeControl.java" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CompositeControl.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/ContactNavigation.java" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/ContactNavigation.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/EditableLabel.java" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/EditableLabel.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/ContactCard.css" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/ContactCard.css" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/ContactNavigation.css" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/ContactNavigation.css" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/Style.java" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/Style.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/Window.css" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/Window.css" />
+    </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -12,6 +31,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" flattened_view="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -86,45 +106,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WindowTitleBar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/WindowTitleBar.java">
+      <file leaf-file-name="Style.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/Style.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="57" lean-forward="false" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="240">
+              <caret line="19" column="54" lean-forward="false" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Window.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Window.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="36" column="10" lean-forward="false" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
-              <folding>
-                <element signature="e#603#604#0" expanded="true" />
-                <element signature="e#637#638#0" expanded="true" />
-                <element signature="e#668#669#0" expanded="true" />
-                <element signature="e#701#702#0" expanded="true" />
-                <element signature="e#760#761#0" expanded="true" />
-                <element signature="e#810#811#0" expanded="true" />
-                <element signature="e#856#857#0" expanded="true" />
-                <element signature="e#887#888#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Start.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Start.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Start.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
+            <state relative-caret-position="284">
               <caret line="68" column="40" lean-forward="true" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryHeader.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CategoryHeader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -151,6 +158,14 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Robert Moeller" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
@@ -159,7 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/models/ContactList.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/database/TableField.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/Test.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/models/Field.java" />
@@ -185,23 +199,15 @@
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CategorisedListView.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/ScrollableView.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/ComositeControl.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/ContactNavigation.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CustomPane.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CompositeControl.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CustomGrid.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/TextUtils.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/ContactCard.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/DraggablePane.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/TitleBar.css" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/EditableLabel.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/ContactCard.css" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/Style.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/Resource.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/ScrollableView.css" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/Window.css" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/ContactNavigation.css" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/ContactNavigationTab.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CategoryHeader.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/VerticalSpacer.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/Spacer.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/WindowTitleBar.css" />
@@ -210,6 +216,15 @@
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Start.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/WindowTitleBar.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Window.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CategoryHeader.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/ContactNavigation.css" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CompositeControl.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/Window.css" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/ContactNavigation.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/Style.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/EditableLabel.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/ContactCard.css" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/TextFields.css" />
       </list>
     </option>
   </component>
@@ -224,11 +239,11 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="189" />
     <option name="y" value="22" />
     <option name="width" value="1280" />
     <option name="height" value="778" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -247,54 +262,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Contacts" type="cbb8eebc:String" user="Contacts" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Contacts" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Contacts" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="Contacts" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Contacts" type="616d4139:PackageViewModuleNode" />
-              <item name="com.hjortsholm.contacts" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="Contacts" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Contacts" type="616d4139:PackageViewModuleNode" />
-              <item name="com.hjortsholm.contacts" type="1f31426a:PackageElementNode" />
-              <item name="controls" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="Contacts" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Contacts" type="616d4139:PackageViewModuleNode" />
-              <item name="com.hjortsholm.contacts" type="1f31426a:PackageElementNode" />
-              <item name="controls" type="1f31426a:PackageElementNode" />
-              <item name="style" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="Contacts" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Contacts" type="616d4139:PackageViewModuleNode" />
-              <item name="com.hjortsholm.contacts" type="1f31426a:PackageElementNode" />
-              <item name="forms" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -345,6 +312,35 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="contacts" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Contacts" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Contacts" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="Contacts" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Contacts" type="616d4139:PackageViewModuleNode" />
+              <item name="com.hjortsholm.contacts" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Contacts" type="cbb8eebc:String" user="Contacts" />
             </path>
           </expand>
           <select />
@@ -604,12 +600,13 @@
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1521246414107" duration="44440000" />
-      <workItem from="1521391799876" duration="27127000" />
+      <workItem from="1521391799876" duration="31275000" />
+      <workItem from="1521804029565" duration="1725000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72869000" />
+    <option name="totallyTimeSpent" value="78742000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="778" extended-state="6" />
@@ -617,80 +614,46 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31161472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3243626" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1921875" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12197092" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39943343" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31161472" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.703966" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3243626" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1921875" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12197092" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39943343" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31161472" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3243626" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1921875" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -698,6 +661,8 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="Created basic navigation gui." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created basic navigation gui." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -710,7 +675,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/database/DataField.java" />
     <entry file="file://$PROJECT_DIR$/test.jpg" />
     <entry file="file://$PROJECT_DIR$/lib/webcam.java" />
     <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/Controller.java" />
@@ -725,7 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -733,13 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="51" lean-forward="false" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#711#712#0" expanded="false" />
-            <element signature="e#800#801#0" expanded="false" />
-            <element signature="e#846#847#0" expanded="false" />
-            <element signature="e#917#918#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -757,15 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-268">
           <caret line="44" column="31" lean-forward="false" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#Database#0;class#Database#0" expanded="false" />
-            <element signature="method#get#1;class#Database#0" expanded="false" />
-            <element signature="e#1512#1513#0" expanded="false" />
-            <element signature="e#1556#1557#0" expanded="false" />
-            <element signature="e#3172#3173#0" expanded="false" />
-            <element signature="e#3225#3226#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -773,14 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="64" lean-forward="false" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
-          <folding>
-            <element signature="e#738#739#0" expanded="false" />
-            <element signature="e#765#766#0" expanded="false" />
-            <element signature="e#797#798#0" expanded="false" />
-            <element signature="e#825#826#0" expanded="false" />
-            <element signature="e#859#860#0" expanded="false" />
-            <element signature="e#886#887#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -825,7 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -833,7 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -841,9 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -851,15 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#534#535#0" expanded="false" />
-            <element signature="e#564#565#0" expanded="false" />
-            <element signature="e#614#615#0" expanded="false" />
-            <element signature="e#697#698#0" expanded="false" />
-            <element signature="e#733#734#0" expanded="false" />
-            <element signature="e#776#777#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -867,18 +792,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="37" column="17" lean-forward="false" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CustomControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CustomControl.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/scene/control/ScrollPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -954,22 +871,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/TextUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/ContactCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/TextUtils.java" />
     <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/DraggablePane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
@@ -1001,51 +903,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/EditableLabel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="16" column="41" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#242#243#0" expanded="false" />
-            <element signature="e#266#267#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/ContactCard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/ContactNavigation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/stage/Stage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="169" column="33" lean-forward="false" selection-start-line="169" selection-start-column="27" selection-end-line="169" selection-end-column="33" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/Style.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="71" lean-forward="false" selection-start-line="9" selection-start-column="71" selection-end-line="9" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1064,38 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="61" lean-forward="false" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/Window.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/ContactNavigation.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CompositeControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#230#231#0" expanded="false" />
-            <element signature="e#267#268#0" expanded="false" />
-            <element signature="e#313#314#0" expanded="false" />
-            <element signature="e#513#514#0" expanded="false" />
-            <element signature="e#583#584#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1111,22 +941,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CategoryHeader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
-          <folding>
-            <element signature="e#168#169#0" expanded="false" />
-            <element signature="e#251#252#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/WindowTitleBar.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="11" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1134,7 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1143,7 +960,7 @@
         <state relative-caret-position="225">
           <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1161,8 +978,16 @@
         <state relative-caret-position="165">
           <caret line="11" column="57" lean-forward="false" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/ContactNavigation.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1171,25 +996,97 @@
         <state relative-caret-position="355">
           <caret line="36" column="10" lean-forward="false" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
           <folding>
-            <element signature="e#603#604#0" expanded="true" />
-            <element signature="e#637#638#0" expanded="true" />
-            <element signature="e#668#669#0" expanded="true" />
-            <element signature="e#701#702#0" expanded="true" />
-            <element signature="e#760#761#0" expanded="true" />
-            <element signature="e#810#811#0" expanded="true" />
-            <element signature="e#856#857#0" expanded="true" />
-            <element signature="e#887#888#0" expanded="true" />
+            <element signature="e#603#604#0" expanded="false" />
+            <element signature="e#637#638#0" expanded="false" />
+            <element signature="e#668#669#0" expanded="false" />
+            <element signature="e#701#702#0" expanded="false" />
+            <element signature="e#760#761#0" expanded="false" />
+            <element signature="e#810#811#0" expanded="false" />
+            <element signature="e#856#857#0" expanded="false" />
+            <element signature="e#887#888#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/ContactCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CompositeControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/ContactNavigation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/TextFields.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="24" lean-forward="false" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/ContactCard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/Window.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/EditableLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="17" column="41" lean-forward="true" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/style/Style.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="19" column="54" lean-forward="false" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Start.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
+        <state relative-caret-position="284">
           <caret line="68" column="40" lean-forward="true" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/controls/CategoryHeader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1204,7 +1101,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

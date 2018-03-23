@@ -1,0 +1,14 @@
+.SearchField, .EditableLabel{
+    -fx-background-color: transparent;
+    -fx-padding: 2px 5px;
+    -fx-border-radius: .5em;
+}
+
+.SearchField, .editable {
+    -fx-border-color: #cdcdcd;
+}
+
+.EditableLabel {
+    -fx-background-color: transparent;
+}
+

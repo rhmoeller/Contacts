@@ -3,6 +3,8 @@ package com.hjortsholm.contacts.controls;
 import com.hjortsholm.contacts.Application;
 import com.hjortsholm.contacts.controls.style.Style;
 import com.hjortsholm.contacts.models.Contact;
+import javafx.scene.control.Separator;
+import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +17,7 @@ public class ContactNavigation extends CompositeControl {
     private Consumer<ContactNavigationTab> onTabSelectedEvent;
 
     public ContactNavigation(ArrayList<Contact> contacts) {
-
+        super();
         HashMap<Character, ArrayList<Contact>> contactsCategorised = new HashMap<>();
         for (Contact contact : contacts) {
             char initialLetter = contact.getFirstName().charAt(0);
@@ -28,6 +30,10 @@ public class ContactNavigation extends CompositeControl {
             }
         }
 
+        TextField searchField = new TextField();
+        searchField.setText("Search");
+        Style.addStylesheet(searchField,"TextFields");
+        Style.addStyleClass(searchField,"SearchField");
         ScrollableView scrollContainer = new ScrollableView();
         CustomGrid contactNavigation = new CustomGrid();
 
@@ -45,7 +51,9 @@ public class ContactNavigation extends CompositeControl {
 
 
         scrollContainer.setContent(contactNavigation);
-        super.init(scrollContainer);
+        this.addRow(searchField);
+        this.addRow(new Spacer(10,10));
+        this.addRow(scrollContainer);
     }
 
     public void onTabSelected(ContactNavigationTab navigationTab) {

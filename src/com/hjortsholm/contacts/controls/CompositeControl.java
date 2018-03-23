@@ -12,6 +12,10 @@ public class CompositeControl extends CustomGrid {
         this.init(nodes);
     }
 
+    public CompositeControl() {
+        this.init();
+    }
+
     public void init(String name, Node... nodes) {
         this.addChild(nodes);
         Style.addStylesheet(this, name);

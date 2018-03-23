@@ -2,9 +2,12 @@ package com.hjortsholm.contacts.controls;
 
 import com.hjortsholm.contacts.controls.style.Style;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 public class EditableLabel extends TextField {
+
+    private String textBuffer;
 
     public EditableLabel() {
         this("");
@@ -17,18 +20,20 @@ public class EditableLabel extends TextField {
         Style.addStylesheet(this,"TextFields");
         Style.addGenericStyleClass(this);
 
-        this.setOnMouseClicked((mouseEvent)->{
-            edit(!this.editableProperty().get());
-        });
+//        toggleEdit();
     }
 
-    public void edit(boolean editable) {
-        this.setEditable(editable);
-        if (editable)
-            Style.addStyleClass(this,"editable");
-        else
+    public void toggleEdit() {
+        this.setEditable(!this.isEditable());
+        if (this.isEditable()) {
+            Style.addStyleClass(this, "editable");
+        } else {
             Style.removeStyleClass(this, "editable");
+        }
     }
+
+
+
 
     private void setToMinimumWidth() {
         Text textHelper = new Text();

@@ -1,5 +1,6 @@
 package com.hjortsholm.contacts.database;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.sql.*;
 import java.util.ArrayList;
@@ -63,22 +64,20 @@ public class Database {
 
     public boolean createTable(String table, Class dataModel) {
         ArrayList<TableField> fields = new ArrayList<>();
-        for (Method method : dataModel.getDeclaredMethods()) {
-            TableField annotation = method.getDeclaredAnnotationsByType(TableField.class)[0];
-            if (annotation != null)
-                fields.add(annotation);
-        }
+        for (TableField field: (TableField[])dataModel.getDeclaredAnnotationsByType(TableField.class))
+            fields.add(field);
 
-        String sql = "CREATE TABLE " + table + " (";
+
+        String sql = "CREATE TABLE " + table + " (\n";
         for (int i = 0; i < fields.size(); i++) {
             TableField field = fields.get(i);
-            sql += String.format("%s\t%s\t%s\t%s\t%s%s",
+            sql += String.format("\t%s\t%s\t%s\t%s\t%s%s\n",
                     field.name(),
                     field.type(),
                     field.primaryKey() ? "PRIMARY KEY" : "",
                     field.isNullable() ? "" : "NOT NULL",
                     field.defaultValue().isEmpty() ? "" : "DEFAULT " + field.defaultValue(),
-                    i + 1 > fields.size() ? "," : ""
+                    i + 1 < fields.size() ? "," : ""
             );
         }
         sql += ")";

@@ -8,24 +8,36 @@ import javafx.scene.control.Label;
 public class ContactCard extends CompositeControl {
     private Contact contact;
 
-    private EditableLabel nameLabel;
+    private Label emptyCard;
+
+    private EditableLabel firstName;
+    private EditableLabel lastName;
+
 
     public ContactCard() {
-        this.nameLabel = new EditableLabel();
+        super();
+        this.emptyCard = new Label("No contact selected");
+        this.firstName = new EditableLabel();
+        this.lastName = new EditableLabel();
 
-        super.init(nameLabel); // Todo: fix me
+        this.addChild(this.emptyCard);
+        this.addChild(this.firstName);
+        this.addChild(this.lastName);
+        refresh();
     }
 
     public void refresh() {
-        if(this.contact == null) {
-
+        if(this.contact != null) {
+            this.emptyCard.setVisible(false);
+            this.firstName.setText(this.contact.getFirstName());
+            this.lastName.setText(this.contact.getFirstName());
+        } else {
+            this.emptyCard.setVisible(true);
         }
     }
 
     public void setContact(Contact contact) {
         this.contact = contact;
-        this.nameLabel.setText(this.contact.getFirstName());
+        this.refresh();
     }
-
-
 }

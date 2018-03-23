@@ -4,7 +4,7 @@
     -fx-border-radius: .5em;
 }
 
-.SearchField, .editable {
+.SearchField, .editable:focused {
     -fx-border-color: #cdcdcd;
 }
 

@@ -1,11 +1,9 @@
 package com.hjortsholm.contacts.database;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
-@Target(ElementType.FIELD)
+//@Target(ElementType.FIELD)
+@Repeatable(TableFields.class)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface TableField {
     String name();
@@ -17,5 +15,4 @@ public @interface TableField {
     boolean isNullable() default true;
 
     String defaultValue() default "";
-
 }

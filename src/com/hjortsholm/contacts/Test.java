@@ -20,9 +20,9 @@ public class Test {
 
         tests.add(db.dropTable("fields"));
         tests.add(db.createTable("fields", Field.class));
-        tests.add(db.post("INSERT INTO fields (id) VALUES(?)", 70));
+        tests.add(db.post("INSERT INTO fields (id,contact,type,name,value) VALUES(?,?,?,?,?)", 1,1,1,"foo","bar"));
         tests.add(db.post("UPDATE fields SET ID = ? WHERE ID = ?", 71,70));
-        tests.add(db.get("SELECT * FROM fields;", null));
+        tests.add(db.get("SELECT * FROM fields;", System.out::println));
 
         System.out.println("\n" + Arrays.toString(tests.toArray()));
     }

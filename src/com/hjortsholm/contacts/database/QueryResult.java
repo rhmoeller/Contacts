@@ -26,6 +26,6 @@ public class QueryResult {
 
     @Override
     public String toString() {
-        return Arrays.toString(this.columns.values().toArray());
+        return "QueryResult"+Arrays.toString(this.columns.values().toArray());
     }
 }

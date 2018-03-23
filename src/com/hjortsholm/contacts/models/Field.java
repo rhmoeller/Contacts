@@ -2,17 +2,17 @@ package com.hjortsholm.contacts.models;
 
 import com.hjortsholm.contacts.database.TableField;
 
+@TableField(name = "id", type = "INTEGER", primaryKey = true)
+@TableField(name = "contact", type = "INTEGER", isNullable = false)
+@TableField(name = "type", type = "INTEGER", isNullable = false)
+@TableField(name = "name", type = "INTEGER", isNullable = false)
+@TableField(name = "value", type = "VARCHAR", isNullable = false)
 public class Field {
 
-    @TableField(name = "id", type = "INTEGER", primaryKey = true)
     private int id;
-    @TableField(name = "contact", type = "INTEGER")
     private Contact contact;
-    @TableField(name = "type", type = "INTEGER")
     private FieldType type;
-    @TableField(name = "name", type = "INTEGER")
     private String name;
-    @TableField(name = "value", type = "INTEGER")
     private String value;
 
 

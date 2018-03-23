@@ -31,7 +31,7 @@ public class ContactNavigation extends CompositeControl {
         }
 
         TextField searchField = new TextField();
-        searchField.setText("Search");
+        searchField.setPromptText("Search");
         Style.addStylesheet(searchField,"TextFields");
         Style.addStyleClass(searchField,"SearchField");
         ScrollableView scrollContainer = new ScrollableView();

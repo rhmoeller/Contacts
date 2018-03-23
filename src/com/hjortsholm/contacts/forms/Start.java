@@ -51,11 +51,11 @@ public class Start extends Window {
         c.setFirstName("Remi");
 
         ArrayList<Contact> contacts = new ArrayList<>();
-//        for(int i = 0; i< 100; i++) {
-//            Contact contact = new Contact();
-//            contact.setFirstName("a");
-//            contacts.add(contact);
-//        }
+        for(int i = 0; i< 100; i++) {
+            Contact contact = new Contact();
+            contact.setFirstName("a");
+            contacts.add(contact);
+        }
 
         contacts.add(a);
         contacts.add(b);

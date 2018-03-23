@@ -2,7 +2,12 @@ package com.hjortsholm.contacts.forms;
 
 import com.hjortsholm.contacts.controls.*;
 import com.hjortsholm.contacts.controls.style.Style;
+import com.hjortsholm.contacts.database.TableField;
 import com.hjortsholm.contacts.models.Contact;
+import com.hjortsholm.contacts.models.ContactList;
+import com.hjortsholm.contacts.models.Field;
+import com.hjortsholm.contacts.models.FieldType;
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
@@ -41,34 +46,67 @@ public class Start extends Window {
     }
 
     @Override
-    public void init() throws Exception {
-        Contact a = new Contact(),
-                b = new Contact(),
-                c = new Contact();
+    public void init() {
+//        Contact a = new Contact(),
+//                b = new Contact(),
+//                c = new Contact();
+//
+//        a.setFirstName("Rob");
+//        b.setFirstName("Dev");
+//        c.setFirstName("Remi");
 
-        a.setFirstName("Rob");
-        b.setFirstName("Dev");
-        c.setFirstName("Remi");
+        ContactList contacts = new ContactList();
+//        for(int i = 0; i< 100; i++) {
+//            Contact contact = new Contact();
+//            contact.setFirstName("a");
+//            contacts.add(contact);
+//        }
 
-        ArrayList<Contact> contacts = new ArrayList<>();
-        for(int i = 0; i< 100; i++) {
-            Contact contact = new Contact();
-            contact.setFirstName("a");
-            contacts.add(contact);
-        }
+        com.hjortsholm.contacts.Application.getDatabase().get(
+                "SELECT\n" +
+                        "  Contact.id,\n" +
+                        "  Field.value,\n" +
+                        "  Field.name,\n" +
+                        "  FieldType.id type,\n" +
+                        "  FieldType.prompt\n" +
+                        "FROM\n" +
+                        "  (Contact\n" +
+                        "INNER JOIN\n" +
+                        "  Field\n" +
+                        "ON\n" +
+                        "  Contact.id = Field.contact)\n" +
+                        "INNER JOIN\n" +
+                        "  FieldType\n" +
+                        "ON\n" +
+                        "  FieldType.id = Field.type;",
+                result ->  {
+                    Contact contact = new Contact((String)result.getColumn("id"));
+                    if (contacts.contactExists(contact)) {
+                        contact = contacts.getContact(contact.getId());
+                    } else {
+                        contacts.addContact(contact);
+                    }
+                    Field field = new Field(
+                            contact,
+                            FieldType.values()[(int)result.getColumn("type")],
+                            (String)result.getColumn("name"),
+                            (String)result.getColumn("value"),
+                            (String)result.getColumn("prompt")
+                            );
 
-        contacts.add(a);
-        contacts.add(b);
-        contacts.add(c);
+                    contact.setField(field);
+                    System.out.println(contact.toString());
+                });
 
 
         CustomGrid container = new CustomGrid();
-
-        contactNavigation = new ContactNavigation(contacts);
+        contactNavigation = new ContactNavigation();
         titleBar = new WindowTitleBar(this::onWindowExit,this::onWindowMinimise);
         contactCard = new ContactCard();
 
+        contactNavigation.setContacts(contacts);
         contactNavigation.setOnTabSelectedEvent(this::onTabChanged);
+
         container.addRow(titleBar);
         container.addColumn(contactNavigation);
         container.addColumn(contactCard);

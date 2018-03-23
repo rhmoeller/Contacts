@@ -14,13 +14,22 @@ public class Field {
     private FieldType type;
     private String name;
     private String value;
+    private String prompt;
 
-
-    public Field(Contact contact, FieldType type, String name, String value) {
+//    public Field(Contact contact) {
+//        this.contact = contact;
+//        this.type = "";
+//        this.name = "";
+//        this.value = "";
+//        this.prompt = prompt;
+//    }
+//
+    public Field(Contact contact, FieldType type, String name, String value, String prompt) {
         this.contact = contact;
         this.type = type;
         this.name = name;
         this.value = value;
+        this.prompt = prompt;
     }
 
     public String getName() {
@@ -33,6 +42,11 @@ public class Field {
 
     public FieldType getType() {
         return type;
+    }
+
+    @Override
+    public String toString() {
+        return "Field["+type+","+name+","+value+","+prompt+"]";
     }
 }
 

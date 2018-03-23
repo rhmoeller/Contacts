@@ -2,13 +2,12 @@ package com.hjortsholm.contacts.models;
 
 import com.hjortsholm.contacts.database.TableField;
 
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.*;
 
-@TableField(name = "id", type = "INTEGER", primaryKey = true)
+@TableField(name = "id", type = "VARCHAR", primaryKey = true)
 public class Contact {
-    private Field id;
 
+    private String id;
     private ArrayList<Field> emails;
     private ArrayList<Field> numbers;
     private ArrayList<Field> dates;
@@ -20,56 +19,86 @@ public class Contact {
 
     private Field notes;
 
-    public Field getId() {
+    private HashMap<FieldType,HashMap<String,Field>> fields;
+
+    public Contact(String id) {
+        this.id = id;
+        this.fields = new HashMap<>();
+//
+//        this.emails = new ArrayList<>();
+//        this.numbers = new ArrayList<>();
+//        this.dates = new ArrayList<>();
+//        this.addresses = new ArrayList<>();
+    }
+
+    public String getId() {
         return this.id;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = new Field(this, FieldType.NAME, "first",firstName);
+    public HashMap<String, Field> getFieldsByType(FieldType type) {
+        if (!this.fields.containsKey(type))
+            this.fields.put(type,new HashMap<>());
+        return fields.get(type);
+    }
+
+    public boolean hasField(String name, FieldType type) {
+        if (this.fields.containsKey(type))
+            if (this.getFieldsByType(type).containsKey(name))
+                return true;
+        return false;
+    }
+
+    public Field getField(String name, FieldType type) {
+
+        return this.hasField(name,type)? this.getFieldsByType(type).get(name.toLowerCase()): null;
+    }
+
+    public void setField(Field field) {
+        this.getFieldsByType(field.getType()).put(field.getName(),field);
     }
 
     public String getFirstName() {
-        return firstName.getValue();
+        return this.hasField("first", FieldType.NAME)?this.getField("first",FieldType.NAME).getValue():"unknown";
     }
 
-    public Field getLastName() {
-        return lastName;
+    public String getLastName() {
+        return this.hasField("last", FieldType.NAME)?this.getField("last",FieldType.NAME).getValue():"unknown";
     }
 
-    public Field getNickName() {
-        return nickName;
+    public String getNickName() {
+        return this.hasField("nick", FieldType.NAME)?this.getField("nick",FieldType.NAME).getValue():"unknown";
     }
 
-    public ArrayList<Field> getAddresses() {
-        return addresses;
+    public HashMap<String,Field> getAddresses() {
+        return this.getFieldsByType(FieldType.ADDRESS);
     }
 
-    public ArrayList<Field> getDates() {
-        return dates;
+    public HashMap<String,Field> getDates() {
+        return this.getFieldsByType(FieldType.DATE);
     }
 
-    public ArrayList<Field> getEmails() {
-        return emails;
+    public HashMap<String,Field> getEmails() {
+        return this.getFieldsByType(FieldType.EMAIL);
     }
 
-    public ArrayList<Field> getNumbers() {
-        return numbers;
+    public HashMap<String,Field> getNumbers() {
+        return this.getFieldsByType(FieldType.NUMBER);
     }
 
-    public Field getNotes() {
-        return notes;
+    public String getNotes() {
+        return this.getField("notes",FieldType.NOTE).getValue();
     }
 
-    public void setFirstName(Field firstName) {
-        this.firstName = firstName;
+    public void setFirstName(String firstName) {
+       this.setField(new Field(this, FieldType.NAME,"first",firstName,"first"));
     }
 
-    public void setLastName(Field lastName) {
-        this.lastName = lastName;
+    public void setLastName(String lastName) {
+        this.setField(new Field(this, FieldType.NAME,"last",lastName,"last"));
     }
 
-    public void setNickName(Field nickName) {
-        this.nickName = nickName;
+    public void setNickName(String nickName) {
+        this.setField(new Field(this, FieldType.NAME,"nick",nickName,"nick"));
     }
 
     public void setAddresses(ArrayList<Field> addresses) {
@@ -88,9 +117,19 @@ public class Contact {
         this.numbers = numbers;
     }
 
-    public void setNotes(Field notes) {
-        this.notes = notes;
+    public void setNotes(String notes) {
+        this.notes = new Field(this,FieldType.NOTE,"note",notes,"notes");
     }
 
 
+    @Override
+    public String toString() {
+        ArrayList<Field> fields = new ArrayList<>();
+        for (HashMap<String,Field> type: this.fields.values()) {
+            for (Field field: type.values()){
+                fields.add(field);
+            }
+        }
+        return "Contact"+ Arrays.toString(fields.toArray());
+    }
 }

@@ -3,6 +3,7 @@ package com.hjortsholm.contacts.controls;
 import com.hjortsholm.contacts.Application;
 import com.hjortsholm.contacts.controls.style.Style;
 import com.hjortsholm.contacts.models.Contact;
+import com.hjortsholm.contacts.models.ContactList;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 
@@ -16,10 +17,32 @@ public class ContactNavigation extends CompositeControl {
     private ContactNavigationTab selectedNavigationTab;
     private Consumer<ContactNavigationTab> onTabSelectedEvent;
 
-    public ContactNavigation(ArrayList<Contact> contacts) {
+    private CustomGrid contactNavigation;
+
+    public ContactNavigation() {
         super();
+
+        contactNavigation = new CustomGrid();
+        TextField searchField = new TextField();
+        ScrollableView scrollContainer = new ScrollableView();
+
+        searchField.setPromptText("Search");
+        Style.addStylesheet(searchField,"TextFields");
+        Style.addStyleClass(searchField,"SearchField");
+
+        contactNavigation.setPrefHeight(Application.getWindowHeight());
+        scrollContainer.setPrefHeight(Application.getWindowHeight());
+
+
+        scrollContainer.setContent(contactNavigation);
+        this.addRow(searchField);
+        this.addRow(new Spacer(10,10));
+        this.addRow(scrollContainer);
+    }
+
+    public void setContacts(ContactList contacts) {
         HashMap<Character, ArrayList<Contact>> contactsCategorised = new HashMap<>();
-        for (Contact contact : contacts) {
+        for (Contact contact : contacts.getContacts()) {
             char initialLetter = contact.getFirstName().charAt(0);
             if (!contactsCategorised.keySet().contains(initialLetter)) {
                 ArrayList<Contact> contactsByInitialLetter = new ArrayList<>();
@@ -30,30 +53,13 @@ public class ContactNavigation extends CompositeControl {
             }
         }
 
-        TextField searchField = new TextField();
-        searchField.setPromptText("Search");
-        Style.addStylesheet(searchField,"TextFields");
-        Style.addStyleClass(searchField,"SearchField");
-        ScrollableView scrollContainer = new ScrollableView();
-        CustomGrid contactNavigation = new CustomGrid();
-
-
-        for (Map.Entry category : contactsCategorised.entrySet())
-            contactNavigation.addRow(
+        for (Map.Entry category : contactsCategorised.entrySet()) {
+            this.contactNavigation.addRow(
                     new CategorisedListView(
                             category.getKey().toString(),
                             (ArrayList<Contact>) category.getValue(),
                             this::onTabSelected));
-
-
-        contactNavigation.setPrefHeight(Application.getWindowHeight());
-        scrollContainer.setPrefHeight(Application.getWindowHeight());
-
-
-        scrollContainer.setContent(contactNavigation);
-        this.addRow(searchField);
-        this.addRow(new Spacer(10,10));
-        this.addRow(scrollContainer);
+        }
     }
 
     public void onTabSelected(ContactNavigationTab navigationTab) {

@@ -1,4 +1,4 @@
-package com.hjortsholm.contacts.gui.style;
+package com.hjortsholm.contacts.gui.util;
 
 import com.hjortsholm.contacts.Resource;
 import javafx.scene.layout.Region;

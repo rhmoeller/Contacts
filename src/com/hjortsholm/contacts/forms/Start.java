@@ -4,9 +4,9 @@ import com.hjortsholm.contacts.gui.controls.ContactNavigationTab;
 import com.hjortsholm.contacts.gui.controls.WindowTitleBar;
 import com.hjortsholm.contacts.gui.panels.ContactCard;
 import com.hjortsholm.contacts.gui.panels.ContactNavigation;
-import com.hjortsholm.contacts.gui.parents.DraggablePane;
 import com.hjortsholm.contacts.gui.parents.CustomGrid;
-import com.hjortsholm.contacts.gui.style.Style;
+import com.hjortsholm.contacts.gui.parents.DraggablePane;
+import com.hjortsholm.contacts.gui.util.Style;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.ContactList;
 import com.hjortsholm.contacts.models.Field;
@@ -33,10 +33,10 @@ public class Start extends Window {
         stage.setTitle(com.hjortsholm.contacts.Application.getTitle());
         stage.initStyle(StageStyle.TRANSPARENT);
 
-        DraggablePane root = new DraggablePane(stage,this.getWindow());
-        Style.addStylesheet(root,"Window");
+        DraggablePane root = new DraggablePane(stage, this.getWindow());
+        Style.addStylesheet(root, "Window");
         Scene scene = new Scene(root, com.hjortsholm.contacts.Application.getWindowWidth(),
-                                        com.hjortsholm.contacts.Application.getWindowHeight());
+                com.hjortsholm.contacts.Application.getWindowHeight());
 
         scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
@@ -65,8 +65,8 @@ public class Start extends Window {
                         "  FieldType\n" +
                         "ON\n" +
                         "  FieldType.id = Field.type;",
-                result ->  {
-                    Contact contact = new Contact((String)result.getColumn("id"));
+                result -> {
+                    Contact contact = new Contact((String) result.getColumn("id"));
                     if (contacts.contactExists(contact)) {
                         contact = contacts.getContact(contact.getId());
                     } else {
@@ -74,21 +74,19 @@ public class Start extends Window {
                     }
                     Field field = new Field(
                             contact,
-                            FieldType.values()[(int)result.getColumn("type")],
-                            (String)result.getColumn("name"),
-                            (String)result.getColumn("value"),
-                            (String)result.getColumn("prompt")
-                            );
+                            FieldType.values()[(int) result.getColumn("type")],
+                            (String) result.getColumn("name"),
+                            (String) result.getColumn("value")//,
+//                            (String) result.getColumn("prompt")
+                    );
 
                     contact.setField(field);
                 });
 
-//        System.out.println(contacts);
-
 
         CustomGrid container = new CustomGrid();
         contactNavigation = new ContactNavigation();
-        titleBar = new WindowTitleBar(this::onWindowExit,this::onWindowMinimise);
+        titleBar = new WindowTitleBar(this::onWindowExit, this::onWindowMinimise);
         contactCard = new ContactCard();
 
         contactNavigation.setContacts(contacts.getContacts());
@@ -96,7 +94,7 @@ public class Start extends Window {
         contactNavigation.setOnSearch(this::onSearch);
         container.addColumn(contactNavigation);
         container.addColumn(contactCard);
-        super.init(titleBar,container);
+        super.init(titleBar, container);
     }
 
     private void onSearch(String[] keyWords) {
@@ -104,10 +102,8 @@ public class Start extends Window {
     }
 
 
-    private void onTabChanged(ContactNavigationTab navigationTab)  {
+    private void onTabChanged(ContactNavigationTab navigationTab) {
         contactCard.setContact(navigationTab.getContact());
         System.out.println(navigationTab.getContact().getFirstName() + " selected..");
     }
-
-
 }

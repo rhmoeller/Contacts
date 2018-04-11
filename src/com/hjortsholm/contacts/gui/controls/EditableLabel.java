@@ -1,6 +1,6 @@
 package com.hjortsholm.contacts.gui.controls;
 
-import com.hjortsholm.contacts.gui.style.Style;
+import com.hjortsholm.contacts.gui.util.Style;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
@@ -9,17 +9,25 @@ public class EditableLabel extends TextField {
     private String textBuffer;
 
     public EditableLabel() {
-        this("");
+        this("","");
     }
 
     public EditableLabel(String text) {
+        this(text,"");
+    }
+
+    public EditableLabel(String text, String prompt) {
         this.textProperty().addListener(observable -> this.setToMinimumWidth());
         this.setEditable(false);
         this.setText(text);
-        Style.addStylesheet(this,"TextFields");
+        Style.addStylesheet(this, "TextFields");
         Style.addGenericStyleClass(this);
+        this.setPromptText(prompt);
 
-//        toggleEdit();
+//        this.setOnKeyReleased(event -> {
+//            if (this.getText().isEmpty()) {
+//            }
+//        });
     }
 
     public void toggleEdit() {
@@ -30,8 +38,6 @@ public class EditableLabel extends TextField {
             Style.removeStyleClass(this, "editable");
         }
     }
-
-
 
 
     private void setToMinimumWidth() {

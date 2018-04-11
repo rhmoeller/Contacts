@@ -3,13 +3,13 @@ package com.hjortsholm.contacts.database;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 
-public class QueryResult {
+public class QueryRow {
     private HashMap<String, Object> columns;
 
-    public QueryResult(ResultSet results) {
+    public QueryRow(ResultSet results) {
         this.columns = new HashMap<>();
         try {
             ResultSetMetaData metadata = results.getMetaData();
@@ -21,11 +21,15 @@ public class QueryResult {
     }
 
     public Object getColumn(String key) {
-        return this.columns.keySet().contains(key) ? this.columns.get(key) : null;
+        return this.columns.keySet().contains(key) ? this.columns.get(key): null;
+    }
+
+    public Collection<Object> getColumns() {
+        return this.columns.values();
     }
 
     @Override
     public String toString() {
-        return "QueryResult"+Arrays.toString(this.columns.values().toArray());
+        return this.getClass().getSimpleName() + this.columns;
     }
 }

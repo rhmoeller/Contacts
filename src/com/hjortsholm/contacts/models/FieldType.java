@@ -5,7 +5,7 @@ import com.hjortsholm.contacts.database.TableField;
 
 @TableField(name = "id", type = "INTEGER", primaryKey = true)
 //@TableField(name = "name", type = "VARCHAR", isNullable = false)
-@TableField(name = "prompt", type = "VARCHAR", isNullable = false)
+//@TableField(name = "prompt", type = "VARCHAR", isNullable = false)
 public enum FieldType {
     NUMBER,
     EMAIL,

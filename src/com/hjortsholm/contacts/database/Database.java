@@ -7,6 +7,25 @@ import java.util.function.Consumer;
 
 public class Database {
     private static final String JDBC = "jdbc:sqlite:";
+    //    public CompletableFuture<QuerySet> getFuture(Query query) {
+//        return CompletableFuture.supplyAsync(() -> {
+//            try {
+//                if (connection == null) throw new Exception("No connection");
+//                if (connection.isClosed()) throw new Exception("Connection is closed");
+//                Statement statement = this.connection.createStatement();
+//                statement.setQueryTimeout(this.timeout);
+//                return new QuerySet(statement.executeQuery(query.toString()));
+//            } catch (SQLException exception) {
+//                System.err.println("[ERROR]: " + query);
+//                return null;
+//            } catch (Exception exception) {
+//                System.err.println("[ERROR]: " + exception.getMessage());
+//                return null;
+//            }
+//        });
+//    }
+    private static Connection conn;
+    private static String pa;
     private Connection connection;
     private String path;
     private int timeout = 30;
@@ -17,6 +36,22 @@ public class Database {
             this.connection = DriverManager.getConnection(this.JDBC + databasePath);
         } catch (SQLException exception) {
             System.err.println("[ERROR]: Failed to open database..");
+        }
+    }
+
+    public QuerySet get(String query) {
+        try {
+            if (connection == null) throw new Exception("No connection");
+            if (connection.isClosed()) throw new Exception("Connection is closed");
+            Statement statement = this.connection.createStatement();
+            statement.setQueryTimeout(this.timeout);
+            return new QuerySet(statement.executeQuery(query.toString()));
+        } catch (SQLException exception) {
+            System.err.println("[ERROR]: " + query);
+            return null;
+        } catch (Exception exception) {
+            System.err.println("[ERROR]: " + exception.getMessage());
+            return null;
         }
     }
 
@@ -55,11 +90,11 @@ public class Database {
 
     }
 
-    public boolean get(String query, Consumer<QueryResult> success) {
+    public boolean get(String query, Consumer<QueryRow> success) {
         return this.get(query, success, null);
     }
 
-    public boolean get(String query, Consumer<QueryResult> success, Consumer<SQLException> failed) {
+    public boolean get(String query, Consumer<QueryRow> success, Consumer<SQLException> failed) {
         try {
             if (connection == null) return false;
             if (connection.isClosed()) return false;
@@ -68,7 +103,7 @@ public class Database {
             ResultSet results = statement.executeQuery(query);
             if (success != null)
                 while (results.next())
-                    success.accept(new QueryResult(results));
+                    success.accept(new QueryRow(results));
             return true;
         } catch (SQLException exception) {
             System.err.println("[ERROR]: " + query);
@@ -138,9 +173,9 @@ public class Database {
 
     public boolean verifyTable(String table, Class dataModel) {
         TableField[] fields = (TableField[]) dataModel.getDeclaredAnnotationsByType(TableField.class);
-        ArrayList<QueryResult> tableFields = new ArrayList<>();
-        ArrayList<QueryResult> verifiedField = new ArrayList<>();
-        ArrayList<QueryResult> iterableFields;
+        ArrayList<QueryRow> tableFields = new ArrayList<>();
+        ArrayList<QueryRow> verifiedField = new ArrayList<>();
+        ArrayList<QueryRow> iterableFields;
 
 
         this.get("PRAGMA table_info(" + table + ");", tableFields::add);
@@ -148,9 +183,9 @@ public class Database {
             return false;
         }
 
-        iterableFields = (ArrayList<QueryResult>) tableFields.clone();
+        iterableFields = (ArrayList<QueryRow>) tableFields.clone();
         for (TableField modelField : fields) {
-            for (QueryResult tableField : iterableFields) {
+            for (QueryRow tableField : iterableFields) {
                 if (modelField.type().equalsIgnoreCase((String) tableField.getColumn("type")) &&
                         modelField.name().equalsIgnoreCase((String) tableField.getColumn("name")) &&
                         modelField.primaryKey() == ((int) tableField.getColumn("pk") != 0) &&
@@ -166,4 +201,5 @@ public class Database {
 
         return tableFields.equals(verifiedField);
     }
+
 }

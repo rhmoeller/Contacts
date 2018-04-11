@@ -3,19 +3,21 @@ package com.hjortsholm.contacts.gui.panels;
 import com.hjortsholm.contacts.Application;
 import com.hjortsholm.contacts.gui.controls.CategorisedListView;
 import com.hjortsholm.contacts.gui.controls.ContactNavigationTab;
-import com.hjortsholm.contacts.gui.controls.Spacer;
-import com.hjortsholm.contacts.gui.parents.CompositeControl;
-import com.hjortsholm.contacts.gui.parents.CustomGrid;
 import com.hjortsholm.contacts.gui.controls.ScrollableView;
-import com.hjortsholm.contacts.gui.style.Style;
+import com.hjortsholm.contacts.gui.controls.Spacer;
+import com.hjortsholm.contacts.gui.parents.CustomGrid;
+import com.hjortsholm.contacts.gui.util.Style;
 import com.hjortsholm.contacts.models.Contact;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 
-public class ContactNavigation extends CompositeControl {
+public class ContactNavigation extends CustomGrid {
 
     private ContactNavigationTab selectedNavigationTab;
     private Consumer<ContactNavigationTab> onTabSelectedEvent;
@@ -26,8 +28,8 @@ public class ContactNavigation extends CompositeControl {
     private Consumer<String[]> onSearch;
 
     public ContactNavigation() {
-        super();
-
+        initialiseComponent();
+        addDefaultStyleSheet();
         contactNavigation = new CustomGrid();
         searchField = new TextField();
         ScrollableView scrollContainer = new ScrollableView();
@@ -48,9 +50,10 @@ public class ContactNavigation extends CompositeControl {
         this.addRow(scrollContainer);
     }
 
+
     private void onSearch(KeyEvent event) {
         if (this.onSearch != null) {
-            this.onSearch.accept(this.searchField.getText().replaceAll("  "," ").split( " "));
+            this.onSearch.accept(this.searchField.getText().replaceAll("  ", " ").split(" "));
         }
     }
 
@@ -60,7 +63,7 @@ public class ContactNavigation extends CompositeControl {
 
     public void setContacts(Collection<Contact> contacts) {
         HashMap<Character, ArrayList<Contact>> contactsCategorised = new HashMap<>();
-        this.contactNavigation.getChildren().clear();
+        this.contactNavigation.clear();
         for (Contact contact : contacts) {
             char initialLetter = contact.getFirstName().charAt(0);
             if (!contactsCategorised.keySet().contains(initialLetter)) {

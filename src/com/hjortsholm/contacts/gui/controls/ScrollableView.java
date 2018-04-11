@@ -1,6 +1,6 @@
 package com.hjortsholm.contacts.gui.controls;
 
-import com.hjortsholm.contacts.gui.style.Style;
+import com.hjortsholm.contacts.gui.util.Style;
 import javafx.scene.control.ScrollPane;
 
 public class ScrollableView extends ScrollPane {

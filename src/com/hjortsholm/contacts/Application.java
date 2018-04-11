@@ -6,8 +6,6 @@ import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.Field;
 import com.hjortsholm.contacts.models.FieldType;
 
-import java.awt.*;
-
 public class Application {
     private static Database database;
     private static int windowWidth;
@@ -47,10 +45,6 @@ public class Application {
             Application.getDatabase().dropTable(FieldType.class);
             Application.getDatabase().createTable(FieldType.class);
         }
-    }
-
-    public static void createDatabase() {
-
     }
 
     public static void setWindowSize(int width, int height) {

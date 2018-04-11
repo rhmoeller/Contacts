@@ -1,6 +1,7 @@
-package com.hjortsholm.contacts.controls;
+package com.hjortsholm.contacts.gui.parents;
 
-import com.hjortsholm.contacts.controls.style.Style;
+import com.hjortsholm.contacts.gui.parents.CustomGrid;
+import com.hjortsholm.contacts.gui.style.Style;
 import javafx.scene.Node;
 
 public class CompositeControl extends CustomGrid {
@@ -17,7 +18,7 @@ public class CompositeControl extends CustomGrid {
     }
 
     public void init(String name, Node... nodes) {
-        this.addChild(nodes);
+        this.addColumn(nodes);
         Style.addStylesheet(this, name);
     }
 

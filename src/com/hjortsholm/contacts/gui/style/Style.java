@@ -1,9 +1,7 @@
-package com.hjortsholm.contacts.controls.style;
+package com.hjortsholm.contacts.gui.style;
 
 import com.hjortsholm.contacts.Resource;
-import javafx.scene.Node;
 import javafx.scene.layout.Region;
-import javafx.stage.Stage;
 
 public class Style {
     public static void addGenericStyleClass(Region control) {
@@ -19,6 +17,6 @@ public class Style {
     }
 
     public static void addStylesheet(Region control, String styleSheet) {
-        control.getStylesheets().add(Resource.get("controls/style/"+styleSheet+".css"));
+        control.getStylesheets().add(Resource.get("gui/style/"+styleSheet+".css"));
     }
 }

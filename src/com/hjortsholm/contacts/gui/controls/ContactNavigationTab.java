@@ -1,5 +1,6 @@
-package com.hjortsholm.contacts.controls;
+package com.hjortsholm.contacts.gui.controls;
 
+import com.hjortsholm.contacts.gui.parents.CustomGrid;
 import com.hjortsholm.contacts.models.Contact;
 import javafx.scene.control.Label;
 
@@ -20,7 +21,7 @@ public class ContactNavigationTab extends CustomGrid {
         // Todo: Edit tab content
 //        Label a = new Label("Name: ");
 //        Label b = new Label(contact.getFirstName());
-        Label b = new Label(contact.getId());
+        Label b = new Label(contact.getFirstName());
 
 //        this.addColumn(a);
         this.addColumn(b);

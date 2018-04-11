@@ -16,14 +16,6 @@ public class Field {
     private String value;
     private String prompt;
 
-//    public Field(Contact contact) {
-//        this.contact = contact;
-//        this.type = "";
-//        this.name = "";
-//        this.value = "";
-//        this.prompt = prompt;
-//    }
-//
     public Field(Contact contact, FieldType type, String name, String value, String prompt) {
         this.contact = contact;
         this.type = type;
@@ -46,7 +38,7 @@ public class Field {
 
     @Override
     public String toString() {
-        return "Field["+type+","+name+","+value+","+prompt+"]";
+        return "Field[" + type + "," + name + "," + value + "," + prompt + "]";
     }
 }
 

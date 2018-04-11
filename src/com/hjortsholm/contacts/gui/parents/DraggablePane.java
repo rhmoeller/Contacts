@@ -1,7 +1,7 @@
-package com.hjortsholm.contacts.controls;
+package com.hjortsholm.contacts.gui.parents;
 
+import com.hjortsholm.contacts.gui.parents.CustomGrid;
 import javafx.scene.Node;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 

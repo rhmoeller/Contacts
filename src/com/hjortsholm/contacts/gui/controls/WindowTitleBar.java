@@ -1,6 +1,9 @@
-package com.hjortsholm.contacts.controls;
+package com.hjortsholm.contacts.gui.controls;
 
 import com.hjortsholm.contacts.Application;
+import com.hjortsholm.contacts.gui.controls.Spacer;
+import com.hjortsholm.contacts.gui.controls.SystemButton;
+import com.hjortsholm.contacts.gui.parents.CompositeControl;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;

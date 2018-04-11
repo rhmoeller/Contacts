@@ -1,14 +1,8 @@
 package com.hjortsholm.contacts.database;
 
-import com.hjortsholm.contacts.models.Field;
-import com.hjortsholm.contacts.models.FieldType;
-
 import java.io.File;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.function.Consumer;
 
 public class Database {
@@ -31,7 +25,7 @@ public class Database {
             this.connection.close();
             return true;
         } catch (SQLException exception) {
-            System.err.println("[ERROR]: "+exception);
+            System.err.println("[ERROR]: " + exception);
         }
         return false;
     }
@@ -40,7 +34,7 @@ public class Database {
         try {
             return this.connection.isClosed();
         } catch (SQLException exception) {
-            System.err.println("[ERROR]: "+exception.getMessage());
+            System.err.println("[ERROR]: " + exception.getMessage());
         }
         return false;
     }
@@ -55,7 +49,7 @@ public class Database {
             if (databaseFile.exists() && this.connection.isValid(30))
                 return true;
         } catch (SQLException exception) {
-            System.err.println("[ERRROR]: "+ exception);
+            System.err.println("[ERRROR]: " + exception);
         }
         return false;
 
@@ -77,7 +71,7 @@ public class Database {
                     success.accept(new QueryResult(results));
             return true;
         } catch (SQLException exception) {
-            System.err.println("[ERROR]: "+query);
+            System.err.println("[ERROR]: " + query);
             if (failed != null)
                 failed.accept(exception);
             return false;
@@ -85,32 +79,32 @@ public class Database {
     }
 
     public boolean post(String query) {
-        return this.post(query,null);
+        return this.post(query, null);
     }
 
     public boolean post(String query, Object... data) {
         try {
-            PreparedStatement statement = this.connection.prepareStatement(query+";");
+            PreparedStatement statement = this.connection.prepareStatement(query/*+";"*/);
             statement.setQueryTimeout(this.timeout);
-            if(data != null)
+            if (data != null)
                 for (int i = 0; i < data.length; i++)
                     statement.setObject(i + 1, data[i]);
             statement.executeUpdate();
             statement.close();
             return true;
         } catch (SQLException exception) {
-            System.err.println("[ERROR]: "+query);
+            System.err.println("[ERROR]: " + query);
             return false;
         }
     }
 
     public boolean createTable(Class dataModel) {
-        return this.createTable(dataModel.getSimpleName(),dataModel);
+        return this.createTable(dataModel.getSimpleName(), dataModel);
     }
 
     public boolean createTable(String table, Class dataModel) {
         ArrayList<TableField> fields = new ArrayList<>();
-        for (TableField field: (TableField[])dataModel.getDeclaredAnnotationsByType(TableField.class))
+        for (TableField field : (TableField[]) dataModel.getDeclaredAnnotationsByType(TableField.class))
             fields.add(field);
 
 
@@ -135,11 +129,11 @@ public class Database {
     }
 
     public boolean dropTable(String table) {
-        return this.post("DROP TABLE "+table);
+        return this.post("DROP TABLE " + table);
     }
 
     public boolean verifyTable(Class dataModel) {
-        return this.verifyTable(dataModel.getSimpleName(),dataModel);
+        return this.verifyTable(dataModel.getSimpleName(), dataModel);
     }
 
     public boolean verifyTable(String table, Class dataModel) {
@@ -149,18 +143,18 @@ public class Database {
         ArrayList<QueryResult> iterableFields;
 
 
-        this.get("PRAGMA table_info("+table+");",tableFields::add);
-        if (fields.length == 0 || tableFields.isEmpty()){
+        this.get("PRAGMA table_info(" + table + ");", tableFields::add);
+        if (fields.length == 0 || /**/fields.length != tableFields.size()/**/ || tableFields.isEmpty()) {
             return false;
         }
 
-        iterableFields = (ArrayList<QueryResult>)tableFields.clone();
-        for (TableField modelField: fields) {
+        iterableFields = (ArrayList<QueryResult>) tableFields.clone();
+        for (TableField modelField : fields) {
             for (QueryResult tableField : iterableFields) {
-                if (modelField.type().equalsIgnoreCase((String)tableField.getColumn("type")) &&
-                    modelField.name().equalsIgnoreCase((String)tableField.getColumn("name")) &&
-                    modelField.primaryKey() == ((int)tableField.getColumn("pk") != 0) &&
-                    modelField.isNullable() == ((int)tableField.getColumn("notnull") != 1)) {
+                if (modelField.type().equalsIgnoreCase((String) tableField.getColumn("type")) &&
+                        modelField.name().equalsIgnoreCase((String) tableField.getColumn("name")) &&
+                        modelField.primaryKey() == ((int) tableField.getColumn("pk") != 0) &&
+                        modelField.isNullable() == ((int) tableField.getColumn("notnull") != 1)) {
                     verifiedField.add(tableField);
                     iterableFields.remove(tableField);
                     break;

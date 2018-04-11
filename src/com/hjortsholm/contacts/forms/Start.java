@@ -1,28 +1,27 @@
 package com.hjortsholm.contacts.forms;
 
-import com.hjortsholm.contacts.controls.*;
-import com.hjortsholm.contacts.controls.style.Style;
-import com.hjortsholm.contacts.database.TableField;
+import com.hjortsholm.contacts.gui.controls.ContactNavigationTab;
+import com.hjortsholm.contacts.gui.controls.WindowTitleBar;
+import com.hjortsholm.contacts.gui.panels.ContactCard;
+import com.hjortsholm.contacts.gui.panels.ContactNavigation;
+import com.hjortsholm.contacts.gui.parents.DraggablePane;
+import com.hjortsholm.contacts.gui.parents.CustomGrid;
+import com.hjortsholm.contacts.gui.style.Style;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.ContactList;
 import com.hjortsholm.contacts.models.Field;
 import com.hjortsholm.contacts.models.FieldType;
-import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import java.util.ArrayList;
 
 public class Start extends Window {
 
     private ContactNavigation contactNavigation;
     private WindowTitleBar titleBar;
     private ContactCard contactCard;
+    private ContactList contacts;
 
     public static void show() {
         launch();
@@ -47,20 +46,7 @@ public class Start extends Window {
 
     @Override
     public void init() {
-//        Contact a = new Contact(),
-//                b = new Contact(),
-//                c = new Contact();
-//
-//        a.setFirstName("Rob");
-//        b.setFirstName("Dev");
-//        c.setFirstName("Remi");
-
-        ContactList contacts = new ContactList();
-//        for(int i = 0; i< 100; i++) {
-//            Contact contact = new Contact();
-//            contact.setFirstName("a");
-//            contacts.add(contact);
-//        }
+        contacts = new ContactList();
 
         com.hjortsholm.contacts.Application.getDatabase().get(
                 "SELECT\n" +
@@ -95,8 +81,9 @@ public class Start extends Window {
                             );
 
                     contact.setField(field);
-                    System.out.println(contact.toString());
                 });
+
+//        System.out.println(contacts);
 
 
         CustomGrid container = new CustomGrid();
@@ -104,21 +91,22 @@ public class Start extends Window {
         titleBar = new WindowTitleBar(this::onWindowExit,this::onWindowMinimise);
         contactCard = new ContactCard();
 
-        contactNavigation.setContacts(contacts);
+        contactNavigation.setContacts(contacts.getContacts());
         contactNavigation.setOnTabSelectedEvent(this::onTabChanged);
-
-        container.addRow(titleBar);
+        contactNavigation.setOnSearch(this::onSearch);
         container.addColumn(contactNavigation);
         container.addColumn(contactCard);
-        super.init(container);
+        super.init(titleBar,container);
     }
 
-
+    private void onSearch(String[] keyWords) {
+        contactNavigation.setContacts(contacts.getContactsWith(keyWords));
+    }
 
 
     private void onTabChanged(ContactNavigationTab navigationTab)  {
         contactCard.setContact(navigationTab.getContact());
-//        System.out.println(navigationTab.getContact().getFirstName() + " selected..");
+        System.out.println(navigationTab.getContact().getFirstName() + " selected..");
     }
 
 

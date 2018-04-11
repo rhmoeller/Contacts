@@ -1,26 +1,25 @@
 package com.hjortsholm.contacts;
 
 import com.hjortsholm.contacts.database.Database;
-import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.Field;
-import com.hjortsholm.contacts.models.FieldType;
+import com.hjortsholm.contacts.util.HexImage;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.function.Function;
 
 public class Test {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, IOException {
 //        Database db = new Database("contacts.db");
 //        database(db);
-
-        Application.setDatabase(new Database("contacts.db"));
-        Application.checkDatabaseIntegrity();
+        BufferedImage image = new HexImage().fromHex("68656c6c6f");
+//        Application.setDatabase(new Database("contacts.db"));
+//        Application.checkDatabaseIntegrity();
 
 
     }
-
 
 
     public static void database(Database db) {

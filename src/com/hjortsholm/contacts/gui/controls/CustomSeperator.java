@@ -1,4 +1,4 @@
-package com.hjortsholm.contacts.controls;
+package com.hjortsholm.contacts.gui.controls;
 
 import javafx.scene.control.Separator;
 

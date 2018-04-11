@@ -1,4 +1,4 @@
-package com.hjortsholm.contacts.controls;
+package com.hjortsholm.contacts.gui.util;
 
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;

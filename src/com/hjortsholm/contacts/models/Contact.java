@@ -8,16 +8,6 @@ import java.util.*;
 public class Contact {
 
     private String id;
-    private ArrayList<Field> emails;
-    private ArrayList<Field> numbers;
-    private ArrayList<Field> dates;
-    private ArrayList<Field> addresses;
-
-    private Field firstName;
-    private Field lastName;
-    private Field nickName;
-
-    private Field notes;
 
     private HashMap<FieldType,HashMap<String,Field>> fields;
 
@@ -30,6 +20,7 @@ public class Contact {
 //        this.dates = new ArrayList<>();
 //        this.addresses = new ArrayList<>();
     }
+
 
     public String getId() {
         return this.id;
@@ -48,9 +39,28 @@ public class Contact {
         return false;
     }
 
+    public boolean hasValue(String value) {
+        for (Field field : this.getAllFields()) {
+            if (field.getValue().toLowerCase().contains(value.toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Field getField(String name, FieldType type) {
 
         return this.hasField(name,type)? this.getFieldsByType(type).get(name.toLowerCase()): null;
+    }
+
+    public Collection<Field> getAllFields() {
+        ArrayList<Field> fields = new ArrayList<>();
+        for (HashMap<String,Field> type: this.fields.values()) {
+            for (Field field: type.values()) {
+                fields.add(field);
+            }
+        }
+        return fields;
     }
 
     public void setField(Field field) {
@@ -101,35 +111,28 @@ public class Contact {
         this.setField(new Field(this, FieldType.NAME,"nick",nickName,"nick"));
     }
 
-    public void setAddresses(ArrayList<Field> addresses) {
-        this.addresses = addresses;
+    public void setAddress(Field address) {
+        this.setField(address);
     }
 
-    public void setDates(ArrayList<Field> dates) {
-        this.dates = dates;
+    public void setDates(Field dates) {
+        this.setField(dates);
     }
 
-    public void setEmails(ArrayList<Field> emails) {
-        this.emails = emails;
+    public void setEmails(Field emails) {
+        this.setField(emails);
     }
 
-    public void setNumbers(ArrayList<Field> numbers) {
-        this.numbers = numbers;
+    public void setNumbers(Field numbers) {
+        this.setField(numbers);
     }
 
     public void setNotes(String notes) {
-        this.notes = new Field(this,FieldType.NOTE,"note",notes,"notes");
+        this.setField(new Field(this,FieldType.NOTE,"note",notes,"notes"));
     }
-
 
     @Override
     public String toString() {
-        ArrayList<Field> fields = new ArrayList<>();
-        for (HashMap<String,Field> type: this.fields.values()) {
-            for (Field field: type.values()){
-                fields.add(field);
-            }
-        }
-        return "Contact"+ Arrays.toString(fields.toArray());
+        return "Contact"+ Arrays.toString(this.getAllFields().toArray());
     }
 }

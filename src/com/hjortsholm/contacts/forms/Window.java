@@ -1,6 +1,6 @@
 package com.hjortsholm.contacts.forms;
 
-import com.hjortsholm.contacts.controls.CompositeControl;
+import com.hjortsholm.contacts.gui.parents.CompositeControl;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Node;

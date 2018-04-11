@@ -1,11 +1,12 @@
--- SELECT
---   id
 
 PRAGMA table_info(Field);
 
 INSERT INTO Contact VALUES (0);
-INSERT INTO FieldType VALUES (0,'name','name');
-INSERT INTO Field VALUES (0,0,0,'first','Robert');
+INSERT INTO FieldType VALUES (2, 'name');
+
+INSERT INTO Field VALUES (0,0,2,'first','Robert');
+INSERT INTO Field VALUES (1,0,2,'last','Moeller');
+
 
 SELECT * FROM Contact;
 SELECT * FROM Field;
@@ -15,7 +16,7 @@ SELECT
   Contact.id,
   Field.value,
   Field.name,
-  FieldType.name type,
+  FieldType.id,
   FieldType.prompt
 FROM
   (Contact
@@ -27,15 +28,4 @@ INNER JOIN
   FieldType
 ON
   FieldType.id = Field.type;
-
-
-
-
---
---   Field
--- WHERE
---
--- AND
---   Field.type = FieldType.id;
---
 

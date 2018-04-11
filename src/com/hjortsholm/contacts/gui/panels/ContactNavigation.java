@@ -1,15 +1,18 @@
-package com.hjortsholm.contacts.controls;
+package com.hjortsholm.contacts.gui.panels;
 
 import com.hjortsholm.contacts.Application;
-import com.hjortsholm.contacts.controls.style.Style;
+import com.hjortsholm.contacts.gui.controls.CategorisedListView;
+import com.hjortsholm.contacts.gui.controls.ContactNavigationTab;
+import com.hjortsholm.contacts.gui.controls.Spacer;
+import com.hjortsholm.contacts.gui.parents.CompositeControl;
+import com.hjortsholm.contacts.gui.parents.CustomGrid;
+import com.hjortsholm.contacts.gui.controls.ScrollableView;
+import com.hjortsholm.contacts.gui.style.Style;
 import com.hjortsholm.contacts.models.Contact;
-import com.hjortsholm.contacts.models.ContactList;
-import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class ContactNavigation extends CompositeControl {
@@ -19,16 +22,21 @@ public class ContactNavigation extends CompositeControl {
 
     private CustomGrid contactNavigation;
 
+    private TextField searchField;
+    private Consumer<String[]> onSearch;
+
     public ContactNavigation() {
         super();
 
         contactNavigation = new CustomGrid();
-        TextField searchField = new TextField();
+        searchField = new TextField();
         ScrollableView scrollContainer = new ScrollableView();
 
         searchField.setPromptText("Search");
-        Style.addStylesheet(searchField,"TextFields");
-        Style.addStyleClass(searchField,"SearchField");
+        searchField.setOnKeyReleased(this::onSearch);
+
+        Style.addStylesheet(searchField, "TextFields");
+        Style.addStyleClass(searchField, "SearchField");
 
         contactNavigation.setPrefHeight(Application.getWindowHeight());
         scrollContainer.setPrefHeight(Application.getWindowHeight());
@@ -36,13 +44,24 @@ public class ContactNavigation extends CompositeControl {
 
         scrollContainer.setContent(contactNavigation);
         this.addRow(searchField);
-        this.addRow(new Spacer(10,10));
+        this.addRow(new Spacer(10, 10));
         this.addRow(scrollContainer);
     }
 
-    public void setContacts(ContactList contacts) {
+    private void onSearch(KeyEvent event) {
+        if (this.onSearch != null) {
+            this.onSearch.accept(this.searchField.getText().replaceAll("  "," ").split( " "));
+        }
+    }
+
+    public void setOnSearch(Consumer<String[]> onSearch) {
+        this.onSearch = onSearch;
+    }
+
+    public void setContacts(Collection<Contact> contacts) {
         HashMap<Character, ArrayList<Contact>> contactsCategorised = new HashMap<>();
-        for (Contact contact : contacts.getContacts()) {
+        this.contactNavigation.getChildren().clear();
+        for (Contact contact : contacts) {
             char initialLetter = contact.getFirstName().charAt(0);
             if (!contactsCategorised.keySet().contains(initialLetter)) {
                 ArrayList<Contact> contactsByInitialLetter = new ArrayList<>();

@@ -1,8 +1,7 @@
-package com.hjortsholm.contacts.controls;
+package com.hjortsholm.contacts.gui.controls;
 
-import com.hjortsholm.contacts.controls.style.Style;
+import com.hjortsholm.contacts.gui.style.Style;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 public class EditableLabel extends TextField {

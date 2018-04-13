@@ -27,24 +27,24 @@ public class Application {
 
     public static void checkDatabaseIntegrity() {
 
-        if (Application.getDatabase().isClosed()) {
-            Application.setDatabase(new Database(Application.getDatabase().getPath()));
-        }
-        if (!Application.getDatabase().isValid()) {
-            System.err.println("db not valid");
-        }
-        if (!Application.getDatabase().verifyTable(Contact.class)) {
-            Application.getDatabase().dropTable(Contact.class);
-            Application.getDatabase().createTable(Contact.class);
-        }
-        if (!Application.getDatabase().verifyTable(Field.class)) {
-            Application.getDatabase().dropTable(Field.class);
-            Application.getDatabase().createTable(Field.class);
-        }
-        if (!Application.getDatabase().verifyTable(FieldType.class)) {
-            Application.getDatabase().dropTable(FieldType.class);
-            Application.getDatabase().createTable(FieldType.class);
-        }
+//        if (Database.isClosed()) {
+////            Application.setDatabase(new Database(Application.getDatabase().getPath()));
+//        }
+//        if (!Application.getDatabase().isValid()) {
+//            System.err.println("db not valid");
+//        }
+//        if (!Application.getDatabase().verifyTable(Contact.class)) {
+//            Application.getDatabase().dropTable(Contact.class);
+//            Application.getDatabase().createTable(Contact.class);
+//        }
+//        if (!Application.getDatabase().verifyTable(Field.class)) {
+//            Application.getDatabase().dropTable(Field.class);
+//            Application.getDatabase().createTable(Field.class);
+//        }
+//        if (!Application.getDatabase().verifyTable(FieldType.class)) {
+//            Application.getDatabase().dropTable(FieldType.class);
+//            Application.getDatabase().createTable(FieldType.class);
+//        }
     }
 
     public static void setWindowSize(int width, int height) {

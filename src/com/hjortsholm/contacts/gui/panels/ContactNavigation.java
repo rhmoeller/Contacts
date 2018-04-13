@@ -65,7 +65,7 @@ public class ContactNavigation extends CustomGrid {
         HashMap<Character, ArrayList<Contact>> contactsCategorised = new HashMap<>();
         this.contactNavigation.clear();
         for (Contact contact : contacts) {
-            char initialLetter = contact.getFirstName().charAt(0);
+            char initialLetter = contact.getFirstName().getValue().charAt(0);
             if (!contactsCategorised.keySet().contains(initialLetter)) {
                 ArrayList<Contact> contactsByInitialLetter = new ArrayList<>();
                 contactsByInitialLetter.add(contact);

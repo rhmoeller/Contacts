@@ -1,7 +1,9 @@
 .SearchField, .EditableLabel{
     -fx-background-color: transparent;
     -fx-padding: 2px 5px;
-    -fx-border-radius: .5em;
+    -fx-border-radius: .25em;
+    -fx-border-width: 1;
+    -fx-max-height: 5;
 }
 
 .SearchField, .editable:focused {
@@ -12,3 +14,10 @@
     -fx-background-color: transparent;
 }
 
+.SearchField {
+    -fx-alignment: center;
+}
+
+.SearchField:focused {
+    -fx-alignment: left;
+}

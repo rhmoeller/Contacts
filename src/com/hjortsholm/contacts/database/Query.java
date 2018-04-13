@@ -1,19 +1,77 @@
 package com.hjortsholm.contacts.database;
 
-public enum Query {
-    NAME("SELECT * FROM Field WHERE contact = 0");
+public class Query {
 
+    private String query;
 
-
-
-    private String queryString;
-
-    Query(String queryString) {
-        this.queryString = queryString;
+    public Query() {
+        this.query = "";
     }
+
+    private Query append(Object... objects) {
+        return this.append(false, objects);
+    }
+
+    private Query append(boolean commaSeperated, Object... objects) {
+        return this.append(commaSeperated,false,objects);
+    }
+
+    private Query append(boolean commaSeperated, boolean escaped, Object... objects) {
+        for (int i = 0; i < objects.length; i++)
+            query += ( objects[i].getClass().getSimpleName().equals(String.class.getSimpleName())  && escaped ? "\"" + objects[i]/*.toString()*/ + "\"" : objects[i].toString()).replaceAll(";", "") + (commaSeperated && i+1 < objects.length  ? ", " : " ");
+        return this;
+    }
+
+    public Query insert(String table) {
+        return this.append("INSERT INTO "+table);
+    }
+
+    public Query values(Object... values) {
+        this.append("VALUES (");
+        this.append(true, true, values);
+        return this.append(")");
+    }
+
+    public Query select(String what) {
+        return this.append("SELECT", what);
+    }
+
+    public Query from(String tables) {
+        return this.append("FROM", tables);
+    }
+
+    public Query from(Class table) {
+        return this.from(table.getSimpleName());
+    }
+
+    public Query where(String condition) {
+        return this.append("WHERE", condition);
+    }
+
+    public Query and(String condition) {
+        return this.append("AND", condition);
+    }
+//
+//    public Query and(Me<Query, Query> condition) {
+//        return this.nested(condition);
+//    }
+
+    public Query where(String... conditions) {
+        this.where(conditions[0]);
+        for (int i = 1; i < conditions.length; i++)
+            this.and(conditions[i]);
+        return this;
+    }
+
+//    public Query nested(Me<Query, Query> nestedQuery) {
+//        this.append("(");
+//        nestedQuery.accept(this);
+//        return this.append(")");
+//    }
 
     @Override
     public String toString() {
-        return this.queryString;
+//        System.out.println(this.query);
+        return this.query;
     }
 }

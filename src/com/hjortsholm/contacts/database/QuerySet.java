@@ -17,7 +17,7 @@ public class QuerySet extends ArrayList<QueryRow> {
 //    }
 
     public QueryRow first() {
-        return this.get(0);
+        return this.size() > 0 ? this.get(0) : null;
     }
 
     public QueryRow last() {

@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.HashMap;
 
 public class ContactList {
-    private HashMap<String, Contact> contacts;
+    private HashMap<Integer, Contact> contacts;
 
     public ContactList() {
         this.contacts = new HashMap<>();
@@ -30,7 +30,7 @@ public class ContactList {
         return this.contacts.containsValue(contact) || this.contacts.containsKey(contact.getId());
     }
 
-    public Collection<String> getContactIds() {
+    public Collection<Integer> getContactIds() {
         return contacts.keySet();
     }
 

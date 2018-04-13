@@ -1,5 +1,6 @@
 .ContactCard {
     /*-fx-background-color: blue;*/
+    /*-fx-border-color: cyan;*/
 }
 
 /*.EditableLabel {*/
@@ -10,3 +11,25 @@
 
 /*}*/
 
+.ContactFieldsList {
+    -fx-padding: 10;
+    /*-fx-background-color: #999;*/
+}
+
+.ContactFieldsList .ContactFieldRow {
+    -fx-padding: 5 20;
+}
+
+.ContactFieldsList .separator {
+    -fx-pref-width: 1000;
+
+}
+
+.ContactFieldsList .separator .line {
+    -fx-border-color: black ;
+    -fx-border-width: 1 0 0 0 ;
+}
+
+.ScrollableView {
+    -fx-background-color: red;
+}

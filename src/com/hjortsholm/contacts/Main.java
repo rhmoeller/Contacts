@@ -4,7 +4,7 @@ import com.hjortsholm.contacts.database.Database;
 
 public class Main {
     public static void main(String[] args) {
-        Application.setDatabase(new Database("contacts.db"));
+        Database.configure("contacts.db");
         Application.checkDatabaseIntegrity();
         Application.setTitle("Contacts");
         Application.setWindowSize(720, 440);

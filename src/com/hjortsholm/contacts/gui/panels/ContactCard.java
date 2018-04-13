@@ -1,15 +1,17 @@
 package com.hjortsholm.contacts.gui.panels;
 
 import com.hjortsholm.contacts.Application;
-import com.hjortsholm.contacts.gui.controls.ContactFieldListType;
-import com.hjortsholm.contacts.gui.controls.ContactFieldsList;
-import com.hjortsholm.contacts.gui.controls.EditableLabel;
+import com.hjortsholm.contacts.gui.controls.*;
 import com.hjortsholm.contacts.gui.parents.CustomGrid;
 import com.hjortsholm.contacts.gui.parents.LayerPane;
+import com.hjortsholm.contacts.gui.util.Anchor;
+import com.hjortsholm.contacts.gui.util.Style;
 import com.hjortsholm.contacts.models.Contact;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 public class ContactCard extends CustomGrid {
     private Contact contact;
@@ -24,8 +26,10 @@ public class ContactCard extends CustomGrid {
     private LayerPane backgroundLayer;
     private LayerPane middlegroundLayer;
 
+    private ScrollableView scrollContainer;
     private ContactFieldsList contactFieldsList;
-
+    private ContactInfoHeader contactInfoHeader;
+    private CustomGrid contactInfoPanel;
     private boolean editing;
 
     public ContactCard() {
@@ -33,69 +37,73 @@ public class ContactCard extends CustomGrid {
         addDefaultStyleSheet();
 
         this.editing = false;
-        this.setPrefHeight(Application.getWindowHeight());
-//        this.container = new LayerPane();
-//        this.emptyCard = new Label("No contact selected");
-//        this.firstName = new EditableLabel();
-//        this.lastName = new EditableLabel();
 
-//        backgroundLayer = new LayerPane();
-//        backgroundLayer.addLayer(this.emptyCard);
-//        middlegroundLayer = new LayerPane();
+        AnchorPane container = new AnchorPane();
+//        container.setPrefHeight(Application.getWindowHeight()-200);
+//        Anchor.setRightAnchor(container,0.);
 
-//        middlegroundLayer.addLayer(this.firstName,this.lastName);
-//        this.addColumn(new Spacer(1,20));
-//        this.container.addLayer(backgroundLayer);
-//        this.container.addLayer(middlegroundLayer);
-//        this.addColumn(this.emptyCard);
-        edit = new Button("Edit");
-        edit.setOnMouseClicked(this::edit);
-        contactFieldsList = new ContactFieldsList();
-//        this.addColumn(this.firstName);
-//        this.addColumn(this.lastName);
-        this.addRow(contactFieldsList);
-        this.addRow(edit);
+//        ScrollableView contactInformationPanel = ;
+//        Anchor.setRightAnchor(contactInformationPanel,0.);
+//        contactInformationPanel.setPrefWidth(Application.getWindowWidth()-220);
+//        Style.addStyleClass(contactInformationPanel,"ContactFieldScroll");
+
+        this.contactInfoPanel = new CustomGrid();
+        this.contactInfoHeader = new ContactInfoHeader();
+        this.contactFieldsList = new ContactFieldsList();
+        this.scrollContainer = new ScrollableView(contactFieldsList);
+
+        this.contactInfoPanel.addRow(this.contactInfoHeader);
+        this.contactInfoPanel.addRow(this.scrollContainer);
+        this.scrollContainer.setPrefHeight(Application.getWindowHeight()-100);
+//        Style.addStyleClass(this.scrollContainer,"ContactScrollPanel");
+
+
+
+
+        this.edit = new Button();
+        this.edit.setOnMouseClicked(this::edit);
+        Anchor.setRightAnchor(edit,0.);
+        Anchor.setBottomAnchor(edit, 0.);
+
+
+
+        container.getChildren().addAll(this.contactInfoPanel,this.edit);
+        this.addRow(container);
         refresh();
-
     }
 
 
     public void refresh() {
+        this.edit.setText(this.editing?"Save":"Edit");
         if (this.contact != null) {
+            scrollContainer.setVisible(true);
+            edit.setVisible(true);
+            this.contactFieldsList.setEditable(this.editing);
 //            this.middlegroundLayer.setVisible(false);
 //            this.firstName.setText(this.contact.getFirstName());
 //            this.lastName.setText(this.contact.getLastName());
 
-//            if (this.editing) {
-//                this.edit.setText("Save");
-//            } else {
-//
-//            }
+            if (this.editing) {
+
+            } else {
+
+            }
 
         } else {
-//            this.middlegroundLayer.setVisible(true);
+            scrollContainer.setVisible(false);
+            edit.setVisible(false);
         }
     }
 
     public void edit(MouseEvent mouseEvent) {
         this.editing = !this.editing;
-        this.edit.setText(this.editing?"Save":"Edit");
-//        this.firstName.toggleEdit();
-//        this.lastName.toggleEdit();
-        this.contactFieldsList.toggleEdit();
-
-
-        if (!this.editing) {
-//            this.contact.setFirstName(this.firstName.getText());
-//            this.contact.setLastName(this.lastName.getText());
-        }
         this.refresh();
-
     }
 
     public void setContact(Contact contact) {
         this.contact = contact;
         this.contactFieldsList.setContact(contact);
+        this.contactInfoHeader.setContact(contact);
         this.refresh();
     }
 }

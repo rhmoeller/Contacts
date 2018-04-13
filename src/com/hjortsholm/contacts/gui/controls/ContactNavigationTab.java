@@ -21,7 +21,9 @@ public class ContactNavigationTab extends CustomGrid {
         // Todo: Edit tab content
 //        Label a = new Label("Name: ");
 //        Label b = new Label(contact.getFirstName());
-        Label b = new Label(contact.getFirstName());
+        Label b = new Label();
+
+        b.setText(contact.getFirstName().getValue());
 
 //        this.addColumn(a);
         this.addColumn(b);

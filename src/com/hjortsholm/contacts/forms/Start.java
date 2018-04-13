@@ -1,5 +1,9 @@
 package com.hjortsholm.contacts.forms;
 
+import com.hjortsholm.contacts.database.Database;
+import com.hjortsholm.contacts.database.Query;
+import com.hjortsholm.contacts.database.QueryRow;
+import com.hjortsholm.contacts.database.QuerySet;
 import com.hjortsholm.contacts.gui.controls.ContactNavigationTab;
 import com.hjortsholm.contacts.gui.controls.WindowTitleBar;
 import com.hjortsholm.contacts.gui.panels.ContactCard;
@@ -9,8 +13,6 @@ import com.hjortsholm.contacts.gui.parents.DraggablePane;
 import com.hjortsholm.contacts.gui.util.Style;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.ContactList;
-import com.hjortsholm.contacts.models.Field;
-import com.hjortsholm.contacts.models.FieldType;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -48,41 +50,19 @@ public class Start extends Window {
     public void init() {
         contacts = new ContactList();
 
-        com.hjortsholm.contacts.Application.getDatabase().get(
-                "SELECT\n" +
-                        "  Contact.id,\n" +
-                        "  Field.value,\n" +
-                        "  Field.name,\n" +
-                        "  FieldType.id type,\n" +
-                        "  FieldType.prompt\n" +
-                        "FROM\n" +
-                        "  (Contact\n" +
-                        "INNER JOIN\n" +
-                        "  Field\n" +
-                        "ON\n" +
-                        "  Contact.id = Field.contact)\n" +
-                        "INNER JOIN\n" +
-                        "  FieldType\n" +
-                        "ON\n" +
-                        "  FieldType.id = Field.type;",
-                result -> {
-                    Contact contact = new Contact((String) result.getColumn("id"));
-                    if (contacts.contactExists(contact)) {
-                        contact = contacts.getContact(contact.getId());
-                    } else {
-                        contacts.addContact(contact);
-                    }
-                    Field field = new Field(
-                            contact,
-                            FieldType.values()[(int) result.getColumn("type")],
-                            (String) result.getColumn("name"),
-                            (String) result.getColumn("value")//,
-//                            (String) result.getColumn("prompt")
-                    );
+        QuerySet set = Database.get(new Query()
+                .select("Contact.id, Field.value, Field.name, FieldType.id type")
+                .from("Contact, Field, FieldType")
+                .where("Contact.id = Field.contact")
+                .and("Field.type = FieldType.id")
+                .toString());
 
-                    contact.setField(field);
-                });
-
+        for (QueryRow row : set) {
+            Contact contact = new Contact((int) row.getColumn("id"));
+            if (!contacts.contactExists(contact)) {
+                contacts.addContact(contact);
+            }
+        }
 
         CustomGrid container = new CustomGrid();
         contactNavigation = new ContactNavigation();

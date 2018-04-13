@@ -3,7 +3,6 @@
     /*-fx-pref-width: 180px;*/
 
     -fx-padding: 5px 5px 0 5px;
-
 }
 
 .CategorisedListView {
@@ -40,7 +39,7 @@
 }
 
 .selected {
-    /*-fx-background-color: rgba(0, 0, 0, .1);*/
+    -fx-background-color: #dcdcdc;/*rgba(0, 0, 0, .1);*/
 }
 
 .CustomGrid {

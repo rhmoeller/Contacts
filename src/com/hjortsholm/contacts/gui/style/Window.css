@@ -8,3 +8,7 @@
     /*background-color: blue;*/
     /*-fx-background-radius: 5em;*/
 }
+
+.vr {
+    -fx-padding: 5 0 20 0;
+}

@@ -13,7 +13,7 @@ public class ContactFieldsList extends CustomGrid {
 
     public ContactFieldsList() {
         initialiseComponent();
-        this.setPrefWidth(Application.getWindowWidth()-220);
+        this.setPrefWidth(Application.getWindowWidth()-180);
     }
 
     public void setContact(Contact contact) {

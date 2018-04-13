@@ -10,7 +10,7 @@ import java.util.function.Consumer;
 
 public class EditableLabel extends TextField {
 
-//    private String promptText;
+    //    private String promptText;
     private Consumer<String> onTextChanged;
 
     public EditableLabel() {
@@ -22,7 +22,7 @@ public class EditableLabel extends TextField {
     }
 
     public EditableLabel(String text, String prompt) {
-        this(text,prompt,true);
+        this(text, prompt, true);
     }
 
     public EditableLabel(String text, String prompt, boolean responsive) {
@@ -30,12 +30,9 @@ public class EditableLabel extends TextField {
         this.setEditable(false);
         this.setPromptText(prompt);
         this.setText(text);
-
         this.textProperty().addListener(observable -> {
-            if (this.onTextChanged != null) {
-                System.out.println("text changed "+observable.toString());
+            if (this.onTextChanged != null)
                 this.onTextChanged.accept(this.getText());
-            }
         });
 
         Style.addStylesheet(this, "TextFields");
@@ -82,10 +79,15 @@ public class EditableLabel extends TextField {
 
     public void setField(Field field) {
         this.setText(field.getValue());
-        this.setPromptText(field.getPrompt());
+        this.setPromptText(field.getName());
     }
 
     public void setOnTextChanged(Consumer<String> onTextChanged) {
         this.onTextChanged = onTextChanged;
+    }
+
+    @Override
+    public String toString() {
+        return this.getText().isEmpty() ? this.getPromptText() : this.getText();
     }
 }

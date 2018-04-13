@@ -4,15 +4,15 @@
 }
 
 /*.EditableLabel {*/
-    /*-fx-padding: 2px 5px;*/
-    /*-fx-background-color: transparent;*/
-    /*-fx-border-color: transparent;*/
-    /*-fx-border-radius: 5px;*/
+/*-fx-padding: 2px 5px;*/
+/*-fx-background-color: transparent;*/
+/*-fx-border-color: transparent;*/
+/*-fx-border-radius: 5px;*/
 
 /*}*/
 
 .ContactFieldsList {
-    -fx-padding: 10;
+    -fx-padding: 10 20;
     /*-fx-background-color: #999;*/
 }
 
@@ -26,10 +26,27 @@
 }
 
 .ContactFieldsList .separator .line {
-    -fx-border-color: black ;
-    -fx-border-width: 1 0 0 0 ;
+    /*-fx-border-color: black;*/
+    /*-fx-border-width: 1 0 0 0;*/
 }
 
-.ScrollableView {
-    -fx-background-color: red;
+.ContactFieldsList .ContactFieldRow:hover .value {
+    -fx-background-radius: 0 1em 1em 0;
+    -fx-background-color: #d1d1d1;
+}
+
+.ContactFieldsList .ContactFieldRow:hover .name {
+    -fx-background-radius: 1em 0 0 1em;
+    -fx-background-color: #b9b9b9;
+}
+
+.ContactFieldsList .ContactFieldRow:hover .value,
+.ContactFieldsList .ContactFieldRow:hover .name {
+    -fx-cursor: hand;
+}
+
+.ContactFieldsList .ContactFieldRow:hover .editable {
+    -fx-background-color: transparent;
+    -fx-cursor: text;
+
 }

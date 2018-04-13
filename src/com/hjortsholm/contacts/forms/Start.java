@@ -5,6 +5,7 @@ import com.hjortsholm.contacts.database.Query;
 import com.hjortsholm.contacts.database.QueryRow;
 import com.hjortsholm.contacts.database.QuerySet;
 import com.hjortsholm.contacts.gui.controls.ContactNavigationTab;
+import com.hjortsholm.contacts.gui.controls.CustomSeperator;
 import com.hjortsholm.contacts.gui.controls.WindowTitleBar;
 import com.hjortsholm.contacts.gui.panels.ContactCard;
 import com.hjortsholm.contacts.gui.panels.ContactNavigation;
@@ -13,6 +14,7 @@ import com.hjortsholm.contacts.gui.parents.DraggablePane;
 import com.hjortsholm.contacts.gui.util.Style;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.ContactList;
+import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -50,11 +52,15 @@ public class Start extends Window {
     public void init() {
         contacts = new ContactList();
 
+//        QuerySet set = Database.get(new Query()
+//                .select("Contact.id id, Field.value, Field.name, FieldType.id type")
+//                .from("Contact, Field, FieldType")
+//                .where("Contact.id = Field.contact")
+//                .and("Field.type = FieldType.id")
+//                .toString());
         QuerySet set = Database.get(new Query()
-                .select("Contact.id, Field.value, Field.name, FieldType.id type")
-                .from("Contact, Field, FieldType")
-                .where("Contact.id = Field.contact")
-                .and("Field.type = FieldType.id")
+                .select("id")
+                .from("Contact")
                 .toString());
 
         for (QueryRow row : set) {
@@ -68,11 +74,15 @@ public class Start extends Window {
         contactNavigation = new ContactNavigation();
         titleBar = new WindowTitleBar(this::onWindowExit, this::onWindowMinimise);
         contactCard = new ContactCard();
+        CustomSeperator verticalSeperator = new CustomSeperator();
+        verticalSeperator.setOrientation(Orientation.VERTICAL);
+        Style.addStyleClass(verticalSeperator,"vr");
 
         contactNavigation.setContacts(contacts.getContacts());
         contactNavigation.setOnTabSelectedEvent(this::onTabChanged);
         contactNavigation.setOnSearch(this::onSearch);
         container.addColumn(contactNavigation);
+        container.addColumn(verticalSeperator);
         container.addColumn(contactCard);
         super.init(titleBar, container);
     }
@@ -83,7 +93,12 @@ public class Start extends Window {
 
 
     private void onTabChanged(ContactNavigationTab navigationTab) {
-        contactCard.setContact(navigationTab.getContact());
-        System.out.println(navigationTab.getContact().getFirstName() + " selected..");
+        if (this.contactCard.isEmpty()) {
+            this.contactCard.setContact(navigationTab.getContact());
+            this.contactNavigation.setSelected(navigationTab);
+        } else if (!this.contactCard.getContact().equals(navigationTab.getContact()) && this.contactCard.isValid()) {
+            this.contactCard.setContact(navigationTab.getContact());
+            this.contactNavigation.setSelected(navigationTab);
+        }
     }
 }

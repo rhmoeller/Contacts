@@ -33,8 +33,20 @@ public class ContactInfoHeader extends CustomGrid {
     }
 
     public boolean isValid() {
-        return firstName.getText().isEmpty() ||
-                lastName.getText().isEmpty() ||
-                nickName.getText().isEmpty();
+        return !firstName.getText().isEmpty() ||
+                !lastName.getText().isEmpty() ||
+                !nickName.getText().isEmpty();
     }
+
+    public void setEditable(boolean editable) {
+        this.firstName.setEdit(editable);
+        this.lastName.setEdit(editable);
+        this.nickName.setEdit(editable);
+    }
+
+    public void setFocus() {
+        this.firstName.requestFocus();
+    }
+
+
 }

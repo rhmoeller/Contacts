@@ -22,8 +22,27 @@ public class Query {
         return this;
     }
 
-    public Query insert(String table) {
-        return this.append("INSERT INTO "+table);
+    public Query deleteFrom(String table) {
+        return this.append("DELETE FROM",table);
+    }
+
+    public Query update(String table) {
+        return this.append("UPDATE ",table);
+    }
+
+    public Query set(String... values) {
+        this.append("SET");
+        return this.append(true, values);
+    }
+
+    public Query insertInto(String table) {
+        return this.append("INSERT INTO",table);
+    }
+
+    public Query fields(String... fields) {
+        this.append("(");
+        this.append(true,fields);
+        return this.append(")");
     }
 
     public Query values(Object... values) {

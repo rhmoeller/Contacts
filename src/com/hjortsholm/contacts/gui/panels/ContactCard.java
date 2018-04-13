@@ -39,13 +39,6 @@ public class ContactCard extends CustomGrid {
         this.editing = false;
 
         AnchorPane container = new AnchorPane();
-//        container.setPrefHeight(Application.getWindowHeight()-200);
-//        Anchor.setRightAnchor(container,0.);
-
-//        ScrollableView contactInformationPanel = ;
-//        Anchor.setRightAnchor(contactInformationPanel,0.);
-//        contactInformationPanel.setPrefWidth(Application.getWindowWidth()-220);
-//        Style.addStyleClass(contactInformationPanel,"ContactFieldScroll");
 
         this.contactInfoPanel = new CustomGrid();
         this.contactInfoHeader = new ContactInfoHeader();
@@ -55,14 +48,13 @@ public class ContactCard extends CustomGrid {
         this.contactInfoPanel.addRow(this.contactInfoHeader);
         this.contactInfoPanel.addRow(this.scrollContainer);
         this.scrollContainer.setPrefHeight(Application.getWindowHeight()-100);
-//        Style.addStyleClass(this.scrollContainer,"ContactScrollPanel");
 
 
 
 
         this.edit = new Button();
         this.edit.setOnMouseClicked(this::edit);
-        Anchor.setRightAnchor(edit,0.);
+        Anchor.setRightAnchor(edit,20.);
         Anchor.setBottomAnchor(edit, 0.);
 
 
@@ -72,6 +64,9 @@ public class ContactCard extends CustomGrid {
         refresh();
     }
 
+    public Contact getContact() {
+        return this.contact;
+    }
 
     public void refresh() {
         this.edit.setText(this.editing?"Save":"Edit");
@@ -79,12 +74,10 @@ public class ContactCard extends CustomGrid {
             scrollContainer.setVisible(true);
             edit.setVisible(true);
             this.contactFieldsList.setEditable(this.editing);
-//            this.middlegroundLayer.setVisible(false);
-//            this.firstName.setText(this.contact.getFirstName());
-//            this.lastName.setText(this.contact.getLastName());
+            this.contactInfoHeader.setEditable(this.editing);
 
             if (this.editing) {
-
+                this.contactInfoHeader.setFocus();
             } else {
 
             }
@@ -96,7 +89,10 @@ public class ContactCard extends CustomGrid {
     }
 
     public void edit(MouseEvent mouseEvent) {
-        this.editing = !this.editing;
+        if (this.contactInfoHeader.isValid() && this.editing)
+            this.editing = false;
+        else
+            this.editing = true;
         this.refresh();
     }
 
@@ -105,5 +101,13 @@ public class ContactCard extends CustomGrid {
         this.contactFieldsList.setContact(contact);
         this.contactInfoHeader.setContact(contact);
         this.refresh();
+    }
+
+    public boolean isValid() {
+        return this.contactInfoHeader.isValid();
+    }
+
+    public boolean isEmpty() {
+        return this.contact == null;
     }
 }

@@ -15,3 +15,7 @@
 .hidden {
     -fx-opacity: 0;
 }
+
+.WindowTitleBar {
+    /*-fx-background-color: red;*/
+}

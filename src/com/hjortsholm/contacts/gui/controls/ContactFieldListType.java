@@ -4,16 +4,10 @@ import com.hjortsholm.contacts.gui.parents.CustomGrid;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.Field;
 import com.hjortsholm.contacts.models.FieldType;
-import javafx.beans.value.ChangeListener;
-import javafx.event.EventHandler;
 import javafx.scene.control.Separator;
 
-import java.awt.event.KeyEvent;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Observable;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 public class ContactFieldListType extends CustomGrid {
 

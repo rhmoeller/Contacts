@@ -85,14 +85,21 @@ public class ContactNavigation extends CustomGrid {
     }
 
     public void onTabSelected(ContactNavigationTab navigationTab) {
-        if (navigationTab.equals(selectedNavigationTab))
+        if (this.onTabSelectedEvent != null && navigationTab != null)
+            this.onTabSelectedEvent.accept(navigationTab);
+    }
+
+    public void setSelected(ContactNavigationTab navigationTab) {
+        if (navigationTab.equals(this.selectedNavigationTab)) {
             return;
-        else if (this.selectedNavigationTab != null)
+        }
+
+        if (this.selectedNavigationTab != null) {
             this.selectedNavigationTab.toggleSelected();
+        }
         this.selectedNavigationTab = navigationTab;
         this.selectedNavigationTab.toggleSelected();
-        if (this.onTabSelectedEvent != null)
-            this.onTabSelectedEvent.accept(this.selectedNavigationTab);
+
     }
 
     public void setOnTabSelectedEvent(Consumer<ContactNavigationTab> onTabSelectedEvent) {

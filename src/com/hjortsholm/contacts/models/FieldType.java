@@ -33,15 +33,11 @@ public enum FieldType {
     }
 
     public String getDefaultName() {
-        return StringUtils.formalise(this.defaultName);
+        return this.defaultName;
     }
 
     public int getIndex() {
         return this.index;
-    }
-
-    public String getName() {
-        return StringUtils.formalise(this.name());
     }
 
     static {

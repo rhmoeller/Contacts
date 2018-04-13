@@ -39,13 +39,13 @@ public class Contact {
                 .toString()).size() > 0;
     }
 
-    public void valueMatch(String... values) {
-        Query query = new Query();
-//                .select("COUNT(contact)")
-//                .from(Field.class)
-//                .where("contact = \""+getId()+"\"");
-////                .and();
-    }
+//    public void valueMatch(String... values) {
+//        Query query = new Query();
+////                .select("COUNT(contact)")
+////                .from(Field.class)
+////                .where("contact = \""+getId()+"\"");
+//////                .and();
+//    }
 
 
     public void setField(Field field) {
@@ -83,13 +83,12 @@ public class Contact {
                         FieldType.valueOf((int) result.getColumn("type")),
                         (String) result.getColumn("name"),
                         (String) result.getColumn("value")):
-                new Field(id,type,name);
+                new Field(id,this.id,type,name,"");
     }
 
 
     public ArrayList<Field> getFieldsOfType(FieldType type) {
         ArrayList<Field> fields = new ArrayList<>();
-        System.out.println(type.getIndex());
         QuerySet result = Database.get(new Query()
                 .select("id, name, value")
                 .from(Field.class)
@@ -102,18 +101,18 @@ public class Contact {
         return fields;
     }
 
-    public ArrayList<FieldType> getFieldTypes() {
-        ArrayList<FieldType> fieldTypes = new ArrayList<>();
-        QuerySet result = Database.get(new Query()
-                .select("DISTINCT type")
-                .from("Field")
-                .where("contact = \"" + getId() + "\"")
-                .toString());
-        for (QueryRow row : result) {
-            fieldTypes.add(FieldType.valueOf((int) row.getColumn("type")));
-        }
-        return fieldTypes;
-    }
+//    public ArrayList<FieldType> getFieldTypes() {
+//        ArrayList<FieldType> fieldTypes = new ArrayList<>();
+//        QuerySet result = Database.get(new Query()
+//                .select("DISTINCT type")
+//                .from("Field")
+//                .where("contact = \"" + getId() + "\"")
+//                .toString());
+//        for (QueryRow row : result) {
+//            fieldTypes.add(FieldType.valueOf((int) row.getColumn("type")));
+//        }
+//        return fieldTypes;
+//    }
 
     public ArrayList<FieldType> getAllFieldTypes() {
         ArrayList<FieldType> fieldTypes = new ArrayList<>();

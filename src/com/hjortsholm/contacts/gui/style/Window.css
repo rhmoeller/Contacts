@@ -2,6 +2,8 @@
     -fx-background-color: white;
     -fx-background-radius: 5px;
     -fx-border-width: 1px;
+    -fx-border-color: #cecece;
+    -fx-border-radius: 5px;
 }
 
 .Window {

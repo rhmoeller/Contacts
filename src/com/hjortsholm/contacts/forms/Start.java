@@ -50,14 +50,8 @@ public class Start extends Window {
 
     @Override
     public void init() {
-        contacts = new ContactList();
-
-//        QuerySet set = Database.get(new Query()
-//                .select("Contact.id id, Field.value, Field.name, FieldType.id type")
-//                .from("Contact, Field, FieldType")
-//                .where("Contact.id = Field.contact")
-//                .and("Field.type = FieldType.id")
-//                .toString());
+        initialiseComponents();
+        this.contacts = new ContactList();
         QuerySet set = Database.get(new Query()
                 .select("id")
                 .from("Contact")
@@ -65,30 +59,43 @@ public class Start extends Window {
 
         for (QueryRow row : set) {
             Contact contact = new Contact((int) row.getColumn("id"));
-            if (!contacts.contactExists(contact)) {
-                contacts.addContact(contact);
+            if (!this.contacts.contactExists(contact)) {
+                this.contacts.addContact(contact);
             }
         }
 
         CustomGrid container = new CustomGrid();
-        contactNavigation = new ContactNavigation();
-        titleBar = new WindowTitleBar(this::onWindowExit, this::onWindowMinimise);
-        contactCard = new ContactCard();
+        this.contactNavigation = new ContactNavigation();
+        this.titleBar = new WindowTitleBar(this::onWindowExit, this::onWindowMinimise);
+        this.contactCard = new ContactCard();
         CustomSeperator verticalSeperator = new CustomSeperator();
         verticalSeperator.setOrientation(Orientation.VERTICAL);
-        Style.addStyleClass(verticalSeperator,"vr");
+        Style.addStyleClass(verticalSeperator, "vr");
 
-        contactNavigation.setContacts(contacts.getContacts());
-        contactNavigation.setOnTabSelectedEvent(this::onTabChanged);
-        contactNavigation.setOnSearch(this::onSearch);
-        container.addColumn(contactNavigation);
+        this.contactCard.setOnNewContact(contact -> this.contactCard.setContact(contact));
+        this.contactCard.setOnContactDelete(contact -> {
+            this.contacts.remove(contact);
+            this.contactNavigation.setContacts(this.contacts.getContacts());
+        });
+        this.contactCard.setOnContactSave(contact -> {
+            this.contacts.addContact(contact);
+            this.contactNavigation.setContacts(this.contacts.getContacts());
+        });
+
+        this.contactNavigation.setContacts(contacts.getContacts());
+        this.contactNavigation.setOnTabSelectedEvent(this::onTabChanged);
+        this.contactNavigation.setOnSearch(this::onSearch);
+        container.addColumn(this.contactNavigation);
         container.addColumn(verticalSeperator);
-        container.addColumn(contactCard);
-        super.init(titleBar, container);
+        container.addColumn(this.contactCard);
+//        super.init(this.titleBar, container);
+        this.getWindow().addRow(this.titleBar);
+        this.getWindow().addRow(container);
     }
 
     private void onSearch(String[] keyWords) {
-        contactNavigation.setContacts(contacts.getContactsWith(keyWords));
+        System.out.println(keyWords);
+        this.contactNavigation.setContacts(contacts.getContactsWith(keyWords));
     }
 
 
@@ -99,6 +106,8 @@ public class Start extends Window {
         } else if (!this.contactCard.getContact().equals(navigationTab.getContact()) && this.contactCard.isValid()) {
             this.contactCard.setContact(navigationTab.getContact());
             this.contactNavigation.setSelected(navigationTab);
+            this.contactCard.setEditable(!this.contactCard.isValid() || this.contactCard.isEditable());
         }
     }
 }
+

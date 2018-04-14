@@ -11,7 +11,10 @@ import java.util.function.Consumer;
 public class EditableLabel extends TextField {
 
     //    private String promptText;
+    private MyEventHandler<String, Field> onTextFieldChanged;
     private Consumer<String> onTextChanged;
+    private String promptText;
+    private Field field;
 
     public EditableLabel() {
         this("", "", true);
@@ -28,8 +31,9 @@ public class EditableLabel extends TextField {
     public EditableLabel(String text, String prompt, boolean responsive) {
         this.setResponsive(responsive);
         this.setEditable(false);
-        this.setPromptText(prompt);
+        this.setPrompt(prompt);
         this.setText(text);
+
         this.textProperty().addListener(observable -> {
             if (this.onTextChanged != null)
                 this.onTextChanged.accept(this.getText());
@@ -60,34 +64,58 @@ public class EditableLabel extends TextField {
         }
     }
 
-
-    private void setToMinimumWidth(Observable observable) {
-        Text textHelper = new Text();
-        textHelper.setText(this.getText().isEmpty() || this.getText().length() < this.getPromptText().length() ? this.getPromptText() : this.getText());
-        textHelper.setFont(this.getFont());
-        textHelper.setWrappingWidth(0);
-        textHelper.setLineSpacing(0);
-        double minimumWidth = Math.min(textHelper.prefWidth(-1), 0);
-        textHelper.setWrappingWidth(Math.ceil(minimumWidth));
-        this.setPrefWidth(Math.ceil(textHelper.getLayoutBounds().getWidth()) + 20);
+    public void setPrompt(String promptText) {
+        this.promptText = promptText;
+        this.enablePromptText(true);
     }
 
-//    public void setPrompt(String promptText) {
-//        this.setPromptText(promptText);
-//        this.promptText = promptText;
-//    }
+    public void enablePromptText(boolean enabled) {
+        if (enabled) {
+            this.setPromptText(this.promptText);
+        } else {
+            this.setPromptText("");
+        }
+    }
+
+    public void setToMinimumWidth(Observable observable) {
+        Text helper = new Text();
+        helper.setText(this.getText().isEmpty() || this.getText().length() < this.getPromptText().length() ? this.getPromptText() : this.getText());
+        helper.setFont(this.getFont());
+        helper.setWrappingWidth(0);
+        helper.setLineSpacing(0);
+        helper.setWrappingWidth(Math.ceil(Math.min(helper.prefWidth(-1), 0)));
+        this.setPrefWidth(Math.ceil(helper.getLayoutBounds().getWidth()) + 20);
+    }
+
+    public Field getField() {
+        return this.field;
+    }
 
     public void setField(Field field) {
+        this.field = field;
+        this.setPrompt(field.getName().isEmpty() ? field.getType().name().toLowerCase() : field.getName());
         this.setText(field.getValue());
-        this.setPromptText(field.getName());
+        this.setOnTextChanged(text -> {
+            if (this.onTextFieldChanged != null)
+                this.onTextFieldChanged.accept(text, this.field);
+        });
     }
 
     public void setOnTextChanged(Consumer<String> onTextChanged) {
         this.onTextChanged = onTextChanged;
     }
 
+    public void setOnTextFieldChanged(MyEventHandler<String, Field> onTextFieldChanged) {
+        this.onTextFieldChanged = onTextFieldChanged;
+    }
+
     @Override
     public String toString() {
         return this.getText().isEmpty() ? this.getPromptText() : this.getText();
+    }
+
+    @FunctionalInterface
+    public interface MyEventHandler<A, B> {
+        void accept(A a, B b);
     }
 }

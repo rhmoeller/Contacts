@@ -50,3 +50,19 @@
     -fx-cursor: text;
 
 }
+
+
+.ContactInfoHeader {
+    -fx-padding: 5 20;
+}
+
+.ContactInfoHeader .EditableLabel {
+    -fx-font-size: 18;
+}
+
+.ContactInfoHeader .nick {
+    -fx-font-size: 14;
+}
+
+/*.ContactInfoHeader .first,*/
+/*.ContactInfoHeader .*/

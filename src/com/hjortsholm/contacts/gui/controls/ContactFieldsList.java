@@ -13,13 +13,16 @@ public class ContactFieldsList extends CustomGrid {
 
     public ContactFieldsList() {
         initialiseComponent();
+        this.contactFieldsLists = new ArrayList<>();
         this.setPrefWidth(Application.getWindowWidth()-180);
     }
 
     public void setContact(Contact contact) {
         this.clear();
         contactFieldsLists = new ArrayList<>();
-        for (FieldType fieldType : contact.getAllFieldTypes()) {
+//        for (FieldType fieldType : contact.getAllFieldTypes()) {
+        for (int i = 0; i < FieldType.values().length; i++) {
+            FieldType fieldType = FieldType.valueOf(i);
             if (fieldType != FieldType.NAME) {
                 ContactFieldListType fieldList = new ContactFieldListType(contact, fieldType);
                 contactFieldsLists.add(fieldList);

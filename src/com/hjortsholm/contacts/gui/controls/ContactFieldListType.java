@@ -12,6 +12,7 @@ import java.util.function.Consumer;
 public class ContactFieldListType extends CustomGrid {
 
     private Separator seperator;
+    private CustomGrid container;
     private ArrayList<ContactFieldRow> contactFieldRows;
     private boolean isEditable;
     private int contact;
@@ -19,16 +20,19 @@ public class ContactFieldListType extends CustomGrid {
 
     public ContactFieldListType(Contact contact, FieldType type) {
         initialiseComponent();
+        this.container = new CustomGrid();
         this.contact = contact.getId();
         this.type = type;
         this.contactFieldRows = new ArrayList<>();
         this.seperator = new Separator();
-        this.addRow(seperator);
+
         for (Field field : contact.getFieldsOfType(type)) {
             ContactFieldRow row = this.createRow(field);
             this.contactFieldRows.add(row);
-            this.addRow(row);
+            this.container.addRow(row);
         }
+        this.addRow(this.seperator);
+        this.addRow(this.container);
         this.setEditable(false);
         this.refreshSeperator();
 
@@ -68,13 +72,13 @@ public class ContactFieldListType extends CustomGrid {
         });
         newFieldRow.setEditable(true);
         this.contactFieldRows.add(newFieldRow);
-        this.addRow(newFieldRow);
+        this.container.addRow(newFieldRow);
     }
 
     private void deleteRow(ContactFieldRow row) {
         row.getField().delete();
         this.contactFieldRows.remove(row);
-        this.remove(row);
+        this.container.remove(row);
     }
 
     private ContactFieldRow createRow(Field field) {

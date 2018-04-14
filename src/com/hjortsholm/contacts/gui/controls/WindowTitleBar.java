@@ -21,7 +21,6 @@ public class WindowTitleBar extends CustomGrid {
         Label appTitle = new Label(Application.getTitle());
 
         appTitle.setAlignment(Pos.BOTTOM_CENTER);
-//        Anchor.anchorAll(appTitle, 0);
         appTitle.setPrefWidth(Application.getWindowWidth());
         exitButton.setOnMouseClicked(onWindowExit);
         minimiseButton.setOnMouseClicked(onWindowMinimise);
@@ -32,8 +31,8 @@ public class WindowTitleBar extends CustomGrid {
         systemButtons.addColumn(minimiseButton);
         systemButtons.addColumn(new Spacer(30, 1));
 
-        container.getChildren().add(systemButtons);
         container.getChildren().add(appTitle);
+        container.getChildren().add(systemButtons);
         this.addRow(container);
     }
 }

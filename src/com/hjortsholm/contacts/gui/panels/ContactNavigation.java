@@ -11,10 +11,7 @@ import com.hjortsholm.contacts.models.Contact;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class ContactNavigation extends CustomGrid {
@@ -65,21 +62,24 @@ public class ContactNavigation extends CustomGrid {
         HashMap<Character, ArrayList<Contact>> contactsCategorised = new HashMap<>();
         this.contactNavigation.clear();
         for (Contact contact : contacts) {
-            char initialLetter = contact.getFirstName().getValue().charAt(0);
-            if (!contactsCategorised.keySet().contains(initialLetter)) {
-                ArrayList<Contact> contactsByInitialLetter = new ArrayList<>();
-                contactsByInitialLetter.add(contact);
-                contactsCategorised.put(initialLetter, contactsByInitialLetter);
-            } else {
-                contactsCategorised.get(initialLetter).add(contact);
+            if (contact.exists()) {
+                char initialLetter = contact.getDisplayTitle().charAt(0);
+                if (!contactsCategorised.keySet().contains(initialLetter)) {
+                    ArrayList<Contact> contactsByInitialLetter = new ArrayList<>();
+                    contactsByInitialLetter.add(contact);
+                    contactsCategorised.put(initialLetter, contactsByInitialLetter);
+                } else {
+                    contactsCategorised.get(initialLetter).add(contact);
+                }
             }
         }
-
-        for (Map.Entry category : contactsCategorised.entrySet()) {
+        List<Character> indexSorted = new ArrayList<>(contactsCategorised.keySet());
+        Collections.sort(indexSorted, Character::compareTo);
+        for (char index : indexSorted) {
             this.contactNavigation.addRow(
                     new CategorisedListView(
-                            category.getKey().toString(),
-                            (ArrayList<Contact>) category.getValue(),
+                            Character.toString(index),
+                            contactsCategorised.get(index),
                             this::onTabSelected));
         }
     }
@@ -88,6 +88,10 @@ public class ContactNavigation extends CustomGrid {
         if (this.onTabSelectedEvent != null && navigationTab != null)
             this.onTabSelectedEvent.accept(navigationTab);
     }
+
+//    public void setSelected(Contact contact) {
+//        for ()
+//    }
 
     public void setSelected(ContactNavigationTab navigationTab) {
         if (navigationTab.equals(this.selectedNavigationTab)) {

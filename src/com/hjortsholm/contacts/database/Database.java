@@ -167,11 +167,12 @@ public class Database {
         String sql = "CREATE TABLE " + table + " (\n";
         for (int i = 0; i < fields.size(); i++) {
             TableField field = fields.get(i);
-            sql += String.format("\t%s\t%s\t%s\t%s\t%s%s\n",
+            sql += String.format("\t%s\t%s\t%s\t%s\t%s\t%s%s\n",
                     field.name(),
                     field.type(),
                     field.primaryKey() ? "PRIMARY KEY" : "",
                     field.isNullable() ? "" : "NOT NULL",
+                    field.autoincrement() ? "AUTOINCREMENT" : "",
                     field.defaultValue().isEmpty() ? "" : "DEFAULT " + field.defaultValue(),
                     i + 1 < fields.size() ? "," : ""
             );

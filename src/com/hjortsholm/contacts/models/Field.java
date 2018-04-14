@@ -32,11 +32,12 @@ public class Field {
         this.name = name;
         this.value = value;
         this.contact = contact;
+//        System.out.println(this);
     }
 
     public boolean exists() {
         if (this.id != -1)
-            return Database.get(new Query().select("id").from("Field").where("id = " + this.id).toString()).size() > 0;
+            return Database.get(new Query().select("id id").from("Field").where("id = " + this.id).toString()).size() > 0;
         else
             return false;
     }
@@ -107,11 +108,7 @@ public class Field {
     }
 
     public int getId() {
-//        if (id == -1) {
-//            return this.getNewId();
-//        } else {
         return this.id;
-//        }
     }
 
     public boolean isEmpty() {

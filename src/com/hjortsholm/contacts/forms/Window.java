@@ -13,11 +13,11 @@ public abstract class Window extends Application {
     private CustomGrid window;
     private Stage stage;
 
-    public void init(Node... nodes) {
+    public void initialiseComponents(/*Node... nodes*/) {
         this.window = new CustomGrid("Window");
 //        this.window.initialiseComponent("");
-        for (Node node : nodes)
-            this.window.addRow(node);
+        /*for (Node node : nodes)
+            this.window.addRow(node);*/
     }
 
     public CustomGrid getWindow() {

@@ -25,24 +25,29 @@ public class ContactFieldRow extends CustomGrid {
         initialiseComponent();
         this.isEditable = false;
         this.field = field;
+
         this.name = new EditableLabel(field.getName(), field.getType().getDefaultName(), false);
-        this.value = new EditableLabel(field.getValue(), field.getPrompt());
-        Style.addStyleClass(this.name, "name");
-        Style.addStyleClass(this.value, "value");
-        this.deleteRowButton = new Button("-");
-        this.deleteRowButton.setVisible(false);
-        this.value.setOnTextChanged(this::onTextChanged);
         this.name.setOnTextChanged(this::onTextChanged);
         this.name.setPrefWidth(70);
         this.name.setAlignment(Pos.BASELINE_RIGHT);
+        Style.addStyleClass(this.name, "name");
+
+        this.value = new EditableLabel(field.getValue(), field.getPrompt());
+        this.value.setOnTextChanged(this::onTextChanged);
+        Style.addStyleClass(this.value, "value");
+
+        this.deleteRowButton = new Button("-");
+        this.deleteRowButton.setVisible(false);
+        Style.addStyleClass(this.deleteRowButton,"row-delete");
+
         this.addColumn(this.deleteRowButton);
         this.addColumn(this.name);
         this.addColumn(this.value);
+
         this.setOnMouseClicked(event -> {
             if(this.isEditable)
                 this.value.requestFocus();
         });
-
         this.name.setOnMouseClicked(this::onTextFieldCopy);
         this.value.setOnMouseClicked(this::onTextFieldCopy);
     }
@@ -78,8 +83,9 @@ public class ContactFieldRow extends CustomGrid {
             this.field.setValue(this.value.getText());
 
         if (editable) {
-            this.name.setTooltip(null);
-            this.value.setTooltip(null);
+            this.name.setTooltip(new Tooltip("Click to edit"));
+            this.value.setTooltip(new Tooltip("Click to edit"));
+            this.deleteRowButton.setTooltip(new Tooltip("Delete row"));
         } else {
             this.name.setTooltip(new Tooltip("Click to copy"));
             this.value.setTooltip(new Tooltip("Click to copy"));

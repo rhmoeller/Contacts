@@ -23,6 +23,35 @@
 .system-button:hover {
     -fx-font-size: 100%;
     -fx-text-fill: #27272c;
+}
+
+.row-delete {
+    -fx-min-width: 13px;
+    -fx-max-width: 13px;
+    -fx-min-height: 13px;
+    -fx-max-height: 13px;
+    -fx-background-radius: 5em;
+
+    -fx-background-insets: 0;
+    -fx-text-fill: #919196;
+    -fx-font-size: 0%;
+    -fx-padding: 0;
+
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}
+
+.default-button {
+    -fx-border-color: #e4e4e4;
+    -fx-border-radius: .25em;
+    -fx-background-color: #ffffff;
+}
+
+.row-delete:hover,
+.system-button:hover,
+.default-button:hover {
     -fx-cursor: hand;
 }
+
+
 

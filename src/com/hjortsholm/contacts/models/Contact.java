@@ -3,7 +3,6 @@ package com.hjortsholm.contacts.models;
 import com.hjortsholm.contacts.database.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 @TableField(name = "id", type = "INTEGER", primaryKey = true)
 public class Contact {
@@ -11,9 +10,20 @@ public class Contact {
     private int id;
 
     public Contact(int id) {
-        this.id = id;
-//        this.setFirstName(this.getField(FieldType.NAME, "first"));
-//        this.setLastName(this.getField(FieldType.NAME, "last"));
+        if (id != -1) {
+            this.id = id;
+        } else {
+            Database.post(new Query()
+                    .insertInto("Contact")
+                    .defaultValues()
+                    .toString());
+            this.id = (int) Database.get(new Query()
+                    .select("id")
+                    .from("Contact")
+                    .toString())
+                    .last()
+                    .getColumn("id");
+        }
     }
 
 
@@ -21,35 +31,23 @@ public class Contact {
         return this.id;
     }
 
-//    public boolean hasField(FieldType type, String name) {
-//        return Database.get(new Query()
-//                .select("id")
-//                .from(Field.class)
-//                .where("contact = \"" + getId() + "\"")
-//                .and("value = \"" + value + "\"")
-//                .toString()).size() > 0;
-//    }
-
     public boolean hasValue(String value) {
-        return Database.get(new Query()
+        boolean foo = Database.get(new Query()
                 .select("id")
                 .from(Field.class)
-                .where("contact = \"" + getId() + "\"")
-                .and("value LIKE \"%" + value + "%\" --case-insensitive")
+                .where("contact = " + this.getId())
+                .and("value LIKE \"%" + value + "%\"")
                 .toString()).size() > 0;
+        System.out.println(this + " have" + (foo ? "" : "n't ") + " got " + value);
+        return foo;
     }
 
-//    public void valueMatch(String... values) {
-//        Query query = new Query();
-////                .select("COUNT(contact)")
-////                .from(Field.class)
-////                .where("contact = \""+getId()+"\"");
-//////                .and();
-//    }
-
-
-    public void setField(Field field) {
-//        this.getFieldsByType(field.getType()).put(field.getName(), field);
+    public boolean hasValues(String... values) {
+        for (String value : values) {
+            if (!this.hasValue(value))
+                return false;
+        }
+        return true;
     }
 
     public Field getFirstName() {
@@ -70,7 +68,7 @@ public class Contact {
         QueryRow result = Database.get(new Query()
                 .select("*")
                 .from(Field.class)
-                .where("contact = \"" + getId() + "\"")
+                .where("contact = \"" + this.getId() + "\"")
                 .and("type = " + type.getIndex())
                 .and("name = \"" + name + "\"")
                 .toString()).first();
@@ -82,8 +80,8 @@ public class Contact {
                         (int) result.getColumn("contact"),
                         FieldType.valueOf((int) result.getColumn("type")),
                         (String) result.getColumn("name"),
-                        (String) result.getColumn("value")):
-                new Field(id,this.id,type,name,"");
+                        (String) result.getColumn("value")) :
+                new Field(-1, this.id, type, name, "");
     }
 
 
@@ -101,41 +99,29 @@ public class Contact {
         return fields;
     }
 
-//    public ArrayList<FieldType> getFieldTypes() {
-//        ArrayList<FieldType> fieldTypes = new ArrayList<>();
-//        QuerySet result = Database.get(new Query()
-//                .select("DISTINCT type")
-//                .from("Field")
-//                .where("contact = \"" + getId() + "\"")
-//                .toString());
-//        for (QueryRow row : result) {
-//            fieldTypes.add(FieldType.valueOf((int) row.getColumn("type")));
-//        }
-//        return fieldTypes;
-//    }
-
-    public ArrayList<FieldType> getAllFieldTypes() {
-        ArrayList<FieldType> fieldTypes = new ArrayList<>();
-        QuerySet result = Database.get(new Query()
-                .select("*")
-                .from("FieldType")
-                .toString());
-
-        for (QueryRow row : result)
-            fieldTypes.add(FieldType.valueOf((int) row.getColumn("id")));
-        return fieldTypes;
+    public boolean exists() {
+        return Database.get(new Query().select("*").from("Contact").where("id = " + this.getId()).toString()).size() > 0;
     }
 
-    public ArrayList<Field> getAllFields() {
-        ArrayList<Field> fields = new ArrayList<>();
-        for (FieldType type : this.getAllFieldTypes()) {
-            fields.addAll(this.getFieldsOfType(type));
-        }
-        return fields;
+    public String getDisplayTitle() {
+        String displayTitle = null;
+        if (!this.getFirstName().isEmpty())
+            displayTitle = this.getFirstName().getValue();
+        else if (!this.getLastName().isEmpty())
+            displayTitle = this.getLastName().getValue();
+        else if (!this.getNickName().isEmpty())
+            displayTitle = this.getNickName().getValue();
+        return displayTitle;
+    }
+
+    public void delete() {
+        Database.post(new Query().deleteFrom("Field").where("contact = " + this.getId()).toString());
+        Database.post(new Query().deleteFrom("Contact").where("id = " + this.getId()).toString());
+        this.id = -1;
     }
 
     @Override
     public String toString() {
-        return "Contact" + Arrays.toString(this.getAllFields().toArray());
+        return "Contact[" + this.getId() + "]";
     }
 }

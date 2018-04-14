@@ -1,5 +1,8 @@
 package com.hjortsholm.contacts.models;
 
+import com.hjortsholm.contacts.database.Database;
+import com.hjortsholm.contacts.database.Query;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -17,9 +20,7 @@ public class ContactList {
     }
 
     public Collection<Contact> getContacts() {
-//        ArrayList<Contact> contactsBuffer = new ArrayList<>();
-//        contactsBuffer.addAll(this.contacts.values());
-        return this.contacts.values();/*contactsBuffer;*/
+        return this.contacts.values();
     }
 
     public Contact getContact(String id) {
@@ -30,22 +31,11 @@ public class ContactList {
         return this.contacts.containsValue(contact) || this.contacts.containsKey(contact.getId());
     }
 
-    public Collection<Integer> getContactIds() {
-        return contacts.keySet();
-    }
-
     public Collection<Contact> getContactsWith(String[] fieldValues) {
         Collection<Contact> relevantContacts = new ArrayList<>();
-        relevantContacts.addAll(this.getContacts());
-        if (fieldValues.length > 0) {
-            for (String fieldValue : fieldValues) {
-                for (Contact contact : relevantContacts) {
-                    if (!contact.hasValue(fieldValue)) {
-                        relevantContacts.remove(contact);
-                        break;
-                    }
-                }
-            }
+        for (Contact contact : this.getContacts()) {
+            if (contact.hasValues(fieldValues))
+                relevantContacts.add(contact);
         }
         return relevantContacts;
     }
@@ -56,18 +46,8 @@ public class ContactList {
         return "ContactList" + Arrays.toString(this.contacts.values().toArray());
     }
 
-//    public Addresee searchForContact(String searchWord) {
-//        // Just a random list for illustration
-//        ArrayList<Addresee> Addresees = new ArrayList<>();
-//        Addresees.add(new Addresee());
-//        Addresees.add(new Addresee());
-//
-//        // Search
-//        for (Addresee addresee:  Addresees) {
-//            if (addresee.hasValue(searchWord)) {
-//                return addresee;
-//            }
-//        }
-//        return null;
-//    }
+    public void remove(Contact contact) {
+        contact.delete();
+        this.contacts.remove(contact.getId());
+    }
 }

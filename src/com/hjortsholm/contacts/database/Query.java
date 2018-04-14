@@ -51,6 +51,10 @@ public class Query {
         return this.append(")");
     }
 
+    public Query defaultValues() {
+        return this.append("DEFAULT VALUES");
+    }
+
     public Query select(String what) {
         return this.append("SELECT", what);
     }
@@ -69,6 +73,10 @@ public class Query {
 
     public Query and(String condition) {
         return this.append("AND", condition);
+    }
+
+    public Query or(String condition) {
+        return this.append("OR", condition);
     }
 //
 //    public Query and(Me<Query, Query> condition) {

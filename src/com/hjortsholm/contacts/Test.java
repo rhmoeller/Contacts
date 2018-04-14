@@ -56,8 +56,8 @@ public class Test {
         Database.configure("contacts.db");
 
 
-        Contact contact = new Contact(2);
-        System.out.println(contact);
+        Contact contact = new Contact(1);
+        System.out.println(contact.hasValues("R","Mo"));
 
         Thread.sleep(1000);
 

@@ -1,13 +1,12 @@
 package com.hjortsholm.contacts.models;
 
 import com.hjortsholm.contacts.database.TableField;
-import com.hjortsholm.contacts.util.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
 
 
-@TableField(name = "id", type = "INTEGER", primaryKey = true)
+@TableField(name = "id", type = "INTEGER", primaryKey = true, autoincrement = true)
 //@TableField(name = "name", type = "VARCHAR", isNullable = false)
 //@TableField(name = "prompt", type = "VARCHAR", isNullable = false)
 public enum FieldType {
@@ -19,7 +18,6 @@ public enum FieldType {
     NOTE("note");
 
     private static int defaultIndex = 0;
-    private static Map map = new HashMap<>();
     private int index;
     private String defaultName;
 
@@ -32,22 +30,16 @@ public enum FieldType {
         return defaultIndex++;
     }
 
+    public static FieldType valueOf(int fieldType) {
+        return FieldType.values()[fieldType];
+    }
+
     public String getDefaultName() {
         return this.defaultName;
     }
 
     public int getIndex() {
         return this.index;
-    }
-
-    static {
-        for (FieldType FieldType : FieldType.values()) {
-            map.put(FieldType.index, FieldType);
-        }
-    }
-
-    public static FieldType valueOf(int fieldType) {
-        return (FieldType) map.get(fieldType);
     }
 
 }

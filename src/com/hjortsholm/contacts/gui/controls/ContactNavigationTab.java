@@ -7,7 +7,6 @@ import javafx.scene.control.Label;
 import java.util.function.Consumer;
 
 public class ContactNavigationTab extends CustomGrid {
-    private static int number = 1;
 
     private boolean selected;
     private Contact contact;

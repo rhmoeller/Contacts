@@ -20,6 +20,7 @@ public class ContactNavigation extends CustomGrid {
     private Consumer<ContactNavigationTab> onTabSelectedEvent;
 
     private CustomGrid contactNavigation;
+    private ArrayList<CategorisedListView> listViews;
 
     private TextField searchField;
     private Consumer<String[]> onSearch;
@@ -60,27 +61,37 @@ public class ContactNavigation extends CustomGrid {
 
     public void setContacts(Collection<Contact> contacts) {
         HashMap<Character, ArrayList<Contact>> contactsCategorised = new HashMap<>();
+        this.listViews = new ArrayList<>();
         this.contactNavigation.clear();
         for (Contact contact : contacts) {
+            if (!contact.isValid()) {
+                contact.delete();
+            }
+
             if (contact.exists()) {
-                char initialLetter = contact.getDisplayTitle().charAt(0);
-                if (!contactsCategorised.keySet().contains(initialLetter)) {
-                    ArrayList<Contact> contactsByInitialLetter = new ArrayList<>();
-                    contactsByInitialLetter.add(contact);
-                    contactsCategorised.put(initialLetter, contactsByInitialLetter);
-                } else {
-                    contactsCategorised.get(initialLetter).add(contact);
+                try {
+                    char initialLetter = contact.getDisplayTitle().charAt(0);
+                    if (!contactsCategorised.keySet().contains(initialLetter)) {
+                        ArrayList<Contact> contactsByInitialLetter = new ArrayList<>();
+                        contactsByInitialLetter.add(contact);
+                        contactsCategorised.put(initialLetter, contactsByInitialLetter);
+                    } else {
+                        contactsCategorised.get(initialLetter).add(contact);
+                    }
+                } catch (Exception ex) {
+                    System.err.println("[ERROR]: "+ ex.getMessage());
                 }
             }
         }
         List<Character> indexSorted = new ArrayList<>(contactsCategorised.keySet());
         Collections.sort(indexSorted, Character::compareTo);
         for (char index : indexSorted) {
-            this.contactNavigation.addRow(
-                    new CategorisedListView(
-                            Character.toString(index),
-                            contactsCategorised.get(index),
-                            this::onTabSelected));
+            CategorisedListView listView = new CategorisedListView(
+                    Character.toString(index),
+                    contactsCategorised.get(index),
+                    this::onTabSelected);
+            this.listViews.add(listView);
+            this.contactNavigation.addRow(listView);
         }
     }
 
@@ -89,15 +100,27 @@ public class ContactNavigation extends CustomGrid {
             this.onTabSelectedEvent.accept(navigationTab);
     }
 
-//    public void setSelected(Contact contact) {
-//        for ()
-//    }
+    public void setSelected(Contact contact) {
+        System.out.println("selecting : " + contact);
+        for (CategorisedListView listView : this.listViews) {
+            System.out.println("listView : " + listView);
+
+            for (ContactNavigationTab navigationTab : listView.getNavigationTabs()) {
+                System.out.println("navTab : " + listView.getNavigationTabs());
+
+                if (contact.getId() == navigationTab.getContact().getId()) {
+                    System.out.println("selected : " + navigationTab.getContact().getId());
+
+                    this.setSelected(navigationTab);
+                }
+            }
+        }
+    }
 
     public void setSelected(ContactNavigationTab navigationTab) {
         if (navigationTab.equals(this.selectedNavigationTab)) {
             return;
         }
-
         if (this.selectedNavigationTab != null) {
             this.selectedNavigationTab.toggleSelected();
         }

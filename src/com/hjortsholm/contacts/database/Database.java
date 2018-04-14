@@ -3,7 +3,6 @@ package com.hjortsholm.contacts.database;
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.function.Consumer;
 
 public class Database {
     private static final String JDBC = "jdbc:sqlite:";
@@ -40,6 +39,10 @@ public class Database {
         }
     }
 
+    public static QuerySet get(Query query) {
+        return Database.get(query.toString());
+    }
+
     public static QuerySet get(String query) {
         try {
             if (connection == null) throw new Exception("No connection");
@@ -56,13 +59,21 @@ public class Database {
         }
     }
 
+    public static boolean post(Query query) {
+        return Database.post(query.toString(), null);
+    }
+
+    public static boolean post(Query query, Object... data) {
+        return Database.post(query.toString(), data);
+    }
+
     public static boolean post(String query) {
-        return Database.post(query,null);
+        return Database.post(query, null);
     }
 
     public static boolean post(String query, Object... data) {
         try {
-            PreparedStatement statement = Database.connection.prepareStatement(query/*+";"*/);
+            PreparedStatement statement = Database.connection.prepareStatement(query);
             statement.setQueryTimeout(Database.timeout);
             if (data != null)
                 for (int i = 0; i < data.length; i++)
@@ -76,9 +87,9 @@ public class Database {
         }
     }
 
-    public boolean close() {
+    public static boolean close() {
         try {
-            this.connection.close();
+            Database.connection.close();
             return true;
         } catch (SQLException exception) {
             System.err.println("[ERROR]: " + exception);
@@ -95,14 +106,14 @@ public class Database {
         return false;
     }
 
-    public String getPath() {
-        return this.path;
+    public static String getPath() {
+        return Database.path;
     }
 
-    public boolean isValid() {
+    public static boolean isValid() {
         try {
-            File databaseFile = new File(this.path);
-            if (databaseFile.exists() && this.connection.isValid(30))
+            File databaseFile = new File(Database.getPath());
+            if (databaseFile.exists() && Database.connection.isValid(30))
                 return true;
         } catch (SQLException exception) {
             System.err.println("[ERRROR]: " + exception);
@@ -110,49 +121,6 @@ public class Database {
         return false;
 
     }
-
-//    public boolean get(String query, Consumer<QueryRow> success) {
-//        return this.get(query, success, null);
-//    }
-//
-//    public boolean get(String query, Consumer<QueryRow> success, Consumer<SQLException> failed) {
-//        try {
-//            if (connection == null) return false;
-//            if (connection.isClosed()) return false;
-//            Statement statement = this.connection.createStatement();
-//            statement.setQueryTimeout(this.timeout);
-//            ResultSet results = statement.executeQuery(query);
-//            if (success != null)
-//                while (results.next())
-//                    success.accept(new QueryRow(results));
-//            return true;
-//        } catch (SQLException exception) {
-//            System.err.println("[ERROR]: " + query);
-//            if (failed != null)
-//                failed.accept(exception);
-//            return false;
-//        }
-//    }
-
-//    public boolean post(String query) {
-//        return this.post(query, null);
-//    }
-
-//    public boolean post(String query, Object... data) {
-//        try {
-//            PreparedStatement statement = this.connection.prepareStatement(query/*+";"*/);
-//            statement.setQueryTimeout(this.timeout);
-//            if (data != null)
-//                for (int i = 0; i < data.length; i++)
-//                    statement.setObject(i + 1, data[i]);
-//            statement.executeUpdate();
-//            statement.close();
-//            return true;
-//        } catch (SQLException exception) {
-//            System.err.println("[ERROR]: " + query);
-//            return false;
-//        }
-//    }
 
     public static boolean createTable(Class dataModel) {
         return Database.createTable(dataModel.getSimpleName(), dataModel);
@@ -186,7 +154,7 @@ public class Database {
     }
 
     public static boolean dropTable(String table) {
-        return Database.post("DROP TABLE " + table);
+        return Database.post(new Query().drop(table).toString());
     }
 
     public static boolean verifyTable(Class dataModel) {
@@ -195,7 +163,7 @@ public class Database {
 
     public static boolean verifyTable(String table, Class dataModel) {
         TableField[] fields = (TableField[]) dataModel.getDeclaredAnnotationsByType(TableField.class);
-        ArrayList<QueryRow> tableFields = Database.get("PRAGMA table_info(" + table + ")");
+        ArrayList<QueryRow> tableFields = Database.get(new Query().getInfo(table).toString());
         ArrayList<QueryRow> iterableFields = (ArrayList<QueryRow>) tableFields.clone();
         ArrayList<QueryRow> verifiedField = new ArrayList<>();
 
@@ -203,7 +171,6 @@ public class Database {
             return false;
         }
 
-//        iterableFields =
         for (TableField modelField : fields) {
             for (QueryRow tableField : iterableFields) {
                 if (modelField.type().equalsIgnoreCase((String) tableField.getColumn("type")) &&
@@ -215,10 +182,7 @@ public class Database {
                     break;
                 }
             }
-
-
         }
-
         return tableFields.equals(verifiedField);
     }
 

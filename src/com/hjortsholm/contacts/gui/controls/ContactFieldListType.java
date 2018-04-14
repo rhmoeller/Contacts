@@ -25,7 +25,6 @@ public class ContactFieldListType extends CustomGrid {
         this.type = type;
         this.contactFieldRows = new ArrayList<>();
         this.seperator = new Separator();
-
         for (Field field : contact.getFieldsOfType(type)) {
             ContactFieldRow row = this.createRow(field);
             this.contactFieldRows.add(row);
@@ -36,6 +35,14 @@ public class ContactFieldListType extends CustomGrid {
         this.setEditable(false);
         this.refreshSeperator();
 
+    }
+
+    public void add(ContactFieldRow row) {
+        this.container.addRow(row);
+    }
+
+    public FieldType getType() {
+        return this.type;
     }
 
     public void setEditable(boolean editable) {

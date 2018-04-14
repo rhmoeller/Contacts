@@ -1,19 +1,9 @@
 .ContactCard {
-    /*-fx-background-color: blue;*/
-    /*-fx-border-color: cyan;*/
+
 }
-
-/*.EditableLabel {*/
-/*-fx-padding: 2px 5px;*/
-/*-fx-background-color: transparent;*/
-/*-fx-border-color: transparent;*/
-/*-fx-border-radius: 5px;*/
-
-/*}*/
 
 .ContactFieldsList {
     -fx-padding: 10 20;
-    /*-fx-background-color: #999;*/
 }
 
 .ContactFieldsList .ContactFieldRow {
@@ -64,5 +54,10 @@
     -fx-font-size: 14;
 }
 
-/*.ContactInfoHeader .first,*/
-/*.ContactInfoHeader .*/
+.menu-button > .arrow-button {
+    -fx-padding: 0;
+}
+
+.menu-button > .arrow-button > .arrow {
+    -fx-padding: 0;
+}

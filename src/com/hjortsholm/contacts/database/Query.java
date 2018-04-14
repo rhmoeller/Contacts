@@ -22,6 +22,17 @@ public class Query {
         return this;
     }
 
+    public Query drop(String table) {
+        this.query = "DROP TABLE "+ table;
+        return this;
+    }
+
+    public Query getInfo(String table) {
+        this.query = "PRAGMA table_info(" + table+")";
+        return this;
+    }
+
+
     public Query deleteFrom(String table) {
         return this.append("DELETE FROM",table);
     }
@@ -54,6 +65,11 @@ public class Query {
     public Query defaultValues() {
         return this.append("DEFAULT VALUES");
     }
+
+    public Query select() {
+        return this.select("*");
+    }
+
 
     public Query select(String what) {
         return this.append("SELECT", what);

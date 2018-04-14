@@ -23,7 +23,7 @@ public class ContactList {
         return this.contacts.values();
     }
 
-    public Contact getContact(String id) {
+    public Contact getContact(int id) {
         return this.contacts.get(id);
     }
 

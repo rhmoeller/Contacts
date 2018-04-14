@@ -2,6 +2,7 @@ package com.hjortsholm.contacts.gui.controls;
 
 import com.hjortsholm.contacts.gui.util.Style;
 import com.hjortsholm.contacts.models.Field;
+import javafx.application.Platform;
 import javafx.beans.Observable;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -10,19 +11,18 @@ import java.util.function.Consumer;
 
 public class EditableLabel extends TextField {
 
-    //    private String promptText;
     private MyEventHandler<String, Field> onTextFieldChanged;
     private Consumer<String> onTextChanged;
     private String promptText;
     private Field field;
 
-    public EditableLabel() {
-        this("", "", true);
-    }
-
-    public EditableLabel(String text) {
-        this(text, "", true);
-    }
+//    public EditableLabel() {
+//        this("", "", true);
+//    }
+//
+//    public EditableLabel(String text) {
+//        this(text, "", true);
+//    }
 
     public EditableLabel(String text, String prompt) {
         this(text, prompt, true);
@@ -37,6 +37,8 @@ public class EditableLabel extends TextField {
         this.textProperty().addListener(observable -> {
             if (this.onTextChanged != null)
                 this.onTextChanged.accept(this.getText());
+            if (this.onTextFieldChanged != null && this.field != null)
+                this.onTextFieldChanged.accept(this.getText(), this.field);
         });
 
         Style.addStylesheet(this, "TextFields");
@@ -51,9 +53,9 @@ public class EditableLabel extends TextField {
         }
     }
 
-    public void toggleEdit() {
-        this.setEdit(!this.isEditable());
-    }
+//    public void toggleEdit() {
+//        this.setEdit(!this.isEditable());
+//    }
 
     public void setEdit(boolean editable) {
         this.setEditable(editable);
@@ -95,10 +97,10 @@ public class EditableLabel extends TextField {
         this.field = field;
         this.setPrompt(field.getName().isEmpty() ? field.getType().name().toLowerCase() : field.getName());
         this.setText(field.getValue());
-        this.setOnTextChanged(text -> {
-            if (this.onTextFieldChanged != null)
-                this.onTextFieldChanged.accept(text, this.field);
-        });
+//        this.setOnTextChanged(text -> {
+//            if (this.onTextFieldChanged != null)
+//                this.onTextFieldChanged.accept(text, this.field);
+//        });
     }
 
     public void setOnTextChanged(Consumer<String> onTextChanged) {
@@ -107,6 +109,15 @@ public class EditableLabel extends TextField {
 
     public void setOnTextFieldChanged(MyEventHandler<String, Field> onTextFieldChanged) {
         this.onTextFieldChanged = onTextFieldChanged;
+    }
+
+    public void setFocus() {
+        Platform.runLater(() -> {
+            if (!this.isFocused()) {
+                this.requestFocus();
+                this.setFocus();
+            }
+        });
     }
 
     @Override

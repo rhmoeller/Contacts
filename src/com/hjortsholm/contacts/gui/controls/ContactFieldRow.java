@@ -7,7 +7,6 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -32,21 +31,27 @@ public class ContactFieldRow extends CustomGrid {
         this.name.setAlignment(Pos.BASELINE_RIGHT);
         Style.addStyleClass(this.name, "name");
 
-        this.value = new EditableLabel(field.getValue(), field.getPrompt());
+        if (field.getValue().equals("¿?")) {
+            this.value = new EditableLabel("", field.getPrompt());
+            this.value.setText(field.getType().name().toLowerCase());
+            this.value.setFocus();
+        } else {
+            this.value = new EditableLabel(field.getValue(), field.getPrompt());
+        }
         this.value.setOnTextChanged(this::onTextChanged);
         Style.addStyleClass(this.value, "value");
 
+
         this.deleteRowButton = new Button("-");
         this.deleteRowButton.setVisible(false);
-        Style.addStyleClass(this.deleteRowButton,"row-delete");
+        Style.addStyleClass(this.deleteRowButton, "row-delete");
 
         this.addColumn(this.deleteRowButton);
         this.addColumn(this.name);
         this.addColumn(this.value);
 
         this.setOnMouseClicked(event -> {
-            if(this.isEditable)
-                this.value.requestFocus();
+            this.value.requestFocus();
         });
         this.name.setOnMouseClicked(this::onTextFieldCopy);
         this.value.setOnMouseClicked(this::onTextFieldCopy);
@@ -56,11 +61,7 @@ public class ContactFieldRow extends CustomGrid {
         if (!this.isEditable) {
             Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
             Clipboard systemClipboard = defaultToolkit.getSystemClipboard();
-            if (mouseEvent.getTarget().getClass().equals(EditableLabel.class)) {
-                systemClipboard.setContents(new StringSelection(((EditableLabel) mouseEvent.getTarget()).getText()), null);
-            } else if (mouseEvent.getTarget().getClass().equals(Text.class)) {
-                systemClipboard.setContents(new StringSelection(((Text) mouseEvent.getTarget()).getText()), null);
-            }
+            systemClipboard.setContents(new StringSelection(this.value.getText()), null);
         }
     }
 
@@ -69,6 +70,10 @@ public class ContactFieldRow extends CustomGrid {
         this.field.setName(this.name.getText());
         this.deleteRowButton.setVisible(this.value.isEditable() && !this.isEmpty());
 
+    }
+
+    public void setFocus() {
+        this.value.setFocus();
     }
 
     public void setEditable(boolean editable) {

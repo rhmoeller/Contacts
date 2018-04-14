@@ -6,11 +6,12 @@ import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.FieldType;
 
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 public class ContactFieldsList extends CustomGrid {
 
     private ArrayList<ContactFieldListType> contactFieldsLists;
-
+    private Consumer<ContactFieldRow> onNewField;
     public ContactFieldsList() {
         initialiseComponent();
         this.contactFieldsLists = new ArrayList<>();
@@ -20,7 +21,6 @@ public class ContactFieldsList extends CustomGrid {
     public void setContact(Contact contact) {
         this.clear();
         contactFieldsLists = new ArrayList<>();
-//        for (FieldType fieldType : contact.getAllFieldTypes()) {
         for (int i = 0; i < FieldType.values().length; i++) {
             FieldType fieldType = FieldType.valueOf(i);
             if (fieldType != FieldType.NAME) {
@@ -34,6 +34,14 @@ public class ContactFieldsList extends CustomGrid {
     public void setEditable(boolean editable) {
         for (ContactFieldListType fieldList : this.contactFieldsLists) {
             fieldList.setEditable(editable);
+        }
+    }
+
+    public void add(ContactFieldRow row) {
+        for (ContactFieldListType fieldList : this.contactFieldsLists) {
+            if (fieldList.getType().equals(row.getField().getType())) {
+                fieldList.add(row);
+            }
         }
     }
 }

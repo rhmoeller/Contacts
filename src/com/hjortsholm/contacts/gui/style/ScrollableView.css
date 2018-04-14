@@ -9,27 +9,34 @@
 
 }
 
+
 .ScrollableView, .track,
 .track-background, :vertical {
     -fx-background-color: transparent;
     -fx-background-insets: 0;
     /*-fx-padding: 0;*/
-    /*-fx-pref-width: 100%;*/
+
 }
 
 .ScrollableView:hover > .scroll-bar:vertical .thumb {
-/*.ScrollableView:focused > .scroll-bar:vertical .thumb{*/
     -fx-opacity: 100%;
-    /*-fx-padding: 0 100px;*/
     -fx-background-position: top;
-
+    /*-fx-padding: 20px;*/
+    /*-fx-pref-width: 10px;*/
 }
+
+.ScrollableView .scroll-bar:vertical .thumb:hover,
+.ScrollableView .scroll-bar:vertical .thumb:focused {
+    -fx-cursor: CLOSED_HAND;
+}
+
 
 .increment-arrow, .decrement-arrow,
 .increment-button, .decrement-button {
     -fx-opacity: 0%;
+    -fx-padding: 0 4;
     display: none;
-    -fx-animated: true;
+    -fx-animated: false;
 }
 
 .scroll-bar:horizontal .track,

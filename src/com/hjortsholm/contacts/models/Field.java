@@ -37,7 +37,7 @@ public class Field {
 
     public boolean exists() {
         if (this.id != -1)
-            return Database.get(new Query().select("id id").from("Field").where("id = " + this.id).toString()).size() > 0;
+            return Database.get(new Query().select("id id").from("Field").where("id = " + this.id)).size() > 0;
         else
             return false;
     }
@@ -53,8 +53,7 @@ public class Field {
         Database.post(new Query()
                 .insertInto("Field")
                 .fields("contact", "type", "name", "value")
-                .values(fieldData)
-                .toString());
+                .values(fieldData));
 
         this.id = (int) Database.get(new Query()
                 .select("id")
@@ -63,8 +62,7 @@ public class Field {
                         "type = " + fieldData[1],
                         "name = \"" + fieldData[2] + "\"",
                         "value = \"" + fieldData[3] + "\"")
-                .toString())
-                .last().getColumn("id");
+        ).last().getColumn("id");
     }
 
     public boolean update() {
@@ -72,8 +70,7 @@ public class Field {
                 .update("Field")
                 .set("name = \"" + this.getName() + "\"",
                         "value = \"" + this.getValue() + "\"")
-                .where("id = " + this.getId())
-                .toString());
+                .where("id = " + this.getId()));
     }
 
     public String getName() {
@@ -115,7 +112,7 @@ public class Field {
         return this.getValue().isEmpty();
     }
 
-    private void push() {
+    public void push() {
         if (this.exists()) {
             this.update();
         } else {
@@ -127,13 +124,12 @@ public class Field {
         if (this.exists())
             Database.post(new Query()
                     .deleteFrom("Field")
-                    .where("id = " + id)
-                    .toString());
+                    .where("id = " + id));
     }
 
     @Override
     public String toString() {
-        return "Field[" + type + "," + name + "," + value + /*"," + prompt +*/ "]";
+        return "Field[" + type + ",\"" + name + "\", \"" + value + "\"]";
     }
 }
 

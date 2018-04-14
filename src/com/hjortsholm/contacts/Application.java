@@ -7,7 +7,6 @@ import com.hjortsholm.contacts.models.Field;
 import com.hjortsholm.contacts.models.FieldType;
 
 public class Application {
-    private static Database database;
     private static int windowWidth;
     private static int windowHeight;
     private static String title;
@@ -17,12 +16,9 @@ public class Application {
     }
 
 
-    public static Database getDatabase() {
-        return Application.database;
-    }
 
-    public static void setDatabase(Database database) {
-        Application.database = database;
+    public static void configureDatabase(String path) {
+        Database.configure(path);
     }
 
     public static void checkDatabaseIntegrity() {

@@ -15,9 +15,16 @@
 }
 
 .SearchField {
-    -fx-alignment: center;
+    -fx-background-color: #e2dad9;
+    -fx-border-color: #d9d1d0;
+    -fx-prompt-text-fill: #beb7b6;
 }
 
-.SearchField:focused {
-    -fx-alignment: left;
-}
+
+/*.SearchField {*/
+    /*-fx-alignment: center;*/
+/*}*/
+
+/*.SearchField:focused {*/
+    /*-fx-alignment: left;*/
+/*}*/

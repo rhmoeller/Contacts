@@ -1,34 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contacts.db" beforeDir="false" afterPath="$PROJECT_DIR$/contacts.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/database/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/database/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/forms/Start.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/forms/Start.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/forms/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/forms/Window.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/models/Contact.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/models/Contact.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/models/ContactList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/models/ContactList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/models/Field.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contacts/com/hjortsholm/contacts/models/Field.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/database/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/database/Query.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Start.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/CategorisedListView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/CategorisedListView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldListType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldListType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldRow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldsList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactNavigationTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactNavigationTab.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/EditableLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/EditableLabel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ScrollableView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ScrollableView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/SystemButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/SystemButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/WindowTitleBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/WindowTitleBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/panels/ContactCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/panels/ContactCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/panels/ContactNavigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/panels/ContactNavigation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/Buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/Buttons.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ContactCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ContactCard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ContactNavigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ContactNavigation.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ScrollableView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ScrollableView.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/TextFields.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/TextFields.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/Window.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/Window.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/models/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/models/Contact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/models/ContactList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/models/ContactList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/models/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/models/Field.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/util/HexImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/util/StringUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/hjortsholm/contacts/todo.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/hjortsholm/contacts/todo.md" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -122,13 +129,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ContactNavigation.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ContactNavigation.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/panels/ContactNavigation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="99" selection-start-line="99" selection-end-line="99" />
+            <state relative-caret-position="300">
+              <caret line="58" column="18" lean-forward="true" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
               <folding>
-                <element signature="method#ContactNavigation#0;class#ContactNavigation#0" />
+                <element signature="e#5127#5128#0" expanded="true" />
+                <element signature="e#5180#5181#0" expanded="true" />
                 <element signature="method#setSelected#1;class#ContactNavigation#0" />
                 <element signature="method#setOnTabSelectedEvent#0;class#ContactNavigation#0" />
               </folding>
@@ -136,79 +144,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Contact.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/models/Contact.java">
+      <file leaf-file-name="ScrollableView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ScrollableView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="84" column="66" selection-start-line="84" selection-start-column="66" selection-end-line="84" selection-end-column="66" />
-              <folding>
-                <element signature="method#Contact#0;class#Contact#0" />
-                <element signature="method#hasValue#0;class#Contact#0" />
-                <element signature="method#hasValues#0;class#Contact#0" />
-                <element signature="e#1571#1572#0" expanded="true" />
-                <element signature="e#1631#1632#0" expanded="true" />
-                <element signature="method#getFieldsOfType#0;class#Contact#0" />
-                <element signature="method#exists#0;class#Contact#0" />
-                <element signature="method#getDisplayTitle#0;class#Contact#0" />
-                <element signature="method#delete#0;class#Contact#0" />
-                <element signature="method#isValid#0;class#Contact#0" />
-                <element signature="e#4453#4454#0" expanded="true" />
-                <element signature="e#4507#4508#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="285">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactNavigationTab.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactNavigationTab.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+      <file leaf-file-name="contact" pinned="false" current-in-tab="false">
+        <entry file="das://54a7bb4c-c219-4a30-ae34-b2863a812769/schema/main/table/contact">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactInfoHeader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactInfoHeader.java">
+      <file leaf-file-name="ContactNavigation.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ContactNavigation.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
-              <folding>
-                <element signature="e#1243#1244#0" expanded="true" />
-                <element signature="e#1279#1280#0" expanded="true" />
-                <element signature="method#setEditable#0;class#ContactInfoHeader#0" />
-                <element signature="method#setVisibility#0;class#ContactInfoHeader#0" />
-                <element signature="e#2336#2337#0" expanded="true" />
-                <element signature="e#2381#2382#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Start.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Start.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="111" selection-start-line="111" selection-end-line="111" />
-              <folding>
-                <element signature="method#start#0;class#Start#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContactCard.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/panels/ContactCard.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="23" column="24" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="24" />
-              <folding>
-                <element signature="method#setOnContactDelete#0;class#ContactCard#0" />
-                <element signature="method#setOnNewContact#0;class#ContactCard#0" />
-                <element signature="method#refresh#0;class#ContactCard#0" />
-                <element signature="method#save#0;class#ContactCard#0" />
-                <element signature="method#setEditable#0;class#ContactCard#0" />
-              </folding>
+            <state relative-caret-position="14">
+              <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -228,11 +186,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>text</find>
       <find>contactNavigation</find>
       <find>contactFieldsLists</find>
       <find>Action</find>
-      <find>contactInfoPanel</find>
       <find>'</find>
       <find>gettypes</find>
       <find>System.out.println</find>
@@ -251,6 +207,15 @@
       <find>.toString</find>
       <find>this.onTextFieldChanged.accept</find>
       <find>contact.delete</find>
+      <find>contactInfoPanel</find>
+      <find>isV</find>
+      <find>listView</find>
+      <find>titleBar</find>
+      <find>Scro</find>
+      <find>scrollContainer</find>
+      <find>searc</find>
+      <find>sear</find>
+      <find>AS</find>
     </findStrings>
     <replaceStrings>
       <replace>Option</replace>
@@ -272,7 +237,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/parents/ScrollableView.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/CustomPane.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldType.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldList.java" />
@@ -286,43 +250,44 @@
         <option value="54a7bb4c-c219-4a30-ae34-b2863a812769/schema/main/table/field.sql" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/dev/BackEnd.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactInfoPanel.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ScrollableView.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/database/QuerySet.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/util/StringUtil.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/BackEnd.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/TextFields.css" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/util/StringUtils.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/CategoryHeader.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/WindowTitleBar.css" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ContactNavigation.css" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/Window.css" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/todo.md" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/database/TableField.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Window.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/Test.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/54a7bb4c-c219-4a30-ae34-b2863a812769/console.sql" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/WindowTitleBar.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/models/FieldType.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/Buttons.css" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactInfoHeader.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldsList.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/CategorisedListView.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/models/ContactList.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactNavigationTab.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Start.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/panels/ContactNavigation.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ContactCard.css" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ScrollableView.css" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldListType.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldRow.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/database/Query.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/database/Database.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/models/Field.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/panels/ContactCard.java" />
-        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/EditableLabel.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/Main.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/Application.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/models/Field.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/models/ContactList.java" />
         <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/models/Contact.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/WindowTitleBar.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/SystemButton.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Window.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/Window.css" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Start.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ScrollableView.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ScrollableView.css" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/TextFields.css" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ContactNavigation.css" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/Buttons.css" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldListType.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldsList.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/EditableLabel.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ContactCard.css" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/todo.md" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldRow.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/panels/ContactCard.java" />
+        <option value="$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/panels/ContactNavigation.java" />
       </list>
     </option>
   </component>
@@ -343,10 +308,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1280" />
-    <option name="y" value="-258" />
-    <option name="width" value="1920" />
-    <option name="height" value="1058" />
+    <option name="y" value="22" />
+    <option name="width" value="942" />
+    <option name="height" value="778" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -432,6 +396,13 @@
               <item name="com.hjortsholm.contacts" type="1f31426a:PackageElementNode" />
               <item name="gui" type="1f31426a:PackageElementNode" />
               <item name="panels" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="Contacts" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Contacts" type="616d4139:PackageViewModuleNode" />
+              <item name="com.hjortsholm.contacts" type="1f31426a:PackageElementNode" />
+              <item name="gui" type="1f31426a:PackageElementNode" />
+              <item name="parents" type="1f31426a:PackageElementNode" />
             </path>
             <path>
               <item name="Contacts" type="58d84e3e:PackageViewProjectNode" />
@@ -713,6 +684,11 @@
       <item itemvalue="Application.Test" />
     </list>
   </component>
+  <component name="StructuralSearchPlugin">
+    <searchConfiguration name="user defined" created="1523720932035" text="first" recursive="true" caseInsensitive="true" type="JAVA" history="1" />
+    <searchConfiguration name="user defined" created="1523720920020" text="nickname" recursive="true" caseInsensitive="true" type="JAVA" history="1" />
+    <searchConfiguration name="user defined" created="1523720909616" text="nick" recursive="true" caseInsensitive="true" type="JAVA" history="1" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -731,7 +707,7 @@
       <workItem from="1522082906987" duration="1092000" />
       <workItem from="1523181867972" duration="1993000" />
       <workItem from="1523379580572" duration="1435000" />
-      <workItem from="1523391248880" duration="110346000" />
+      <workItem from="1523391248880" duration="142226000" />
     </task>
     <task id="LOCAL-00001" summary="Created basic navigation gui.">
       <created>1521815529292</created>
@@ -796,11 +772,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523667524589</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Design &amp; implementation improvements">
+      <created>1523709596861</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1523709596861</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="221588000" />
+    <option name="totallyTimeSpent" value="253468000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -812,7 +795,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="-258" width="1920" height="1058" extended-state="6" />
+    <frame x="0" y="22" width="1280" height="778" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -824,14 +807,14 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50078124" side_tool="true" weight="0.3338068" />
       <window_info anchor="right" id="Maven Projects" order="4" weight="0.32890624" />
       <window_info anchor="bottom" id="Database Changes" order="17" weight="0.32892805" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49921876" visible="true" weight="0.23882113" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49921876" weight="0.3338068" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.38636363" />
       <window_info anchor="bottom" id="Terminal" order="14" weight="0.329927" />
       <window_info id="Capture Tool" order="2" />
-      <window_info anchor="bottom" id="Database Console" order="15" weight="0.3693182" />
+      <window_info active="true" anchor="bottom" id="Database Console" order="15" visible="true" weight="0.3693182" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.10625" />
-      <window_info anchor="right" id="Database" order="5" visible="true" weight="0.12604167" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19375" />
+      <window_info anchor="right" id="Database" order="5" visible="true" weight="0.2453125" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32386363" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -878,9 +861,9 @@
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.38636363" />
       <window_info anchor="right" id="Maven Projects" order="4" weight="0.32890624" />
       <window_info anchor="bottom" id="Terminal" order="14" weight="0.329927" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.159375" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19375" />
       <window_info anchor="right" id="SciView" order="8" />
-      <window_info anchor="right" id="Database" order="5" weight="0.1890625" />
+      <window_info anchor="right" id="Database" order="5" weight="0.24568528" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="right" id="Palette&#9;" order="10" />
@@ -917,12 +900,26 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Start.java</url>
-          <line>52</line>
+          <line>47</line>
           <properties />
           <option name="timeStamp" value="40" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/panels/ContactCard.java</url>
+          <line>88</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/EditableLabel.java</url>
+          <line>49</line>
+          <properties />
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="44" />
+      <option name="time" value="49" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -930,32 +927,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://54a7bb4c-c219-4a30-ae34-b2863a812769/schema/main/table/field">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/scene/control/TextInputControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="349" column="32" selection-start-line="349" selection-start-column="32" selection-end-line="349" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/database/QuerySet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#462#463#0" expanded="true" />
-            <element signature="e#514#515#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/BackEnd.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1025,13 +996,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/SystemButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/WindowTitleBar.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1043,44 +1007,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/TextFields.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ScrollableView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/Window.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ContactNavigation.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/todo.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SECOND">
-          <first_editor relative-caret-position="60">
-            <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -1101,13 +1027,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/Test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
@@ -1115,41 +1034,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <marker date="1523657908299" expanded="true" signature="3314:3334" ph="SELECT * FRO... fields" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/models/FieldType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#989#990#0" expanded="true" />
-            <element signature="e#1043#1044#0" expanded="true" />
-            <element signature="e#1095#1096#0" expanded="true" />
-            <element signature="e#1134#1135#0" expanded="true" />
-            <element signature="e#1173#1174#0" expanded="true" />
-            <element signature="e#1202#1203#0" expanded="true" />
-            <element signature="e#1235#1236#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/util/Anchor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/WindowTitleBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1189,13 +1073,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/Buttons.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="46" column="34" lean-forward="true" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/CategorisedListView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1203,55 +1080,6 @@
           <folding>
             <element signature="e#1173#1174#0" expanded="true" />
             <element signature="e#1210#1211#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldListType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-823">
-          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1690#1691#0" expanded="true" />
-            <element signature="e#1732#1733#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ContactCard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-145">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ScrollableView.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldRow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="63" column="89" selection-start-line="63" selection-start-column="89" selection-end-line="63" selection-end-column="89" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1974#2069#0" />
-            <element signature="e#3009#3010#0" expanded="true" />
-            <element signature="e#3046#3047#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldsList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1297,28 +1125,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/models/ContactList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="45" column="46" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/models/Field.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="131" column="51" selection-end-line="135" />
-          <folding>
-            <element signature="e#191#252#0" />
-            <element signature="method#setName#0;class#Field#0" />
-            <element signature="e#3486#3487#0" expanded="true" />
-            <element signature="e#3560#3561#0" expanded="true" />
-            <marker date="1523707650222" expanded="true" signature="544:663" ph="..." />
-            <marker date="1523707650222" expanded="true" signature="3447:3567" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/database/Query.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
@@ -1337,54 +1143,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="method#checkDatabaseIntegrity#0;class#Application#0" />
-            <element signature="e#616#652#0" />
-            <element signature="method#setWindowSize#0;class#Application#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54a7bb4c-c219-4a30-ae34-b2863a812769/schema/main/table/field">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54a7bb4c-c219-4a30-ae34-b2863a812769/schema/main/table/contact">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/54a7bb4c-c219-4a30-ae34-b2863a812769/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/EditableLabel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="121" lean-forward="true" selection-start-line="121" selection-end-line="121" />
-          <folding>
-            <element signature="method#setResponsive#0;class#EditableLabel#0" />
-            <element signature="method#setEdit#0;class#EditableLabel#0" />
-            <element signature="method#setPrompt#0;class#EditableLabel#0" />
-            <element signature="method#setToMinimumWidth#0;class#EditableLabel#0" />
-            <element signature="method#setFocus#0;class#EditableLabel#0" />
-            <element signature="class#MyEventHandler#0;class#EditableLabel#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1399,19 +1157,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactNavigationTab.java">
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/models/Field.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="119">
+          <caret line="41" column="25" lean-forward="true" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+          <folding>
+            <element signature="e#191#252#0" />
+            <element signature="e#2789#2790#0" expanded="true" />
+            <element signature="e#2835#2836#0" expanded="true" />
+            <element signature="method#setName#0;class#Field#0" />
+            <element signature="e#2960#2961#0" expanded="true" />
+            <element signature="e#2988#2989#0" expanded="true" />
+            <element signature="e#3120#3121#0" expanded="true" />
+            <element signature="e#3147#3148#0" expanded="true" />
+            <element signature="e#3180#3181#0" expanded="true" />
+            <element signature="e#3233#3234#0" expanded="true" />
+            <element signature="e#3264#3265#0" expanded="true" />
+            <element signature="e#3294#3295#0" expanded="true" />
+            <element signature="e#3320#3321#0" expanded="true" />
+            <element signature="e#3350#3351#0" expanded="true" />
+            <element signature="e#3382#3383#0" expanded="true" />
+            <element signature="e#3430#3431#0" expanded="true" />
+            <element signature="e#3801#3802#0" expanded="true" />
+            <element signature="e#3881#3882#0" expanded="true" />
+            <marker date="1523720714628" expanded="true" signature="544:663" ph="..." />
+            <marker date="1523720714628" expanded="true" signature="3762:3882" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Start.java">
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/models/FieldType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="111" selection-start-line="111" selection-end-line="111" />
+        <state relative-caret-position="264">
+          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
           <folding>
-            <element signature="method#start#0;class#Start#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
+            <element signature="e#989#990#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/database/QuerySet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#462#463#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1431,22 +1225,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/panels/ContactNavigation.java">
+    <entry file="das://54a7bb4c-c219-4a30-ae34-b2863a812769/schema/main/table/field">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactNavigationTab.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="99" selection-start-line="99" selection-end-line="99" />
-          <folding>
-            <element signature="method#ContactNavigation#0;class#ContactNavigation#0" />
-            <element signature="method#setSelected#1;class#ContactNavigation#0" />
-            <element signature="method#setOnTabSelectedEvent#0;class#ContactNavigation#0" />
-          </folding>
+        <state relative-caret-position="285">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/models/ContactList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/54a7bb4c-c219-4a30-ae34-b2863a812769/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/models/Contact.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="84" column="66" selection-start-line="84" selection-start-column="66" selection-end-line="84" selection-end-column="66" />
+        <state relative-caret-position="65">
+          <caret line="71" column="60" lean-forward="true" selection-start-line="71" selection-start-column="60" selection-end-line="71" selection-end-column="60" />
           <folding>
             <element signature="method#Contact#0;class#Contact#0" />
             <element signature="method#hasValue#0;class#Contact#0" />
@@ -1455,25 +1265,241 @@
             <element signature="e#1631#1632#0" expanded="true" />
             <element signature="method#getFieldsOfType#0;class#Contact#0" />
             <element signature="method#exists#0;class#Contact#0" />
-            <element signature="method#getDisplayTitle#0;class#Contact#0" />
             <element signature="method#delete#0;class#Contact#0" />
-            <element signature="method#isValid#0;class#Contact#0" />
-            <element signature="e#4453#4454#0" expanded="true" />
-            <element signature="e#4507#4508#0" expanded="true" />
+            <element signature="e#4758#4759#0" expanded="true" />
+            <element signature="e#4812#4813#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/WindowTitleBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="19" column="53" lean-forward="true" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/SystemButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#435#436#0" expanded="true" />
+            <element signature="e#463#464#0" expanded="true" />
+            <element signature="e#522#523#0" expanded="true" />
+            <element signature="e#562#563#0" expanded="true" />
+            <element signature="e#1724#1725#0" expanded="true" />
+            <element signature="e#1759#1760#0" expanded="true" />
+            <element signature="e#1801#1802#0" expanded="true" />
+            <element signature="e#1835#1836#0" expanded="true" />
+            <element signature="e#1874#1875#0" expanded="true" />
+            <element signature="e#1902#1903#0" expanded="true" />
+            <element signature="e#1951#1952#0" expanded="true" />
+            <element signature="e#1992#1993#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/util/Anchor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#747#748#0" expanded="true" />
+            <element signature="e#781#782#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ScrollableView.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Screen Shot 2018-04-15 at 01.31.41.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/TextFields.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/Window.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/javafx-src.zip!/javafx/beans/value/ChangeListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/Buttons.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="17" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/panels/ContactCard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="24" />
+        <state relative-caret-position="287">
+          <caret line="247" column="46" selection-start-line="247" selection-start-column="46" selection-end-line="247" selection-end-column="46" />
           <folding>
+            <element signature="docComment;class#ContactCard#0" />
+            <element signature="e#2088#2145#0" />
+            <element signature="e#2535#2600#0" />
+            <element signature="e#3883#4268#0" />
             <element signature="method#setOnContactDelete#0;class#ContactCard#0" />
+            <element signature="e#4885#5044#0" />
             <element signature="method#setOnNewContact#0;class#ContactCard#0" />
-            <element signature="method#refresh#0;class#ContactCard#0" />
+            <element signature="e#5260#5440#0" />
+            <element signature="e#5478#5569#0" />
             <element signature="method#save#0;class#ContactCard#0" />
             <element signature="method#setEditable#0;class#ContactCard#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/EditableLabel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="75" column="22" lean-forward="true" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="22" />
+          <folding>
+            <element signature="method#setEdit#0;class#EditableLabel#0" />
+            <element signature="method#setPrompt#0;class#EditableLabel#0" />
+            <element signature="e#2987#2988#0" expanded="true" />
+            <element signature="e#3020#3021#0" expanded="true" />
+            <element signature="e#3486#3487#0" expanded="true" />
+            <element signature="e#3536#3537#0" expanded="true" />
+            <element signature="method#setFocus#0;class#EditableLabel#0" />
+            <element signature="e#3936#3937#0" expanded="true" />
+            <element signature="e#4023#4024#0" expanded="true" />
+            <element signature="class#MyEventHandler#0;class#EditableLabel#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldsList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="29" column="58" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldListType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="103" column="11" selection-start-line="103" selection-start-column="11" selection-end-line="103" selection-end-column="11" />
+          <folding>
+            <element signature="method#ContactFieldListType#0;class#ContactFieldListType#0" />
+            <element signature="method#setEditable#0;class#ContactFieldListType#0" />
+            <element signature="method#setSeperatorVisibility#0;class#ContactFieldListType#0" />
+            <element signature="method#addEmptyRow#0;class#ContactFieldListType#0" />
+            <element signature="e#2342#2448#0" />
+            <element signature="method#deleteRow#0;class#ContactFieldListType#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ContactFieldRow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="106" column="10" selection-start-line="106" selection-start-column="10" selection-end-line="106" selection-end-column="10" />
+          <folding>
+            <element signature="method#ContactFieldRow#0;class#ContactFieldRow#0" />
+            <element signature="method#setEditable#0;class#ContactFieldRow#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/todo.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="15">
+            <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ContactCard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="44" column="21" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/forms/Start.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+          <folding>
+            <element signature="method#onTabChanged#0;class#Start#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/style/ContactNavigation.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/controls/ScrollableView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://54a7bb4c-c219-4a30-ae34-b2863a812769/schema/main/table/contact">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/hjortsholm/contacts/gui/panels/ContactNavigation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="58" column="18" lean-forward="true" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
+          <folding>
+            <element signature="e#5127#5128#0" expanded="true" />
+            <element signature="e#5180#5181#0" expanded="true" />
+            <element signature="method#setSelected#1;class#ContactNavigation#0" />
+            <element signature="method#setOnTabSelectedEvent#0;class#ContactNavigation#0" />
           </folding>
         </state>
       </provider>

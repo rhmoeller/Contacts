@@ -5,7 +5,7 @@ import com.hjortsholm.contacts.database.*;
 import java.util.ArrayList;
 
 @TableField(name = "id", type = "INTEGER", primaryKey = true)
-public class Contact {
+public class Contact implements Comparable {
 
     private boolean newContact;
     private int id;
@@ -62,7 +62,7 @@ public class Contact {
     }
 
     public Field getNickName() {
-        return this.getField(FieldType.NAME, "nick");
+        return this.getField(FieldType.NAME, "nickname");
     }
 
     public Field getField(FieldType type, String name) {
@@ -81,7 +81,7 @@ public class Contact {
                     FieldType.valueOf((int) result.getColumn("type")),
                     result.getColumn("name").toString(),
                     type == FieldType.NAME && result.getColumn("value").toString().length() > 1 ?
-                            result.getColumn("value").toString().substring(0, 1).toUpperCase() + result.getColumn("value").toString().substring(1) :
+                            result.getColumn("value").toString().substring(0, 1).toUpperCase() + result.getColumn("value").toString().substring(1).toLowerCase() :
                             result.getColumn("value").toString());
         } else {
             field = new Field(-1, this.id, type, name, "");
@@ -114,12 +114,17 @@ public class Contact {
 
     public String getDisplayTitle() {
         String displayTitle = null;
-        if (!this.getFirstName().isEmpty())
+        if (!this.getFirstName().isEmpty()) {
             displayTitle = this.getFirstName().getValue();
-        else if (!this.getLastName().isEmpty())
+            if (!this.getLastName().isEmpty()) {
+                displayTitle += " " + this.getLastName().getValue();
+            }
+        } else if (!this.getLastName().isEmpty()) {
             displayTitle = this.getLastName().getValue();
-        else if (!this.getNickName().isEmpty())
+        } else if (!this.getNickName().isEmpty()) {
             displayTitle = this.getNickName().getValue();
+        }
+
         return displayTitle;
     }
 
@@ -130,16 +135,29 @@ public class Contact {
     }
 
     public boolean isValid() {
-        return Database.get(new Query()
-                .select()
-                .from(Field.class)
-                .where("contact = " + this.getId(),
-                        "type = " + FieldType.NAME.getIndex())
-        ).size() > 0;
+        if (this.exists()) {
+            return Database.get(new Query()
+                    .select()
+                    .from(Field.class)
+                    .where("contact = " + this.getId(),
+                            "type = " + FieldType.NAME.getIndex(),
+                            "name = \"" + FieldType.NAME.getDefaultName() + "\"",
+                            "value IS NOT NULL")
+            ).size() > 0;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public int compareTo(Object contact) {
+        String contactTitle = ((Contact) contact).getDisplayTitle();
+        return this.getDisplayTitle().compareTo(contactTitle);
     }
 
     @Override
     public String toString() {
         return "Contact[" + this.getId() + "]";
     }
+
 }

@@ -47,7 +47,7 @@ public class ContactList {
     }
 
     public void remove(Contact contact) {
-        contact.delete();
         this.contacts.remove(contact.getId());
+        contact.delete();
     }
 }

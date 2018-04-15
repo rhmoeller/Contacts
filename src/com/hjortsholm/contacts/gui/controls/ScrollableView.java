@@ -13,8 +13,8 @@ public class ScrollableView extends ScrollPane {
     public ScrollableView(Node content) {
         Style.addStyleClass(this, getClass().getSimpleName());
         Style.addStylesheet(this, getClass().getSimpleName());
-        this.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        this.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        this.setHbarPolicy(ScrollBarPolicy.NEVER);
+        this.setVbarPolicy(ScrollBarPolicy.NEVER);
         this.setFitToWidth(true);
         this.setFitToHeight(true);
         this.setContent(content);

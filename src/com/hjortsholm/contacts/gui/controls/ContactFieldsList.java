@@ -1,31 +1,37 @@
 package com.hjortsholm.contacts.gui.controls;
 
-import com.hjortsholm.contacts.Application;
 import com.hjortsholm.contacts.gui.parents.CustomGrid;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.FieldType;
 
 import java.util.ArrayList;
-import java.util.function.Consumer;
 
 public class ContactFieldsList extends CustomGrid {
 
     private ArrayList<ContactFieldListType> contactFieldsLists;
-    private Consumer<ContactFieldRow> onNewField;
+
     public ContactFieldsList() {
         initialiseComponent();
         this.contactFieldsLists = new ArrayList<>();
-        this.setPrefWidth(Application.getWindowWidth()-180);
+//        this.setPrefWidth(Application.getWindowWidth() - 180);
     }
 
     public void setContact(Contact contact) {
         this.clear();
-        contactFieldsLists = new ArrayList<>();
+        this.contactFieldsLists = new ArrayList<>();
+        boolean foo = false;
         for (int i = 0; i < FieldType.values().length; i++) {
             FieldType fieldType = FieldType.valueOf(i);
             if (fieldType != FieldType.NAME) {
                 ContactFieldListType fieldList = new ContactFieldListType(contact, fieldType);
-                contactFieldsLists.add(fieldList);
+                fieldList.setSeperatorVisibility(this.contactFieldsLists.size() > 0);
+                if (!fieldList.isEmpty() && !foo) {
+                    foo = true;
+                    fieldList.setSeperatorVisibility(false);
+                }
+
+                this.contactFieldsLists.add(fieldList);
+
                 this.addRow(fieldList);
             }
         }

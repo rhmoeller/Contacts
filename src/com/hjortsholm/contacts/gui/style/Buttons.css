@@ -1,27 +1,12 @@
-.system-button {
-    -fx-min-width: 13px;
-    -fx-max-width: 13px;
-    -fx-min-height: 13px;
-    -fx-max-height: 13px;
-
-    -fx-background-radius: 5em;
-    -fx-background-color: #919196;
-    -fx-background-insets: 0;
-    -fx-text-fill: #919196;
-    -fx-font-size: 0%;
-
-    -fx-padding: 0;
-
-    -fx-border-color: #717176;
-    -fx-border-radius: 30;
-    -fx-border-width: 1px;
-
-    -fx-text-alignment: right bottom;
-    -fx-text-overrun: center-ellipsis;
+.row-delete:hover,
+.system-button:hover,
+.default-button:hover {
+    -fx-cursor: hand;
 }
 
+
 .system-button:hover {
-    -fx-font-size: 100%;
+    -fx-font-size: 14px;
     -fx-text-fill: #27272c;
 }
 
@@ -37,21 +22,51 @@
     -fx-font-size: 0%;
     -fx-padding: 0;
 
-    -fx-background-color: red;
-    -fx-text-fill: white;
+    -fx-background-color: #fc2f6a;
+    -fx-text-fill: #f6f6f6;
 }
 
 .default-button {
-    -fx-border-color: #e4e4e4;
+    -fx-border-color: #cecece;
     -fx-border-radius: .25em;
-    -fx-background-color: #ffffff;
+    -fx-background-color: #ededed;
+    -fx-padding: 3 15;
+    -fx-font-size: 12px;
 }
 
-.row-delete:hover,
-.system-button:hover,
-.default-button:hover {
-    -fx-cursor: hand;
+.menu-button {
+    -fx-font-size: 12px;
+    -fx-padding: 3 15;
 }
 
+.menu-button > .arrow-button {
+    -fx-padding: 0;
+}
+
+.menu-button > .arrow-button > .arrow {
+    -fx-padding: 0;
+}
+
+.menu-item:focused {
+    -fx-background-color: #8c8c91;
+    -fx-text-fill: #fffcef;
+
+}
+
+
+.context-menu {
+    -fx-background-color: #dcdcdc;
+    -fx-background-insets: 1 0;
+    -fx-background-radius: .25em;
+    -fx-border-color: #cdcdcd;
+    -fx-border-radius: .25em;
+    -fx-padding: 3 0;
+    -fx-pref-width: 100;
+    -fx-font-size: 12;
+}
+
+.menu-button .label {
+    -fx-padding: 0;
+}
 
 

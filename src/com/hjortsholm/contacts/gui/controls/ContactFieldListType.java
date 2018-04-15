@@ -15,11 +15,14 @@ public class ContactFieldListType extends CustomGrid {
     private CustomGrid container;
     private ArrayList<ContactFieldRow> contactFieldRows;
     private boolean isEditable;
+    private boolean isVisible;
     private int contact;
     private FieldType type;
 
+
     public ContactFieldListType(Contact contact, FieldType type) {
         initialiseComponent();
+        this.isVisible = true;
         this.container = new CustomGrid();
         this.contact = contact.getId();
         this.type = type;
@@ -33,8 +36,11 @@ public class ContactFieldListType extends CustomGrid {
         this.addRow(this.seperator);
         this.addRow(this.container);
         this.setEditable(false);
-        this.refreshSeperator();
+//        this.refreshSeperator();
+    }
 
+    public boolean isEmpty() {
+        return this.contactFieldRows.isEmpty();
     }
 
     public void add(ContactFieldRow row) {
@@ -66,7 +72,12 @@ public class ContactFieldListType extends CustomGrid {
     }
 
     private void refreshSeperator() {
-        this.seperator.setVisible(this.contactFieldRows.size() > 0);
+        this.seperator.setVisible(this.contactFieldRows.size() >  0 && this.isVisible);
+    }
+
+    public void setSeperatorVisibility(boolean visibility) {
+        this.isVisible = visibility;
+        this.refreshSeperator();
     }
 
     private void addEmptyRow() {

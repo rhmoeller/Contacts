@@ -5,7 +5,6 @@ import com.hjortsholm.contacts.gui.controls.ContactFieldRow;
 import com.hjortsholm.contacts.gui.controls.ContactFieldsList;
 import com.hjortsholm.contacts.gui.controls.ContactInfoHeader;
 import com.hjortsholm.contacts.gui.controls.ScrollableView;
-import com.hjortsholm.contacts.gui.parents.CustomGrid;
 import com.hjortsholm.contacts.gui.util.Anchor;
 import com.hjortsholm.contacts.gui.util.Style;
 import com.hjortsholm.contacts.models.Contact;
@@ -21,7 +20,15 @@ import javafx.scene.layout.AnchorPane;
 
 import java.util.function.Consumer;
 
-public class ContactCard extends CustomGrid {
+/**
+ * <h1>Contact card</h1>
+ * Displays one contacts asociated fields.
+ *
+ * @author robertmoller
+ * @version 1.0
+ * @since 2018-04-14
+ */
+public class ContactCard extends AnchorPane {
     private Contact contact;
 
     private Label noContactSelectedLabel;
@@ -30,36 +37,60 @@ public class ContactCard extends CustomGrid {
     private Button delete;
     private MenuButton add;
     private MenuItem addContactMenuItem;
+    private Separator topSeparator;
+    private Separator bottomSeparator;
 
     private ScrollableView scrollContainer;
     private ContactFieldsList contactFieldsList;
     private ContactInfoHeader contactInfoHeader;
-    private CustomGrid contactInfoPanel;
     private ContactFieldRow focusedRow;
     private boolean isEditable;
     private Consumer<Contact> onContactSave;
 
     public ContactCard() {
-        initialiseComponent();
-        addDefaultStyleSheet();
+        Style.addStylesheet(this, "ContactCard");
+        Style.addGenericStyleClass(this);
         Style.addStylesheet(this, "Buttons");
 
         this.isEditable = false;
-        AnchorPane container = new AnchorPane();
         AnchorPane utilitiesContainer = new AnchorPane();
         Anchor.setBottomAnchor(utilitiesContainer, 0.);
         Anchor.setRightAnchor(utilitiesContainer, 0.);
         Anchor.setLeftAnchor(utilitiesContainer, 0.);
 
-        this.contactInfoPanel = new CustomGrid();
+//        CustomGrid contactInfoPanel = new CustomGrid();
+//        Anchor.setRightAnchor(contactInfoPanel, 0.);
+//        Anchor.setLeftAnchor(contactInfoPanel, 0.);
+//        Anchor.setTopAnchor(contactInfoPanel, 0.);
+//        Anchor.setBottomAnchor(contactInfoPanel, 0.);
+
         this.contactInfoHeader = new ContactInfoHeader();
+        Anchor.anchorAll(this.contactInfoHeader, 0);
+
         this.contactFieldsList = new ContactFieldsList();
+//        Anchor.setRightAnchor(this.noContactSelectedLabel, 0.);
+//        Anchor.setLeftAnchor(this.noContactSelectedLabel, 0.);
+//        Anchor.setTopAnchor(this.noContactSelectedLabel, 0.);
+//        Anchor.setBottomAnchor(this.noContactSelectedLabel, 0.);
+        this.topSeparator = new Separator();
+        this.bottomSeparator = new Separator();
+        Anchor.setTopAnchor(this.topSeparator, 68.);
+        Anchor.setLeftAnchor(this.topSeparator, 21.);
+        Anchor.setRightAnchor(this.topSeparator, 27.);
+        Anchor.setBottomAnchor(this.bottomSeparator, 48.);
+        Anchor.setLeftAnchor(this.bottomSeparator, 21.);
+        Anchor.setRightAnchor(this.bottomSeparator, 27.);
 
-        this.scrollContainer = new ScrollableView(contactFieldsList);
+
+        this.scrollContainer = new ScrollableView(this.contactFieldsList);
         this.scrollContainer.setPrefHeight(Application.getWindowHeight() - 90);
+        this.scrollContainer.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 
-        this.contactInfoPanel.addRow(this.contactInfoHeader);
-        this.contactInfoPanel.addRow(this.scrollContainer);
+        this.scrollContainer.vvalueProperty().addListener((observable, oldValue, newValue) -> this.horisontalBarController());
+        this.scrollContainer.setVvalue(1);
+        Anchor.anchorAll(this.scrollContainer, 0.);
+        Anchor.setTopAnchor(this.scrollContainer, 68.);
+        Anchor.setBottomAnchor(this.scrollContainer, 50.);
 
         this.noContactSelectedLabel = new Label("No contact selected");
         this.noContactSelectedLabel.setAlignment(Pos.CENTER);
@@ -72,7 +103,7 @@ public class ContactCard extends CustomGrid {
         this.edit.setOnMouseClicked(this::toggleEdit);
         Style.addStyleClass(this.edit, "default-button");
         Style.addStyleClass(this.edit, "edit");
-        Anchor.setRightAnchor(this.edit, 110.);
+        Anchor.setRightAnchor(this.edit, 100.);
         Anchor.setBottomAnchor(this.edit, 15.);
 
         this.add = new MenuButton();
@@ -80,14 +111,15 @@ public class ContactCard extends CustomGrid {
         this.add.setPopupSide(Side.TOP);
         Style.addStyleClass(this.add, "default-button");
         Style.addStyleClass(this.add, "add");
-        Anchor.setLeftAnchor(this.add, 40.);
+        Anchor.setLeftAnchor(this.add, 15.);
         Anchor.setBottomAnchor(this.add, 15.);
 
-        addContactMenuItem = new MenuItem("contact");
-        this.add.getItems().addAll(addContactMenuItem, new SeparatorMenuItem());
+        this.addContactMenuItem = new MenuItem("Contact");
+        this.add.getItems().addAll(this.addContactMenuItem, new SeparatorMenuItem());
+
         for (FieldType type : FieldType.values()) {
             if (type != FieldType.NAME) {
-                MenuItem item = new MenuItem(type.name().toLowerCase());
+                MenuItem item = new MenuItem(type.name().substring(0, 1).toUpperCase() + type.name().substring(1).toLowerCase());
                 item.setOnAction(action -> {
                     this.setEditable(true);
                     Field field = new Field(-1, this.contact.getId(), type, type.getDefaultName(), "¿?");
@@ -103,13 +135,27 @@ public class ContactCard extends CustomGrid {
         this.delete = new Button("delete");
         Style.addStyleClass(this.delete, "default-button");
         Style.addStyleClass(this.delete, "delete");
-        Anchor.setRightAnchor(this.delete, 40.);
+        Anchor.setRightAnchor(this.delete, 15.);
         Anchor.setBottomAnchor(this.delete, 15.);
 
 
-        container.getChildren().addAll(this.noContactSelectedLabel, this.contactInfoPanel, this.add, this.edit, this.delete);
-        this.addRow(container);
+        this.getChildren().addAll(
+                this.noContactSelectedLabel,
+                this.topSeparator,
+                this.bottomSeparator,
+                this.contactInfoHeader,
+                this.scrollContainer,
+                this.add,
+                this.edit,
+                this.delete);
         this.refresh();
+    }
+
+    private void horisontalBarController() {
+        double verticalValue = this.scrollContainer.getVvalue(),
+                viewHeight = this.scrollContainer.getHeight(),
+                contentHeight = this.scrollContainer.getContent().getBoundsInParent().getHeight();
+        this.bottomSeparator.setVisible(contentHeight - (verticalValue * contentHeight) > 0 && contentHeight > viewHeight);
     }
 
     public void setOnContactDelete(Consumer<Contact> event) {
@@ -149,10 +195,12 @@ public class ContactCard extends CustomGrid {
         this.contact = contact;
         this.contactFieldsList.setContact(contact);
         this.contactInfoHeader.setContact(contact);
+        this.scrollContainer.setVvalue(.01);
         this.refresh();
+
     }
 
-    public void refresh() {
+    private void refresh() {
         if (this.contact != null) {
             this.noContactSelectedLabel.setVisible(false);
             this.edit.setText(this.isEditable ? "done" : "edit");
@@ -162,6 +210,7 @@ public class ContactCard extends CustomGrid {
             this.contactFieldsList.setEditable(this.isEditable);
             this.contactInfoHeader.setEditable(this.isEditable);
             this.contactInfoHeader.setVisibility(true);
+
         } else {
             this.noContactSelectedLabel.setVisible(true);
             this.scrollContainer.setVisible(false);
@@ -171,9 +220,10 @@ public class ContactCard extends CustomGrid {
             this.contactInfoHeader.setEditable(false);
             this.contactInfoHeader.setVisibility(false);
         }
+        this.horisontalBarController();
     }
 
-    public void save() {
+    private void save() {
         if (this.onContactSave != null && this.contact != null) {
             this.onContactSave.accept(this.contact);
         }

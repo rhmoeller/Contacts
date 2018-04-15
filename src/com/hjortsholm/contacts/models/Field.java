@@ -35,42 +35,50 @@ public class Field {
 //        System.out.println(this);
     }
 
-    public boolean exists() {
+    private boolean exists() {
         if (this.id != -1)
             return Database.get(new Query().select("id id").from("Field").where("id = " + this.id)).size() > 0;
         else
             return false;
     }
 
-    public void create() {
-        Object[] fieldData = new Object[]{
-                this.getContact(),
-                this.getType().getIndex(),
-                this.getName().isEmpty() ? this.getType().getDefaultName() : this.getName(),
-                this.getValue()
-        };
+    private void create() {
+        if (!this.isEmpty()) {
+            Object[] fieldData = new Object[]{
+                    this.getContact(),
+                    this.getType().getIndex(),
+                    this.getName().isEmpty() ? this.getType().getDefaultName() : this.getName(),
+                    this.getValue()
+            };
 
-        Database.post(new Query()
-                .insertInto("Field")
-                .fields("contact", "type", "name", "value")
-                .values(fieldData));
+            Database.post(new Query()
+                    .insertInto("Field")
+                    .fields("contact", "type", "name", "value")
+                    .values(fieldData));
 
-        this.id = (int) Database.get(new Query()
-                .select("id")
-                .from("Field")
-                .where("contact = " + fieldData[0],
-                        "type = " + fieldData[1],
-                        "name = \"" + fieldData[2] + "\"",
-                        "value = \"" + fieldData[3] + "\"")
-        ).last().getColumn("id");
+            this.id = (int) Database.get(new Query()
+                    .select("id")
+                    .from("Field")
+                    .where("contact = " + fieldData[0],
+                            "type = " + fieldData[1],
+                            "name = \"" + fieldData[2] + "\"",
+                            "value = \"" + fieldData[3] + "\"")
+            ).last().getColumn("id");
+        }
     }
 
-    public boolean update() {
-        return Database.post(new Query()
-                .update("Field")
-                .set("name = \"" + this.getName() + "\"",
-                        "value = \"" + this.getValue() + "\"")
-                .where("id = " + this.getId()));
+    private void update() {
+        if (this.isEmpty()) {
+            Database.post(new Query()
+                    .deleteFrom("Field")
+                    .where("id = " + this.getId()));
+        } else {
+            Database.post(new Query()
+                    .update("Field")
+                    .set("name = \"" + this.getName() + "\"",
+                            "value = \"" + this.getValue() + "\"")
+                    .where("id = " + this.getId()));
+        }
     }
 
     public String getName() {

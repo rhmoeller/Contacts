@@ -1,26 +1,46 @@
 .stack-pane {
     -fx-background-color: transparent;
-    -fx-max-width: 100px;
+    /*-fx-max-width: 100px;*/
 
 }
 
 .scroll-pane > .viewport  {
+    /*-fx-background-color: red;*/
     -fx-background-color: transparent;
-
 }
 
+.ScrollableView {
+    -fx-fit-to-width: true;
+}
 
 .ScrollableView, .track,
 .track-background, :vertical {
     -fx-background-color: transparent;
-    -fx-background-insets: 0;
+    /*-fx-fit-to-width: true;*/
+    /*-fx-background-insets: 0;*/
     /*-fx-padding: 0;*/
 
 }
+.scroll-bar .track * {
+    /*-fx-background-color: blue;*/
+    /*-fx-opacity: 0;*/
+    /*-fx-pref-width: 0;*/
+}
 
+.ScrollableView .track {
+    display: none;
+    visibility: hidden;
+}
+
+.ScrollableView .scroll-bar:vertical .thumb {
+    /*-fx-background-color: red;*/
+
+}
 .ScrollableView:hover > .scroll-bar:vertical .thumb {
     -fx-opacity: 100%;
     -fx-background-position: top;
+    /*-fx-background-color: transparent;*/
+
     /*-fx-padding: 20px;*/
     /*-fx-pref-width: 10px;*/
 }
@@ -34,19 +54,21 @@
 .increment-arrow, .decrement-arrow,
 .increment-button, .decrement-button {
     -fx-opacity: 0%;
-    -fx-padding: 0 4;
+    -fx-padding: 0 4px;
     display: none;
     -fx-animated: false;
 }
 
 .scroll-bar:horizontal .track,
 .scroll-bar:vertical .track {
+    /*-fx-background-color: #3d3d3d; foo*/
     -fx-background-color: transparent;
     -fx-border-color:transparent;
     -fx-background-radius: 2em;
 }
 .scroll-bar:vertical .track-background,
 .scroll-bar:horizontal .track-background {
+    /*-fx-background-color: green;*/
     -fx-background-color: transparent;
     -fx-background-insets: 0;
     -fx-background-radius: 2em;
@@ -54,7 +76,7 @@
 
 .scroll-bar:vertical .thumb {
     -fx-opacity: 0%;
-    -fx-background-color: rgb(211,211,211);
+    -fx-background-color: rgb(121, 116, 116);
     -fx-background-insets: 0 4 0 4;
     -fx-background-radius: 2em;
 }

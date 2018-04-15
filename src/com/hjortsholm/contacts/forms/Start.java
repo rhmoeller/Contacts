@@ -9,8 +9,7 @@ import com.hjortsholm.contacts.gui.controls.CustomSeperator;
 import com.hjortsholm.contacts.gui.controls.WindowTitleBar;
 import com.hjortsholm.contacts.gui.panels.ContactCard;
 import com.hjortsholm.contacts.gui.panels.ContactNavigation;
-import com.hjortsholm.contacts.gui.parents.CustomGrid;
-import com.hjortsholm.contacts.gui.parents.DraggablePane;
+import com.hjortsholm.contacts.gui.util.Anchor;
 import com.hjortsholm.contacts.gui.util.Style;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.ContactList;
@@ -35,17 +34,13 @@ public class Start extends Window {
     public void start(Stage stage) {
 
         stage.setTitle(com.hjortsholm.contacts.Application.getTitle());
-        stage.initStyle(StageStyle.TRANSPARENT);
-
-        DraggablePane root = new DraggablePane(stage, this.getWindow());
-        Style.addStylesheet(root, "Window");
-        Scene scene = new Scene(root, com.hjortsholm.contacts.Application.getWindowWidth(),
+        stage.initStyle(StageStyle.UNIFIED);
+        Scene scene = new Scene(this.getWindow(), com.hjortsholm.contacts.Application.getWindowWidth(),
                 com.hjortsholm.contacts.Application.getWindowHeight());
 
         scene.setFill(Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
-        this.setStage(stage);
     }
 
     @Override
@@ -63,21 +58,17 @@ public class Start extends Window {
                 this.contacts.addContact(contact);
             }
         }
-
-        CustomGrid container = new CustomGrid();
         this.contactNavigation = new ContactNavigation();
         this.contactNavigation.setContacts(contacts.getContacts());
         this.contactNavigation.setOnTabSelectedEvent(this::onTabChanged);
         this.contactNavigation.setOnSearch(this::onSearch);
 
 
-        this.titleBar = new WindowTitleBar(this::onWindowExit, this::onWindowMinimise);
-        this.contactCard = new ContactCard();
-
         CustomSeperator verticalSeperator = new CustomSeperator();
         verticalSeperator.setOrientation(Orientation.VERTICAL);
         Style.addStyleClass(verticalSeperator, "vr");
 
+        this.contactCard = new ContactCard();
         this.contactCard.setOnNewContact(this.contactCard::setContact);
         this.contactCard.setOnContactDelete(contact -> {
             this.contacts.remove(contact);
@@ -91,16 +82,30 @@ public class Start extends Window {
             }
         });
 
+        Anchor.setBottomAnchor(this.contactNavigation, 0.);
+        Anchor.setTopAnchor(this.contactNavigation, 0.);
+        Anchor.setLeftAnchor(this.contactNavigation, 0.);
 
-        container.addColumn(this.contactNavigation);
-        container.addColumn(verticalSeperator);
-        container.addColumn(this.contactCard);
-        this.getWindow().addRow(this.titleBar);
-        this.getWindow().addRow(container);
+        Anchor.setBottomAnchor(this.contactCard, 0.);
+        Anchor.setTopAnchor(this.contactCard, 0.);
+        Anchor.setRightAnchor(this.contactCard, 0.);
+        Anchor.setLeftAnchor(this.contactCard, 180.);
+
+        Anchor.setTopAnchor(verticalSeperator, 0.);
+        Anchor.setBottomAnchor(verticalSeperator, 0.);
+        Anchor.setLeftAnchor(verticalSeperator, 180.);
+
+
+        this.getWindow().getChildren().add(this.contactNavigation);
+        this.getWindow().getChildren().add(verticalSeperator);
+        this.getWindow().getChildren().add(this.contactCard);
     }
 
     private void onSearch(String[] keyWords) {
         this.contactNavigation.setContacts(contacts.getContactsWith(keyWords));
+        if (this.contactNavigation.hasContact(this.contactCard.getContact())) {
+            this.contactNavigation.setSelected(this.contactCard.getContact());
+        }
     }
 
 
@@ -109,6 +114,11 @@ public class Start extends Window {
             this.contactCard.setContact(navigationTab.getContact());
             this.contactNavigation.setSelected(navigationTab);
         } else if (!this.contactCard.getContact().equals(navigationTab.getContact()) && (this.contactCard.isValid() || this.contactCard.getContact().isNewContact())) {
+            if (this.contactCard.getContact().isNewContact() && !this.contactCard.isValid()) {
+                this.contactCard.setEditable(false);
+
+            }
+
             this.contactCard.setContact(navigationTab.getContact());
             this.contactNavigation.setSelected(navigationTab);
             this.contactCard.setEditable(!this.contactCard.isValid() || (this.contactCard.isEditable() && !this.contactCard.getContact().isNewContact()));

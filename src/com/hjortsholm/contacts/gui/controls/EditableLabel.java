@@ -34,6 +34,7 @@ public class EditableLabel extends TextField {
         this.setPrompt(prompt);
         this.setText(text);
 
+
         this.textProperty().addListener(observable -> {
             if (this.onTextChanged != null)
                 this.onTextChanged.accept(this.getText());
@@ -81,7 +82,11 @@ public class EditableLabel extends TextField {
 
     public void setToMinimumWidth(Observable observable) {
         Text helper = new Text();
-        helper.setText(this.getText().isEmpty() || this.getText().length() < this.getPromptText().length() ? this.getPromptText() : this.getText());
+        if (this.getText().isEmpty() || this.getText().length() < this.getPromptText().length()) {
+            helper.setText(this.getPromptText());
+        } else {
+            helper.setText(this.getText());
+        }
         helper.setFont(this.getFont());
         helper.setWrappingWidth(0);
         helper.setLineSpacing(0);

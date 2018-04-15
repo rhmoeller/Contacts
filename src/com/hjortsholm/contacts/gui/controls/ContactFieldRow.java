@@ -42,17 +42,15 @@ public class ContactFieldRow extends CustomGrid {
         Style.addStyleClass(this.value, "value");
 
 
-        this.deleteRowButton = new Button("-");
+        this.deleteRowButton = new Button();
         this.deleteRowButton.setVisible(false);
         Style.addStyleClass(this.deleteRowButton, "row-delete");
 
         this.addColumn(this.deleteRowButton);
+        this.addColumn(new Spacer(30, 10));
         this.addColumn(this.name);
         this.addColumn(this.value);
 
-        this.setOnMouseClicked(event -> {
-            this.value.requestFocus();
-        });
         this.name.setOnMouseClicked(this::onTextFieldCopy);
         this.value.setOnMouseClicked(this::onTextFieldCopy);
     }
@@ -70,10 +68,6 @@ public class ContactFieldRow extends CustomGrid {
         this.field.setName(this.name.getText());
         this.deleteRowButton.setVisible(this.value.isEditable() && !this.isEmpty());
 
-    }
-
-    public void setFocus() {
-        this.value.setFocus();
     }
 
     public void setEditable(boolean editable) {

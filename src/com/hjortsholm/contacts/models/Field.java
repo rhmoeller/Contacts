@@ -4,14 +4,12 @@ import com.hjortsholm.contacts.database.Database;
 import com.hjortsholm.contacts.database.Query;
 import com.hjortsholm.contacts.database.TableField;
 
-import javax.xml.crypto.Data;
-
 @TableField(name = "id", type = "INTEGER", primaryKey = true, autoincrement = true)
 @TableField(name = "contact", type = "INTEGER", isNullable = false)
 @TableField(name = "type", type = "INTEGER", isNullable = false)
 @TableField(name = "name", type = "VARCHAR", isNullable = false)
 @TableField(name = "value", type = "VARCHAR", isNullable = false)
-public class Field extends TableModel {
+public class Field extends DataModel {
 
 
     private int id;

@@ -16,14 +16,6 @@ public class EditableLabel extends TextField {
     private String promptText;
     private Field field;
 
-//    public EditableLabel() {
-//        this("", "", true);
-//    }
-//
-//    public EditableLabel(String text) {
-//        this(text, "", true);
-//    }
-
     public EditableLabel(Field field) {
         this(field.getValue(),field.getPrompt());
         this.field = field;

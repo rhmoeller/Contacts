@@ -6,9 +6,23 @@ import java.sql.SQLException;
 import java.util.Collection;
 import java.util.HashMap;
 
+/**
+ * <h1>Query Row</h1>
+ * An object map for database table rows.
+ *
+ * @author robertmoller s5069583
+ * @version 1.0
+ * @see QuerySet
+ * @since 10/04/2018
+ */
 public class QueryRow {
     private HashMap<String, Object> columns;
 
+    /**
+     * Stores all results from a {@link ResultSet result set} in a {@link HashMap hash map}with it's original column name.
+     *
+     * @param results Query result.
+     */
     public QueryRow(ResultSet results) {
         this.columns = new HashMap<>();
         try {
@@ -20,16 +34,13 @@ public class QueryRow {
         }
     }
 
+    /**
+     * Gets a specific column from the previously created {@link HashMap hash map} by column name.
+     *
+     * @param key Column name.
+     * @return Object from the query result data.
+     */
     public Object getColumn(String key) {
-        return this.columns.keySet().contains(key) ? this.columns.get(key): null;
-    }
-
-    public Collection<Object> getColumns() {
-        return this.columns.values();
-    }
-
-    @Override
-    public String toString() {
-        return this.getClass().getSimpleName() + this.columns;
+        return this.columns.keySet().contains(key) ? this.columns.get(key) : null;
     }
 }

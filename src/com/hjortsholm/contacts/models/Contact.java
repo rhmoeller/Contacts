@@ -4,8 +4,20 @@ import com.hjortsholm.contacts.database.*;
 
 import java.util.ArrayList;
 
+/**
+ * <h1>Setup</h1>
+ * Sets up database with sample data.
+ *
+ * @author Robert Moeller s5069583
+ * @version 1.0
+ * @see Database
+ * @see Field
+ * @see DataModel
+ * @see TableField
+ * @since 10/04/2018
+ */
 @TableField(name = "id", type = "INTEGER", primaryKey = true)
-public class Contact extends TableModel implements Comparable {
+public class Contact extends DataModel implements Comparable {
 
     private boolean newContact;
     private int id;
@@ -25,7 +37,6 @@ public class Contact extends TableModel implements Comparable {
             this.newContact = true;
         }
     }
-
 
     public int getId() {
         return this.id;
@@ -105,10 +116,11 @@ public class Contact extends TableModel implements Comparable {
     }
 
     public boolean exists() {
+        int ID = this.getId();
         return Database.get(new Query()
                 .select()
                 .from("Contact")
-                .where("id = " + this.getId())
+                .where("id = " + ID)
         ).size() > 0;
     }
 
@@ -164,7 +176,6 @@ public class Contact extends TableModel implements Comparable {
         return "Contact[" + this.getId() + "]";
     }
 
-    //    @Override
     public Object[] getValues() {
         return new Object[]{this.getId()};
     }

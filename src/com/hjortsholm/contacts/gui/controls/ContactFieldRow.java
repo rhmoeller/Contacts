@@ -5,6 +5,7 @@ import com.hjortsholm.contacts.gui.util.Style;
 import com.hjortsholm.contacts.models.Field;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 
@@ -16,6 +17,7 @@ import java.util.function.Consumer;
 public class ContactFieldRow extends CustomGrid {
     private EditableLabel name;
     private EditableLabel value;
+    private DatePicker dateValue;
     private Button deleteRowButton;
     private Field field;
     private boolean isEditable;
@@ -26,7 +28,6 @@ public class ContactFieldRow extends CustomGrid {
         this.field = field;
 
         this.name = new EditableLabel(field.getName(), field.getType().getDefaultName(), false);
-        this.name.setOnTextChanged(this::onTextChanged);
         this.name.setPrefWidth(70);
         this.name.setAlignment(Pos.BASELINE_RIGHT);
         Style.addStyleClass(this.name, "name");
@@ -39,9 +40,7 @@ public class ContactFieldRow extends CustomGrid {
         } else {
             this.value = new EditableLabel(field);
         }
-        this.value.setOnTextChanged(this::onTextChanged);
         Style.addStyleClass(this.value, "value");
-
 
         this.deleteRowButton = new Button();
         this.deleteRowButton.setVisible(false);
@@ -53,7 +52,10 @@ public class ContactFieldRow extends CustomGrid {
         this.addColumn(this.value);
 
         this.name.setOnMouseClicked(this::onTextFieldCopy);
+        this.name.setOnTextChanged(this::onTextChanged);
         this.value.setOnMouseClicked(this::onTextFieldCopy);
+        this.value.setOnTextChanged(this::onTextChanged);
+
     }
 
     private void onTextFieldCopy(MouseEvent mouseEvent) {

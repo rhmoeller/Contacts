@@ -1,42 +1,58 @@
 package com.hjortsholm.contacts.database;
 
-import com.hjortsholm.contacts.models.TableModel;
+import com.hjortsholm.contacts.models.DataModel;
 
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
+/**
+ * <h1>Database</h1>
+ * A programming interface for interacting with SQLite
+ *
+ * @author Rober Moeller s5069583
+ * @version 1.0
+ * @since 10/04/2018
+ */
 public class Database {
+
     private static final String JDBC = "jdbc:sqlite:";
     private static final int TIMEOUT = 30;
     private static Connection connection;
     private static String path;
 
-
-//    public Database(String path) {
-//        try {
-//            this.path = path;
-//            this.connection = DriverManager.getConnection(Database.JDBC + this.path);
-//        } catch (SQLException exception) {
-//            System.err.println("[ERROR]: Failed to open database..");
-//        }
-//    }
-
-    public static boolean configure(String databasePath) {
+    /**
+     * Configure the database connection.
+     *
+     * @param path Filepath to database.
+     */
+    public static void configure(String path) {
         try {
-            Database.path = databasePath;
-            Database.connection = DriverManager.getConnection(Database.JDBC + databasePath);
-            return true;
+            Database.path = path;
+            Database.connection = DriverManager.getConnection(Database.JDBC + path);
         } catch (SQLException exception) {
             System.err.println("[ERROR]: Failed to open database..");
-            return false;
         }
     }
 
+
+    /**
+     * Get information from the database.
+     *
+     * @param query {@link Query} to perform.
+     * @return {@link QuerySet Data set} result from query.
+     */
     public static QuerySet get(Query query) {
         return Database.get(query.toString());
     }
 
+    /**
+     * Get information from the database.
+     *
+     * @param query Query to perform.
+     * @return {@link QuerySet Data set} result from query.
+     */
     public static QuerySet get(String query) {
         try {
             if (connection == null) throw new Exception("No connection");
@@ -53,25 +69,45 @@ public class Database {
         }
     }
 
+    /**
+     * Send data to the database.
+     *
+     * @param query {@link Query} to perform.
+     * @return Successfully performed query.
+     * @see TableField
+     */
     public static boolean post(Query query) {
-        return Database.post(query.toString(), null);
+        return Database.post(query.toString(), new Object[0]);
     }
 
-    public static boolean post(Query query, Object... data) {
-        return Database.post(query.toString(), data);
-    }
-
+    /**
+     * Send data to the database.
+     *
+     * @param query Query to perform.
+     * @return Successfully performed query.
+     * @see TableField
+     */
     public static boolean post(String query) {
-        return Database.post(query, null);
+        return Database.post(query, new Object[0]);
     }
 
+    /**
+     * Send data to the database.
+     *
+     * @param query Query to perform.
+     * @param data  Data to send.
+     * @return Successfully performed query.
+     * @see TableField
+     */
     public static boolean post(String query, Object... data) {
         try {
             PreparedStatement statement = Database.connection.prepareStatement(query);
             statement.setQueryTimeout(Database.TIMEOUT);
-            if (data != null)
-                for (int i = 0; i < data.length; i++)
+            if (data != null) {
+                for (int i = 0; i < data.length; i++) {
                     statement.setObject(i + 1, data[i]);
+                }
+            }
             statement.executeUpdate();
             statement.close();
             return true;
@@ -81,16 +117,11 @@ public class Database {
         }
     }
 
-    public static boolean close() {
-        try {
-            Database.connection.close();
-            return true;
-        } catch (SQLException exception) {
-            System.err.println("[ERROR]: " + exception);
-        }
-        return false;
-    }
-
+    /**
+     * See if database connection is closed.
+     *
+     * @return Closed connection.
+     */
     public static boolean isClosed() {
         try {
             return Database.connection.isClosed();
@@ -100,10 +131,20 @@ public class Database {
         return false;
     }
 
+    /**
+     * Get the path to the database file.
+     *
+     * @return Path to database file.
+     */
     public static String getPath() {
         return Database.path;
     }
 
+    /**
+     * Check if the database file exists and if the connection is valid.
+     *
+     * @return Valid connection.
+     */
     public static boolean isValid() {
         try {
             File databaseFile = new File(Database.getPath());
@@ -116,20 +157,30 @@ public class Database {
 
     }
 
-    public static boolean createTable(Class dataModel) {
-        return Database.createTable(dataModel.getSimpleName(), dataModel);
+    /**
+     * Creates table based on a class.
+     *
+     * @param dataModel {@link DataModel Table Model} for table.
+     * @see TableField Table Field
+     */
+    public static void createTable(Class dataModel) {
+        Database.createTable(dataModel.getSimpleName(), dataModel);
     }
 
-    public static boolean createTable(String table, Class dataModel) {
+    /**
+     * Creates table based on a class.
+     *
+     * @param table     Table name.
+     * @param dataModel {@link DataModel Table Model} for table.
+     * @see TableField Table Field
+     */
+    private static void createTable(String table, Class dataModel) {
         ArrayList<TableField> fields = new ArrayList<>();
-        for (TableField field : (TableField[]) dataModel.getDeclaredAnnotationsByType(TableField.class))
-            fields.add(field);
-
-
-        String sql = "CREATE TABLE " + table + " (\n";
+        Collections.addAll(fields, (TableField[]) dataModel.getDeclaredAnnotationsByType(TableField.class));
+        StringBuilder sql = new StringBuilder("CREATE TABLE " + table + " (\n");
         for (int i = 0; i < fields.size(); i++) {
             TableField field = fields.get(i);
-            sql += String.format("\t%s\t%s\t%s\t%s\t%s\t%s%s\n",
+            sql.append(String.format("\t%s\t%s\t%s\t%s\t%s\t%s%s\n",
                     field.name(),
                     field.type(),
                     field.primaryKey() ? "PRIMARY KEY" : "",
@@ -137,28 +188,54 @@ public class Database {
                     field.autoincrement() ? "AUTOINCREMENT" : "",
                     field.defaultValue().isEmpty() ? "" : "DEFAULT " + field.defaultValue(),
                     i + 1 < fields.size() ? "," : ""
-            );
+            ));
         }
-        sql += ")";
-        return Database.post(sql);
+        sql.append(")");
+        Database.post(sql.toString());
     }
 
-    public static boolean dropTable(Class dataModel) {
-        return Database.dropTable(dataModel.getSimpleName());
+    /**
+     * Delete table from databae.
+     *
+     * @param dataModel {@link DataModel Table Model}.
+     * @see TableField Table Field
+     */
+    public static void dropTable(Class dataModel) {
+        Database.dropTable(dataModel.getSimpleName());
     }
 
-    public static boolean dropTable(String table) {
-        return Database.post(new Query().drop(table).toString());
+    /**
+     * Delete table from databae.
+     *
+     * @param table Table name.
+     */
+    private static void dropTable(String table) {
+        Database.post(new Query().drop(table).toString());
     }
 
+    /**
+     * Compare {@link TableField data model} to the related table in database.
+     *
+     * @param dataModel Data model.
+     * @return Table corresponds to data model.
+     * @see TableField
+     */
     public static boolean verifyTable(Class dataModel) {
         return Database.verifyTable(dataModel.getSimpleName(), dataModel);
     }
 
-    public static boolean verifyTable(String table, Class dataModel) {
+    /**
+     * Compare {@link TableField data model} to the related table in database.
+     *
+     * @param table     Table name.
+     * @param dataModel Data model.
+     * @return Table corresponds to data model.
+     * @see TableField
+     */
+    private static boolean verifyTable(String table, Class dataModel) {
         TableField[] fields = (TableField[]) dataModel.getDeclaredAnnotationsByType(TableField.class);
-        ArrayList<QueryRow> tableFields = Database.get(new Query().getInfo(table).toString());
-        ArrayList<QueryRow> iterableFields = (ArrayList<QueryRow>) tableFields.clone();
+        QuerySet tableFields = Database.get(new Query().getInfo(table).toString());
+        QuerySet iterableFields = (QuerySet) tableFields.clone();
         ArrayList<QueryRow> verifiedField = new ArrayList<>();
 
         if (fields.length == 0 || fields.length != tableFields.size() || tableFields.isEmpty()) {
@@ -180,9 +257,15 @@ public class Database {
         return tableFields.equals(verifiedField);
     }
 
-
-    public static boolean insert(TableModel model) {
-        return Database.post(new Query().insertInto(model.getClass()).values(model.getValues()));
+    /**
+     * Insert data from a {@link DataModel data model}.
+     *
+     * @param model {@link DataModel Data} to insert.
+     * @see DataModel
+     * @see TableField
+     */
+    public static void insert(DataModel model) {
+        Database.post(new Query().insertInto(model.getClass()).values(model.getValues()));
     }
 
 }

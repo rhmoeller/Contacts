@@ -4,7 +4,9 @@ import com.hjortsholm.contacts.database.Database;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.Field;
 import com.hjortsholm.contacts.models.FieldType;
+import com.hjortsholm.contacts.util.Resource;
 
+import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
@@ -12,7 +14,8 @@ import java.util.Scanner;
 public class Setup {
 
     public void importSampleData() throws IOException {
-        File sampleDataCsv = new File("fields.csv");
+//        File sampleDataCsv = new File("fields.csv");
+        File sampleDataCsv = new Resource("fields.csv");
         Scanner scanner = new Scanner(sampleDataCsv);
         scanner.nextLine();
         while (scanner.hasNext()) {
@@ -31,6 +34,10 @@ public class Setup {
             }
             Database.insert(field);
         }
+    }
+
+    protected void flushDatabase(Database database) {
+
     }
 
     public static void main(String[] args) throws IOException{

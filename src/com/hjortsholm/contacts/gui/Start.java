@@ -41,7 +41,6 @@ public class Start extends Application {
         stage.setTitle(com.hjortsholm.contacts.Application.getTitle());
         stage.initStyle(StageStyle.UNIFIED);
 
-
         this.window.getChildren().add(this.contactNavigation);
         this.window.getChildren().add(this.verticalSeperator);
         this.window.getChildren().add(this.contactCard);

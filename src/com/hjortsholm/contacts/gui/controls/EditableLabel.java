@@ -24,6 +24,11 @@ public class EditableLabel extends TextField {
 //        this(text, "", true);
 //    }
 
+    public EditableLabel(Field field) {
+        this(field.getValue(),field.getPrompt());
+        this.field = field;
+    }
+
     public EditableLabel(String text, String prompt) {
         this(text, prompt, true);
     }
@@ -53,10 +58,6 @@ public class EditableLabel extends TextField {
             this.textProperty().removeListener(this::setToMinimumWidth);
         }
     }
-
-//    public void toggleEdit() {
-//        this.setEdit(!this.isEditable());
-//    }
 
     public void setEdit(boolean editable) {
         this.setEditable(editable);
@@ -102,10 +103,6 @@ public class EditableLabel extends TextField {
         this.field = field;
         this.setPrompt(field.getName().isEmpty() ? field.getType().name().toLowerCase() : field.getName());
         this.setText(field.getValue());
-//        this.setOnTextChanged(text -> {
-//            if (this.onTextFieldChanged != null)
-//                this.onTextFieldChanged.accept(text, this.field);
-//        });
     }
 
     public void setOnTextChanged(Consumer<String> onTextChanged) {

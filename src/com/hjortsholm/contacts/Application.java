@@ -10,7 +10,7 @@ public class Application {
     private static int windowWidth;
     private static int windowHeight;
     private static String title;
-
+    private static Database database;
 
     public static void main(String[] args) {
         Application app = new Application();
@@ -28,6 +28,10 @@ public class Application {
 
     public void configureDatabase(String path) {
         Database.configure(path);
+    }
+
+    public static Database getDatabase() {
+        return Application.database;
     }
 
     public void checkDatabaseIntegrity() {

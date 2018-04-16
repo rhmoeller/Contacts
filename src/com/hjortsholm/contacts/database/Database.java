@@ -8,27 +8,19 @@ import java.util.ArrayList;
 
 public class Database {
     private static final String JDBC = "jdbc:sqlite:";
-    //    public CompletableFuture<QuerySet> getFuture(Query query) {
-//        return CompletableFuture.supplyAsync(() -> {
-//            try {
-//                if (connection == null) throw new Exception("No connection");
-//                if (connection.isClosed()) throw new Exception("Connection is closed");
-//                Statement statement = this.connection.createStatement();
-//                statement.setQueryTimeout(this.timeout);
-//                return new QuerySet(statement.executeQuery(query.toString()));
-//            } catch (SQLException exception) {
-//                System.err.println("[ERROR]: " + query);
-//                return null;
-//            } catch (Exception exception) {
-//                System.err.println("[ERROR]: " + exception.getMessage());
-//                return null;
-//            }
-//        });
-//    }
-
+    private static final int TIMEOUT = 30;
     private static Connection connection;
     private static String path;
-    private static int timeout = 30;
+
+
+//    public Database(String path) {
+//        try {
+//            this.path = path;
+//            this.connection = DriverManager.getConnection(Database.JDBC + this.path);
+//        } catch (SQLException exception) {
+//            System.err.println("[ERROR]: Failed to open database..");
+//        }
+//    }
 
     public static boolean configure(String databasePath) {
         try {
@@ -50,7 +42,7 @@ public class Database {
             if (connection == null) throw new Exception("No connection");
             if (connection.isClosed()) throw new Exception("Connection is closed");
             Statement statement = Database.connection.createStatement();
-            statement.setQueryTimeout(Database.timeout);
+            statement.setQueryTimeout(Database.TIMEOUT);
             return new QuerySet(statement.executeQuery(query));
         } catch (SQLException exception) {
             System.err.println("[ERROR]: " + query);
@@ -76,7 +68,7 @@ public class Database {
     public static boolean post(String query, Object... data) {
         try {
             PreparedStatement statement = Database.connection.prepareStatement(query);
-            statement.setQueryTimeout(Database.timeout);
+            statement.setQueryTimeout(Database.TIMEOUT);
             if (data != null)
                 for (int i = 0; i < data.length; i++)
                     statement.setObject(i + 1, data[i]);
@@ -169,7 +161,7 @@ public class Database {
         ArrayList<QueryRow> iterableFields = (ArrayList<QueryRow>) tableFields.clone();
         ArrayList<QueryRow> verifiedField = new ArrayList<>();
 
-        if (fields.length == 0 || /**/fields.length != tableFields.size()/**/ || tableFields.isEmpty()) {
+        if (fields.length == 0 || fields.length != tableFields.size() || tableFields.isEmpty()) {
             return false;
         }
 

@@ -36,11 +36,17 @@ public class Setup {
         }
     }
 
-    protected void flushDatabase(Database database) {
-
+    protected void flushDatabase() {
+        Database.dropTable(Field.class);
+        Database.dropTable(Contact.class);
     }
 
     public static void main(String[] args) throws IOException{
-        new Setup().importSampleData();
+        String foo = "/Users/robertmoller/Documents/Hobby/Code/University/Assignment/New/Contacts/src/com/hjortsholm/contacts/fields.csv",
+                bar = "/Users/robertmoller/Documents/Hobby/Code/University/Assignment/New/Contacts/out/production/Contacts/com/hjortsholm/contacts/fields.csv";
+        System.out.print(foo=bar);
+        Setup setup = new Setup();
+        setup.flushDatabase();
+        setup.importSampleData();
     }
 }

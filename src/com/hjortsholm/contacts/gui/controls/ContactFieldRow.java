@@ -32,11 +32,12 @@ public class ContactFieldRow extends CustomGrid {
         Style.addStyleClass(this.name, "name");
 
         if (field.getValue().equals("¿?")) {
-            this.value = new EditableLabel("", field.getPrompt());
+            field.setValue("");
+            this.value = new EditableLabel(field);
             this.value.setText(field.getType().name().toLowerCase());
             this.value.setFocus();
         } else {
-            this.value = new EditableLabel(field.getValue(), field.getPrompt());
+            this.value = new EditableLabel(field);
         }
         this.value.setOnTextChanged(this::onTextChanged);
         Style.addStyleClass(this.value, "value");

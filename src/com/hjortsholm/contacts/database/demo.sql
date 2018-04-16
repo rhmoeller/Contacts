@@ -1,4 +1,3 @@
-
 PRAGMA table_info(Field);
 
 INSERT INTO Contact VALUES (0);

@@ -58,20 +58,10 @@ public class ContactCard extends AnchorPane {
         Anchor.setRightAnchor(utilitiesContainer, 0.);
         Anchor.setLeftAnchor(utilitiesContainer, 0.);
 
-//        CustomGrid contactInfoPanel = new CustomGrid();
-//        Anchor.setRightAnchor(contactInfoPanel, 0.);
-//        Anchor.setLeftAnchor(contactInfoPanel, 0.);
-//        Anchor.setTopAnchor(contactInfoPanel, 0.);
-//        Anchor.setBottomAnchor(contactInfoPanel, 0.);
-
         this.contactInfoHeader = new ContactInfoHeader();
         Anchor.anchorAll(this.contactInfoHeader, 0);
 
         this.contactFieldsList = new ContactFieldsList();
-//        Anchor.setRightAnchor(this.noContactSelectedLabel, 0.);
-//        Anchor.setLeftAnchor(this.noContactSelectedLabel, 0.);
-//        Anchor.setTopAnchor(this.noContactSelectedLabel, 0.);
-//        Anchor.setBottomAnchor(this.noContactSelectedLabel, 0.);
         this.topSeparator = new Separator();
         this.bottomSeparator = new Separator();
         Anchor.setTopAnchor(this.topSeparator, 68.);
@@ -80,7 +70,6 @@ public class ContactCard extends AnchorPane {
         Anchor.setBottomAnchor(this.bottomSeparator, 48.);
         Anchor.setLeftAnchor(this.bottomSeparator, 21.);
         Anchor.setRightAnchor(this.bottomSeparator, 27.);
-
 
         this.scrollContainer = new ScrollableView(this.contactFieldsList);
         this.scrollContainer.setPrefHeight(Application.getWindowHeight() - 90);
@@ -211,6 +200,7 @@ public class ContactCard extends AnchorPane {
             this.contactInfoHeader.setEditable(this.isEditable);
             this.contactInfoHeader.setVisibility(true);
 
+
         } else {
             this.noContactSelectedLabel.setVisible(true);
             this.scrollContainer.setVisible(false);
@@ -219,6 +209,9 @@ public class ContactCard extends AnchorPane {
             this.contactFieldsList.setEditable(false);
             this.contactInfoHeader.setEditable(false);
             this.contactInfoHeader.setVisibility(false);
+            this.topSeparator.setVisible(false);
+            this.bottomSeparator.setVisible(false);
+
         }
         this.horisontalBarController();
     }

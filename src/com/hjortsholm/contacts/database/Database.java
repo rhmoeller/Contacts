@@ -1,5 +1,7 @@
 package com.hjortsholm.contacts.database;
 
+import com.hjortsholm.contacts.models.TableModel;
+
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
@@ -184,6 +186,11 @@ public class Database {
             }
         }
         return tableFields.equals(verifiedField);
+    }
+
+
+    public static boolean insert(TableModel model) {
+        return Database.post(new Query().insertInto(model.getClass()).values(model.getValues()));
     }
 
 }

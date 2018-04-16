@@ -40,18 +40,14 @@ public class ContactNavigation extends AnchorPane {
         Anchor.setRightAnchor(this.searchField, 15.);
         Anchor.setLeftAnchor(this.searchField, 15.);
 
-        ScrollableView scrollContainer = new ScrollableView();
-//        ListView<CategorisedListView> scrollContainer = new ListView<CategorisedListView>();
 
-        scrollContainer.vvalueProperty().addListener(observable -> {
-            System.out.println( scrollContainer.getContent().getBoundsInLocal().getMaxX());
-        });
         this.searchField.setPromptText("Search");
         this.searchField.setOnKeyReleased(this::onSearch);
 
         Style.addStylesheet(this.searchField, "TextFields");
         Style.addStyleClass(this.searchField, "SearchField");
 
+        ScrollableView scrollContainer = new ScrollableView();
         Anchor.setBottomAnchor(scrollContainer, 0.);
         Anchor.setTopAnchor(scrollContainer, 40.);
 

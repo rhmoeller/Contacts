@@ -4,12 +4,14 @@ import com.hjortsholm.contacts.database.Database;
 import com.hjortsholm.contacts.database.Query;
 import com.hjortsholm.contacts.database.TableField;
 
-@TableField(name = "id", type = "VARCHAR", primaryKey = true)
-@TableField(name = "contact", type = "VARCHAR", isNullable = false)
+import javax.xml.crypto.Data;
+
+@TableField(name = "id", type = "INTEGER", primaryKey = true, autoincrement = true)
+@TableField(name = "contact", type = "INTEGER", isNullable = false)
 @TableField(name = "type", type = "INTEGER", isNullable = false)
-@TableField(name = "name", type = "INTEGER", isNullable = false)
+@TableField(name = "name", type = "VARCHAR", isNullable = false)
 @TableField(name = "value", type = "VARCHAR", isNullable = false)
-public class Field {
+public class Field extends TableModel {
 
 
     private int id;
@@ -37,7 +39,7 @@ public class Field {
 
     private boolean exists() {
         if (this.id != -1)
-            return Database.get(new Query().select("id id").from("Field").where("id = " + this.id)).size() > 0;
+            return Database.get(new Query().select("id").from(Field.class).where("id = " + this.id)).size() > 0;
         else
             return false;
     }
@@ -51,6 +53,7 @@ public class Field {
                     this.getValue()
             };
 
+//            Database.insert(this);
             Database.post(new Query()
                     .insertInto("Field")
                     .fields("contact", "type", "name", "value")
@@ -138,6 +141,10 @@ public class Field {
     @Override
     public String toString() {
         return "Field[" + type + ",\"" + name + "\", \"" + value + "\"]";
+    }
+
+    public Object[] getValues() {
+        return new Object[]{this.getId(), this.getContact(), this.getType().getIndex(), this.getName(), this.getValue()};
     }
 }
 

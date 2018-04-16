@@ -1,14 +1,5 @@
 package com.hjortsholm.contacts.models;
 
-import com.hjortsholm.contacts.database.TableField;
-
-import java.util.HashMap;
-import java.util.Map;
-
-
-@TableField(name = "id", type = "INTEGER", primaryKey = true, autoincrement = true)
-//@TableField(name = "name", type = "VARCHAR", isNullable = false)
-//@TableField(name = "prompt", type = "VARCHAR", isNullable = false)
 public enum FieldType {
     NUMBER("mobile"),
     EMAIL("personal"),

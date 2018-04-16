@@ -22,16 +22,28 @@ public class Query {
         return this;
     }
 
+    public Query drop(Class table) {
+        return this.drop(table.getSimpleName());
+    }
+
     public Query drop(String table) {
         this.query = "DROP TABLE "+ table;
         return this;
     }
+
+    public Query getInfo(Class table) {
+        return this.getInfo(table.getSimpleName());
+    }
+
 
     public Query getInfo(String table) {
         this.query = "PRAGMA table_info(" + table+")";
         return this;
     }
 
+    public Query deleteFrom(Class table) {
+        return this.deleteFrom(table.getSimpleName());
+    }
 
     public Query deleteFrom(String table) {
         return this.append("DELETE FROM",table);
@@ -44,6 +56,9 @@ public class Query {
     public Query set(String... values) {
         this.append("SET");
         return this.append(true, values);
+    }
+    public Query insertInto(Class table) {
+        return this.insertInto(table.getSimpleName());
     }
 
     public Query insertInto(String table) {
@@ -94,10 +109,6 @@ public class Query {
     public Query or(String condition) {
         return this.append("OR", condition);
     }
-//
-//    public Query and(Me<Query, Query> condition) {
-//        return this.nested(condition);
-//    }
 
     public Query where(String... conditions) {
         this.where(conditions[0]);
@@ -105,12 +116,6 @@ public class Query {
             this.and(conditions[i]);
         return this;
     }
-
-//    public Query nested(Me<Query, Query> nestedQuery) {
-//        this.append("(");
-//        nestedQuery.accept(this);
-//        return this.append(")");
-//    }
 
     @Override
     public String toString() {

@@ -5,7 +5,7 @@ import com.hjortsholm.contacts.database.*;
 import java.util.ArrayList;
 
 @TableField(name = "id", type = "INTEGER", primaryKey = true)
-public class Contact implements Comparable {
+public class Contact extends TableModel implements Comparable {
 
     private boolean newContact;
     private int id;
@@ -151,8 +151,12 @@ public class Contact implements Comparable {
 
     @Override
     public int compareTo(Object contact) {
-        String contactTitle = ((Contact) contact).getDisplayTitle();
-        return this.getDisplayTitle().compareTo(contactTitle);
+        String contactTitle1 = this.getDisplayTitle();
+        String contactTitle2 = ((Contact) contact).getDisplayTitle();
+        if (contactTitle1 != null && contactTitle2 != null)
+            return contactTitle1.compareTo(contactTitle2);
+        else
+            return -1;
     }
 
     @Override
@@ -160,4 +164,8 @@ public class Contact implements Comparable {
         return "Contact[" + this.getId() + "]";
     }
 
+    //    @Override
+    public Object[] getValues() {
+        return new Object[]{this.getId()};
+    }
 }

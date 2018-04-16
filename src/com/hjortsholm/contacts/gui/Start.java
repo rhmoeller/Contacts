@@ -1,4 +1,4 @@
-package com.hjortsholm.contacts.forms;
+package com.hjortsholm.contacts.gui;
 
 import com.hjortsholm.contacts.database.Database;
 import com.hjortsholm.contacts.database.Query;
@@ -6,25 +6,28 @@ import com.hjortsholm.contacts.database.QueryRow;
 import com.hjortsholm.contacts.database.QuerySet;
 import com.hjortsholm.contacts.gui.controls.ContactNavigationTab;
 import com.hjortsholm.contacts.gui.controls.CustomSeperator;
-import com.hjortsholm.contacts.gui.controls.WindowTitleBar;
 import com.hjortsholm.contacts.gui.panels.ContactCard;
 import com.hjortsholm.contacts.gui.panels.ContactNavigation;
 import com.hjortsholm.contacts.gui.util.Anchor;
 import com.hjortsholm.contacts.gui.util.Style;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.ContactList;
+import javafx.application.Application;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
+import javafx.scene.control.Separator;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class Start extends Window {
+public class Start extends Application {
 
     private ContactNavigation contactNavigation;
-    private WindowTitleBar titleBar;
     private ContactCard contactCard;
     private ContactList contacts;
+    private Separator verticalSeperator;
+    private AnchorPane window;
 
     public static void show() {
         launch();
@@ -32,10 +35,17 @@ public class Start extends Window {
 
     @Override
     public void start(Stage stage) {
-
+        this.window = new AnchorPane();
+        Style.addStyleClass(this.window, "Window");
+        Style.addStylesheet(this.window, "Window");
         stage.setTitle(com.hjortsholm.contacts.Application.getTitle());
         stage.initStyle(StageStyle.UNIFIED);
-        Scene scene = new Scene(this.getWindow(), com.hjortsholm.contacts.Application.getWindowWidth(),
+
+
+        this.window.getChildren().add(this.contactNavigation);
+        this.window.getChildren().add(this.verticalSeperator);
+        this.window.getChildren().add(this.contactCard);
+        Scene scene = new Scene(this.window, com.hjortsholm.contacts.Application.getWindowWidth(),
                 com.hjortsholm.contacts.Application.getWindowHeight());
 
         scene.setFill(Color.TRANSPARENT);
@@ -45,7 +55,6 @@ public class Start extends Window {
 
     @Override
     public void init() {
-        initialiseComponents();
         this.contacts = new ContactList();
         QuerySet set = Database.get(new Query()
                 .select("id")
@@ -58,15 +67,14 @@ public class Start extends Window {
                 this.contacts.addContact(contact);
             }
         }
+
         this.contactNavigation = new ContactNavigation();
         this.contactNavigation.setContacts(contacts.getContacts());
         this.contactNavigation.setOnTabSelectedEvent(this::onTabChanged);
         this.contactNavigation.setOnSearch(this::onSearch);
 
-
-        CustomSeperator verticalSeperator = new CustomSeperator();
-        verticalSeperator.setOrientation(Orientation.VERTICAL);
-        Style.addStyleClass(verticalSeperator, "vr");
+        this.verticalSeperator = new CustomSeperator();
+        this.verticalSeperator.setOrientation(Orientation.VERTICAL);
 
         this.contactCard = new ContactCard();
         this.contactCard.setOnNewContact(this.contactCard::setContact);
@@ -82,6 +90,8 @@ public class Start extends Window {
             }
         });
 
+        Style.addStyleClass(this.verticalSeperator, "vr");
+
         Anchor.setBottomAnchor(this.contactNavigation, 0.);
         Anchor.setTopAnchor(this.contactNavigation, 0.);
         Anchor.setLeftAnchor(this.contactNavigation, 0.);
@@ -91,18 +101,13 @@ public class Start extends Window {
         Anchor.setRightAnchor(this.contactCard, 0.);
         Anchor.setLeftAnchor(this.contactCard, 180.);
 
-        Anchor.setTopAnchor(verticalSeperator, 0.);
-        Anchor.setBottomAnchor(verticalSeperator, 0.);
-        Anchor.setLeftAnchor(verticalSeperator, 180.);
-
-
-        this.getWindow().getChildren().add(this.contactNavigation);
-        this.getWindow().getChildren().add(verticalSeperator);
-        this.getWindow().getChildren().add(this.contactCard);
+        Anchor.setTopAnchor(this.verticalSeperator, 0.);
+        Anchor.setBottomAnchor(this.verticalSeperator, 0.);
+        Anchor.setLeftAnchor(this.verticalSeperator, 180.);
     }
 
     private void onSearch(String[] keyWords) {
-        this.contactNavigation.setContacts(contacts.getContactsWith(keyWords));
+        this.contactNavigation.setContacts(this.contacts.getContactsWith(keyWords));
         if (this.contactNavigation.hasContact(this.contactCard.getContact())) {
             this.contactNavigation.setSelected(this.contactCard.getContact());
         }

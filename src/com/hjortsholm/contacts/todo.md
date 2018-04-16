@@ -1,2 +1,4 @@
 # To do:
-* Style text, buttons and seperators
+* Auto insert testdata
+* Documentation 
+* Testing

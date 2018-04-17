@@ -36,7 +36,7 @@ public class ContactInfoHeader extends CustomGrid {
         this.lastName = new EditableLabel("", "last");
         this.lastName.setOnTextFieldChanged(this::textChanged);
 
-        this.nickName = new EditableLabel("", "nick");
+        this.nickName = new EditableLabel("", "nickname");
         this.nickName.setOnTextFieldChanged(this::textChanged);
 
         Style.addStyleClass(this.firstName, "first");

@@ -42,7 +42,7 @@ public class Application {
         Application app = new Application();
         app.checkDatabaseIntegrity();
         app.setTitle("Contacts");
-        app.setWindowSize(720, 440);
+        app.setWindowSize(840, 440);
         Start.show();
     }
 

@@ -21,7 +21,7 @@
     visibility: hidden;
 }
 
-.ScrollableView:hover > .scroll-bar:vertical .thumb {
+.ScrollableView.overflowed:hover > .scroll-bar:vertical .thumb {
     -fx-opacity: 100%;
     -fx-background-position: top;
 }

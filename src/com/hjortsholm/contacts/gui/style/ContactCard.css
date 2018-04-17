@@ -1,5 +1,5 @@
 .ContactFieldsList {
-    -fx-padding: 0 10 10 20;
+    -fx-padding: 0 0 10 15;
 }
 
 .ContactFieldsList .ContactFieldRow  {
@@ -12,12 +12,15 @@
 
 .ContactFieldsList .ContactFieldRow:hover .value {
     -fx-background-radius: 0 1em 1em 0;
-    -fx-background-color: #d1d1d1;
+    /*-fx-background-color: #d1d1d1;*/
+    -fx-background-color: rgba(74, 168, 142, 0.27);
 }
 
 .ContactFieldsList .ContactFieldRow:hover .name {
     -fx-background-radius: 1em 0 0 1em;
-    -fx-background-color: #b9b9b9;
+    /*-fx-background-color: #b9b9b9;*/
+    -fx-background-color: #4AA88E;
+
     -fx-text-fill: white;
 }
 
@@ -35,7 +38,7 @@
     -fx-prompt-text-fill: #80868d;
 }
 
-.ContactFieldsList .ContactFieldRow .name.editable {
+.ContactFieldsList .ContactFieldRow .name.editable { /* confirm color scheme */
     /*-fx-text-fill: #fc2f6a;*/
     /*-fx-text-fill: #fc3b53;*/
     -fx-text-fill: #4AA88E;
@@ -54,6 +57,9 @@
     -fx-font-size: 18;
 }
 
-.ContactInfoHeader .nick {
-    -fx-font-size: 14;
+.ContactInfoHeader .nickname {
+    -fx-font-size: 16;
+    /*-fx-text-fill: #8D8D8D;*/
+    -fx-text-fill: #4AA88E;
+    -fx-font-style: italic;
 }

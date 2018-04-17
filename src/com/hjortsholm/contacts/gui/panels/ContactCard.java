@@ -9,6 +9,7 @@ import com.hjortsholm.contacts.gui.style.Style;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.Field;
 import com.hjortsholm.contacts.models.FieldType;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -73,25 +74,27 @@ public class ContactCard extends AnchorPane {
 
         this.topSeparator = new Separator();
         AnchorPane.setTopAnchor(this.topSeparator, 68.);
-        AnchorPane.setLeftAnchor(this.topSeparator, 21.);
-        AnchorPane.setRightAnchor(this.topSeparator, 27.);
+        AnchorPane.setLeftAnchor(this.topSeparator, 16.);
+        AnchorPane.setRightAnchor(this.topSeparator, 17.);
 
         this.bottomSeparator = new Separator();
         AnchorPane.setBottomAnchor(this.bottomSeparator, 48.);
-        AnchorPane.setLeftAnchor(this.bottomSeparator, 21.);
-        AnchorPane.setRightAnchor(this.bottomSeparator, 27.);
+        AnchorPane.setLeftAnchor(this.bottomSeparator, 16.);
+        AnchorPane.setRightAnchor(this.bottomSeparator, 17.);
+        Style.addStyleClass(this.bottomSeparator, "bottom-separator");
 
         this.contactFieldsList = new ContactFieldsList();
 
         this.scrollContainer = new ScrollableView(this.contactFieldsList);
         this.scrollContainer.setPrefHeight(Application.getWindowHeight() - 90);
         this.scrollContainer.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-        this.scrollContainer.vvalueProperty().addListener((observable, oldValue, newValue) -> this.horisontalBarController());
+        this.scrollContainer.vvalueProperty().addListener((observable, oldValue, newValue) -> this.refreshHorisontalBar());
         this.scrollContainer.setVvalue(1);
         AnchorPane.setLeftAnchor(this.scrollContainer, 0.);
         AnchorPane.setRightAnchor(this.scrollContainer, 0.);
         AnchorPane.setTopAnchor(this.scrollContainer, 68.);
         AnchorPane.setBottomAnchor(this.scrollContainer, 50.);
+        Style.addStylesheet(this.scrollContainer, "ContactCard");
 
         this.noContactSelectedLabel = new Label("No contact selected");
         this.noContactSelectedLabel.setAlignment(Pos.CENTER);
@@ -138,7 +141,6 @@ public class ContactCard extends AnchorPane {
             }
         }
 
-
         this.getChildren().addAll(
                 this.noContactSelectedLabel,
                 this.topSeparator,
@@ -152,13 +154,21 @@ public class ContactCard extends AnchorPane {
     }
 
     /**
-     * Intelligently controls visibility on the horisontal separators.
+     * Intelligently control visibility on the horisontal separators and scrollbar.
      */
-    private void horisontalBarController() {
-        double verticalValue = this.scrollContainer.getVvalue(),
-                viewHeight = this.scrollContainer.getHeight(),
-                contentHeight = this.scrollContainer.getContent().getBoundsInParent().getHeight();
-        this.bottomSeparator.setVisible(contentHeight - (verticalValue * contentHeight) > 0 && contentHeight > viewHeight);
+    private void refreshHorisontalBar() {
+        Platform.runLater(() -> {
+            double verticalValue = this.scrollContainer.getVvalue(),
+                    viewHeight = this.scrollContainer.getHeight(),
+                    contentHeight = this.scrollContainer.getContent().getBoundsInParent().getHeight();
+            if (contentHeight > viewHeight) {
+                Style.addStyleClass(this.scrollContainer, "overflowed");
+                this.bottomSeparator.setVisible(contentHeight * verticalValue < contentHeight);
+            } else {
+                Style.removeStyleClass(this.scrollContainer, "overflowed");
+                this.bottomSeparator.setVisible(false);
+            }
+        });
     }
 
     /**
@@ -223,9 +233,8 @@ public class ContactCard extends AnchorPane {
         this.contact = contact;
         this.contactFieldsList.setContact(contact);
         this.contactInfoHeader.setContact(contact);
-        this.scrollContainer.setVvalue(.01);
+        this.scrollContainer.setVvalue(0);
         this.refresh();
-
     }
 
     /**
@@ -241,6 +250,7 @@ public class ContactCard extends AnchorPane {
             this.contactFieldsList.setEditable(this.isEditable);
             this.contactInfoHeader.setEditable(this.isEditable);
             this.contactInfoHeader.setVisibility(true);
+            this.topSeparator.setVisible(true);
         } else {
             this.noContactSelectedLabel.setVisible(true);
             this.scrollContainer.setVisible(false);
@@ -250,9 +260,10 @@ public class ContactCard extends AnchorPane {
             this.contactInfoHeader.setEditable(false);
             this.contactInfoHeader.setVisibility(false);
             this.topSeparator.setVisible(false);
-            this.bottomSeparator.setVisible(false);
+//            this.bottomSeparator.setVisible(false);
         }
-        this.horisontalBarController();
+        this.refreshHorisontalBar();
+
     }
 
     /**

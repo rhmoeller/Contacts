@@ -34,6 +34,7 @@ public class Setup {
         setup.flushDatabase();
         setup.createDatabase();
         setup.importSampleData();
+        System.out.println("Database reset.");
     }
 
     /**
@@ -42,7 +43,7 @@ public class Setup {
      * @throws IOException Sample data file not found.
      */
     private void importSampleData() throws IOException {
-        File sampleDataCsv = new File("fields.csv");
+        File sampleDataCsv = new File("data/fields.csv");
         Scanner scanner = new Scanner(sampleDataCsv);
         scanner.nextLine();
         while (scanner.hasNext()) {

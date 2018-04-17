@@ -5,8 +5,9 @@ import com.hjortsholm.contacts.database.*;
 import java.util.ArrayList;
 
 /**
- * <h1>Setup</h1>
- * Sets up database with sample data.
+ * <h1>Contact</h1>
+ * A data model that is used as a reference to a contact in the database.
+ * Can get all fields related to that contact.
  *
  * @author Robert Moeller s5069583
  * @version 1.0
@@ -22,6 +23,11 @@ public class Contact extends DataModel implements Comparable {
     private boolean newContact;
     private int id;
 
+    /**
+     * Creates a new contact with a set id.
+     *
+     * @param id Identifier used in database.
+     */
     public Contact(int id) {
         if (id != -1) {
             this.id = id;
@@ -38,15 +44,31 @@ public class Contact extends DataModel implements Comparable {
         }
     }
 
+    /**
+     * Gets the contact's id.
+     *
+     * @return Contact identifier.
+     */
     public int getId() {
         return this.id;
     }
 
+    /**
+     * Checks if the contact was created in the database this session.
+     *
+     * @return Is the contact a new contact.
+     */
     public boolean isNewContact() {
         return this.newContact;
     }
 
-    public boolean hasValue(String value) {
+    /**
+     * Checks if the contact has a field with a specific value.
+     *
+     * @param value Value to look for in contact.
+     * @return Is the contact associated with value.
+     */
+    private boolean hasValue(String value) {
         return Database.get(new Query()
                 .select("id")
                 .from(Field.class)
@@ -55,6 +77,12 @@ public class Contact extends DataModel implements Comparable {
         ).size() > 0;
     }
 
+    /**
+     * Checks if the contact has fields with a specific values.
+     *
+     * @param values Values to look for in contact.
+     * @return Is the contact associated with values.
+     */
     public boolean hasValues(String... values) {
         for (String value : values) {
             if (!this.hasValue(value)) {
@@ -64,18 +92,43 @@ public class Contact extends DataModel implements Comparable {
         return true;
     }
 
+    /**
+     * Gets the contacts first name.
+     *
+     * @return First name.
+     * @see Field
+     */
     public Field getFirstName() {
         return this.getField(FieldType.NAME, "first");
     }
 
+    /**
+     * Gets the contacts last name.
+     *
+     * @return Last name.
+     * @see Field
+     */
     public Field getLastName() {
         return this.getField(FieldType.NAME, "last");
     }
 
+    /**
+     * Gets the contacts nickname.
+     *
+     * @return Nick name.
+     * @see Field
+     */
     public Field getNickName() {
         return this.getField(FieldType.NAME, "nickname");
     }
 
+    /**
+     * Gets a specific field from the database that are associated with this contact.
+     * Specified by type and name of the field.
+     *
+     * @return Field associated with this contact.
+     * @see Field
+     */
     public Field getField(FieldType type, String name) {
         QueryRow result = Database.get(new Query()
                 .select("*")
@@ -101,7 +154,14 @@ public class Contact extends DataModel implements Comparable {
         return field;
     }
 
-
+    /**
+     * Gets all fields from the database that are associated with this contact and
+     * are of a type specified.
+     *
+     * @param type Type of fields to return.
+     * @return Fields of type associated with this contact.
+     * @see Field
+     */
     public ArrayList<Field> getFieldsOfType(FieldType type) {
         ArrayList<Field> fields = new ArrayList<>();
         QuerySet result = Database.get(new Query()
@@ -115,6 +175,11 @@ public class Contact extends DataModel implements Comparable {
         return fields;
     }
 
+    /**
+     * Check if this contact exists in the database.
+     *
+     * @return Exists in database.
+     */
     public boolean exists() {
         int ID = this.getId();
         return Database.get(new Query()
@@ -124,6 +189,12 @@ public class Contact extends DataModel implements Comparable {
         ).size() > 0;
     }
 
+    /**
+     * Gets the contacts display title.
+     * If any name is set
+     *
+     * @return Title the contact is to be displayed with.
+     */
     public String getDisplayTitle() {
         String displayTitle = null;
         if (!this.getFirstName().isEmpty()) {
@@ -140,12 +211,21 @@ public class Contact extends DataModel implements Comparable {
         return displayTitle;
     }
 
+    /**
+     * Deletes this contact from the database.
+     */
     public void delete() {
         Database.post(new Query().deleteFrom("Field").where("contact = " + this.getId()));
         Database.post(new Query().deleteFrom("Contact").where("id = " + this.getId()));
         this.id = -1;
     }
 
+    /**
+     * Checks if this contact has the neccessary fields to be handled correctly
+     * in this program.
+     *
+     * @return Is this contact valid.
+     */
     public boolean isValid() {
         if (this.exists()) {
             return Database.get(new Query()
@@ -161,6 +241,12 @@ public class Contact extends DataModel implements Comparable {
         }
     }
 
+    /**
+     * Compares display title of two contacts to allow sorting by names.
+     *
+     * @param contact Contact to compare to.
+     * @return Position in list compared to each other.
+     */
     @Override
     public int compareTo(Object contact) {
         String contactTitle1 = this.getDisplayTitle();
@@ -171,11 +257,11 @@ public class Contact extends DataModel implements Comparable {
             return -1;
     }
 
-    @Override
-    public String toString() {
-        return "Contact[" + this.getId() + "]";
-    }
-
+    /**
+     * Gets all values for the fields used in the data model's table.
+     *
+     * @return Data to be saved in database.
+     */
     public Object[] getValues() {
         return new Object[]{this.getId()};
     }

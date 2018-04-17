@@ -13,6 +13,11 @@ import java.io.File;
  * @since 10/04/2018
  */
 public class Resource extends File {
+    /**
+     * Takes relative path and returns resource file.
+     *
+     * @param pathname Resource file.
+     */
     public Resource(String pathname) {
         super(Application.class.getResource(pathname).toString());
     }

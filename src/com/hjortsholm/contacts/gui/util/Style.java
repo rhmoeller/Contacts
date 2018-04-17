@@ -1,9 +1,11 @@
 package com.hjortsholm.contacts.gui.util;
 
-import com.hjortsholm.contacts.Application;
 import com.hjortsholm.contacts.util.Resource;
 import javafx.scene.layout.Region;
 
+/**
+ *
+ */
 public class Style {
     public static void addGenericStyleClass(Region control) {
         Style.addStyleClass(control, control.getClass().getSimpleName());
@@ -18,6 +20,10 @@ public class Style {
     }
 
     public static void addStylesheet(Region control, String styleSheet) {
-        control.getStylesheets().add(new Resource("gui/style/"+styleSheet+".css").getPath());
+        try {
+            control.getStylesheets().add(new Resource("gui/style/" + styleSheet + ".css").getPath());
+        } catch (Exception exception) {
+            System.err.println("[ERROR]: File gui/style/" + styleSheet + ".css not fould..");
+        }
     }
 }

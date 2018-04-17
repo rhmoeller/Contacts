@@ -5,7 +5,6 @@ import com.hjortsholm.contacts.gui.util.Style;
 import com.hjortsholm.contacts.models.Field;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 
@@ -17,7 +16,6 @@ import java.util.function.Consumer;
 public class ContactFieldRow extends CustomGrid {
     private EditableLabel name;
     private EditableLabel value;
-    private DatePicker dateValue;
     private Button deleteRowButton;
     private Field field;
     private boolean isEditable;
@@ -32,13 +30,10 @@ public class ContactFieldRow extends CustomGrid {
         this.name.setAlignment(Pos.BASELINE_RIGHT);
         Style.addStyleClass(this.name, "name");
 
+        this.value = new EditableLabel(field);
         if (field.getValue().equals("¿?")) {
-            field.setValue("");
-            this.value = new EditableLabel(field);
             this.value.setText(field.getType().name().toLowerCase());
             this.value.setFocus();
-        } else {
-            this.value = new EditableLabel(field);
         }
         Style.addStyleClass(this.value, "value");
 
@@ -109,10 +104,5 @@ public class ContactFieldRow extends CustomGrid {
 
     public void setOnRowDelete(Consumer<ContactFieldRow> event) {
         this.deleteRowButton.setOnMouseClicked(e -> event.accept(this));
-    }
-
-    @Override
-    public String toString() {
-        return this.field.toString();
     }
 }

@@ -30,8 +30,6 @@ public class EditableLabel extends TextField {
         this.setEditable(false);
         this.setPrompt(prompt);
         this.setText(text);
-
-
         this.textProperty().addListener(observable -> {
             if (this.onTextChanged != null)
                 this.onTextChanged.accept(this.getText());

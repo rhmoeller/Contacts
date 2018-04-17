@@ -73,7 +73,7 @@ public class Setup {
     }
 
     /**
-     * Creates table in database.
+     * Creates needed tables in database.
      */
     private void createDatabase() {
         Database.createTable(Contact.class);

@@ -1,11 +1,8 @@
 .stack-pane {
     -fx-background-color: transparent;
-    /*-fx-max-width: 100px;*/
-
 }
 
 .scroll-pane > .viewport  {
-    /*-fx-background-color: red;*/
     -fx-background-color: transparent;
 }
 
@@ -16,15 +13,7 @@
 .ScrollableView, .track,
 .track-background, :vertical {
     -fx-background-color: transparent;
-    /*-fx-fit-to-width: true;*/
-    /*-fx-background-insets: 0;*/
-    /*-fx-padding: 0;*/
 
-}
-.scroll-bar .track * {
-    /*-fx-background-color: blue;*/
-    /*-fx-opacity: 0;*/
-    /*-fx-pref-width: 0;*/
 }
 
 .ScrollableView .track {
@@ -32,17 +21,9 @@
     visibility: hidden;
 }
 
-.ScrollableView .scroll-bar:vertical .thumb {
-    /*-fx-background-color: red;*/
-
-}
 .ScrollableView:hover > .scroll-bar:vertical .thumb {
     -fx-opacity: 100%;
     -fx-background-position: top;
-    /*-fx-background-color: transparent;*/
-
-    /*-fx-padding: 20px;*/
-    /*-fx-pref-width: 10px;*/
 }
 
 .ScrollableView .scroll-bar:vertical .thumb:hover,
@@ -61,14 +42,12 @@
 
 .scroll-bar:horizontal .track,
 .scroll-bar:vertical .track {
-    /*-fx-background-color: #3d3d3d; foo*/
     -fx-background-color: transparent;
     -fx-border-color:transparent;
     -fx-background-radius: 2em;
 }
 .scroll-bar:vertical .track-background,
 .scroll-bar:horizontal .track-background {
-    /*-fx-background-color: green;*/
     -fx-background-color: transparent;
     -fx-background-insets: 0;
     -fx-background-radius: 2em;

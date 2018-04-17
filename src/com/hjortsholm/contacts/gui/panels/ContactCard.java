@@ -20,8 +20,8 @@ import javafx.scene.layout.AnchorPane;
 import java.util.function.Consumer;
 
 /**
- * <h1>Contact card</h1>
- * Displays one contacts asociated fields.
+ * <h1>Contact Card</h1>
+ * Displays one contacts associated fields.
  *
  * @author robertmoller
  * @version 1.0
@@ -128,7 +128,7 @@ public class ContactCard extends AnchorPane {
                 MenuItem item = new MenuItem(type.name().substring(0, 1).toUpperCase() + type.name().substring(1).toLowerCase());
                 item.setOnAction(action -> {
                     this.setEditable(true);
-                    Field field = new Field(-1, this.contact.getId(), type, type.getDefaultName(), "¿?");
+                    Field field = new Field(-1, this.contact.getId(), type, ""/*type.getDefaultName()*/, "::focus");
                     field.push();
                     this.focusedRow = new ContactFieldRow(field);
                     this.setContact(this.contact);

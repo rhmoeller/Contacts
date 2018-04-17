@@ -16,14 +16,13 @@
     -fx-min-height: 13px;
     -fx-max-height: 13px;
     -fx-background-radius: 5em;
-
     -fx-background-insets: 0;
-    -fx-text-fill: #919196;
     -fx-font-size: 0%;
     -fx-padding: 0;
-
-    -fx-background-color: #fc2f6a;
-    -fx-text-fill: #f6f6f6;
+    /*-fx-background-color: #fc2f6a;*/
+    /*-fx-background-color: #fc3b53;*/
+    /*-fx-background-color: #cf3223;*/
+    -fx-background-color: #EE6983;
 }
 
 .default-button {
@@ -52,7 +51,6 @@
     -fx-text-fill: #fffcef;
 
 }
-
 
 .context-menu {
     -fx-background-color: #dcdcdc;

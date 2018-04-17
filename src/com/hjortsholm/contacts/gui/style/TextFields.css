@@ -22,12 +22,3 @@
     -fx-border-color: #d9d1d0;
     -fx-prompt-text-fill: #beb7b6;
 }
-
-
-/*.SearchField {*/
-    /*-fx-alignment: center;*/
-/*}*/
-
-/*.SearchField:focused {*/
-    /*-fx-alignment: left;*/
-/*}*/

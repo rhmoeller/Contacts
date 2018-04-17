@@ -13,6 +13,17 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.util.function.Consumer;
 
+/**
+ * <h1>Contact Field Row</h1>
+ * This is a row used in the {@link ContactFieldListType contact field list}.
+ * Displays the name and value of a field.
+ *
+ * @author Robert Moeller s5069583
+ * @version 1.0
+ * @see Field
+ * @see EditableLabel
+ * @since 10/04/2018
+ */
 public class ContactFieldRow extends CustomGrid {
     private EditableLabel name;
     private EditableLabel value;
@@ -20,6 +31,11 @@ public class ContactFieldRow extends CustomGrid {
     private Field field;
     private boolean isEditable;
 
+    /**
+     * Creates fields, binds events and styles controls.
+     *
+     * @param field Field to create textfields of.
+     */
     public ContactFieldRow(Field field) {
         initialiseComponent();
         this.isEditable = false;
@@ -32,12 +48,12 @@ public class ContactFieldRow extends CustomGrid {
         this.name.setOnTextChanged(this::onTextChanged);
 
         this.value = new EditableLabel(field);
-        this.value.setOnMouseClicked(this::onTextFieldCopy);
-        this.value.setOnTextChanged(this::onTextChanged);
-        if (field.getValue().equals("¿?")) {
+        if (field.getValue().equals("::focus")) {
             this.value.setText(field.getType().name().toLowerCase());
             this.value.setFocus();
         }
+        this.value.setOnMouseClicked(this::onTextFieldCopy);
+        this.value.setOnTextChanged(this::onTextChanged);
 
         this.deleteRowButton = new Button();
         this.deleteRowButton.setVisible(false);
@@ -52,6 +68,11 @@ public class ContactFieldRow extends CustomGrid {
 
     }
 
+    /**
+     * Copies the value of the field.
+     *
+     * @param mouseEvent Mouse click event.
+     */
     private void onTextFieldCopy(MouseEvent mouseEvent) {
         if (!this.isEditable) {
             Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
@@ -60,6 +81,11 @@ public class ContactFieldRow extends CustomGrid {
         }
     }
 
+    /**
+     * Sets updates the fields name and value to the textfields values.
+     *
+     * @param text Text from textfield clicked.
+     */
     public void onTextChanged(String text) {
         this.field.setValue(this.value.getText());
         this.field.setName(this.name.getText());
@@ -67,6 +93,11 @@ public class ContactFieldRow extends CustomGrid {
 
     }
 
+    /**
+     * Sets textfields to editable or not.
+     *
+     * @param editable Editable or not.
+     */
     public void setEditable(boolean editable) {
         this.isEditable = editable;
         if (!editable && this.name.getText().isEmpty() && !this.isEmpty()) {
@@ -93,14 +124,30 @@ public class ContactFieldRow extends CustomGrid {
 
     }
 
+    /**
+     * Gets the field associated with this row.
+     *
+     * @return Row's field.
+     * @see Field
+     */
     public Field getField() {
         return this.field;
     }
 
+    /**
+     * Checks if the value textfield is empty.
+     *
+     * @return Is the value textfield empty.
+     */
     public boolean isEmpty() {
         return this.value.getText().isEmpty();
     }
 
+    /**
+     * Set the row delete event.
+     *
+     * @param event Row delete event.
+     */
     public void setOnRowDelete(Consumer<ContactFieldRow> event) {
         this.deleteRowButton.setOnMouseClicked(e -> event.accept(this));
     }

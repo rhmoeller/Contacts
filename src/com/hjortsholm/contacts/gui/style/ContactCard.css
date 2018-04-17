@@ -1,6 +1,3 @@
-.ContactCard {
-}
-
 .ContactFieldsList {
     -fx-padding: 0 10 10 20;
 }
@@ -11,9 +8,7 @@
 
 .ContactFieldsList .separator {
     -fx-pref-width: 1000;
-
 }
-
 
 .ContactFieldsList .ContactFieldRow:hover .value {
     -fx-background-radius: 0 1em 1em 0;
@@ -41,7 +36,9 @@
 }
 
 .ContactFieldsList .ContactFieldRow .name.editable {
-    -fx-text-fill: #fc2f6a;
+    /*-fx-text-fill: #fc2f6a;*/
+    /*-fx-text-fill: #fc3b53;*/
+    -fx-text-fill: #4AA88E;
 }
 
 .ContactFieldsList .ContactFieldRow:hover .editable {

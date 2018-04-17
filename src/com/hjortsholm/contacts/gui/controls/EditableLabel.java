@@ -9,6 +9,15 @@ import javafx.scene.text.Text;
 
 import java.util.function.Consumer;
 
+/**
+ * <h1>Editable Label</h1>
+ * Text field that works as both a label and text field.
+ *
+ * @author robertmoller
+ * @version 1.0
+ * @see Field
+ * @since 2018-04-14
+ */
 public class EditableLabel extends TextField {
 
     private MyEventHandler<String, Field> onTextFieldChanged;
@@ -16,15 +25,33 @@ public class EditableLabel extends TextField {
     private String promptText;
     private Field field;
 
+    /**
+     * Creates EditableLabel from the values of a field.
+     *
+     * @param field Field to base text field on.
+     */
     public EditableLabel(Field field) {
-        this(field.getValue(),field.getPrompt());
+        this(field.getValue(), field.getPrompt());
         this.field = field;
     }
 
+    /**
+     * Creates EditableLabel with a set text and prompt text.
+     *
+     * @param text   Textfields text.
+     * @param prompt Textfields prompt text.
+     */
     public EditableLabel(String text, String prompt) {
         this(text, prompt, true);
     }
 
+    /**
+     * Creates EditableLabel with a set text and prompt text.
+     *
+     * @param text       Textfields text.
+     * @param prompt     Textfields prompt text.
+     * @param responsive Should the textfield grow and shrink in width with it's contents.
+     */
     public EditableLabel(String text, String prompt, boolean responsive) {
         this.setResponsive(responsive);
         this.setEditable(false);
@@ -41,6 +68,11 @@ public class EditableLabel extends TextField {
         Style.addGenericStyleClass(this);
     }
 
+    /**
+     * Sets the textfields ability to grow and shrink with it's contents.
+     *
+     * @param responsive Should the textfield grow and shrink in width with it's contents.
+     */
     public void setResponsive(boolean responsive) {
         if (responsive) {
             this.textProperty().addListener(this::setToMinimumWidth);
@@ -49,6 +81,11 @@ public class EditableLabel extends TextField {
         }
     }
 
+    /**
+     * Sets the texfield to editable or not.
+     *
+     * @param editable Should the textfield be editable.
+     */
     public void setEdit(boolean editable) {
         this.setEditable(editable);
         if (this.isEditable()) {
@@ -58,11 +95,21 @@ public class EditableLabel extends TextField {
         }
     }
 
+    /**
+     * Sets the prompt text of the textfield.
+     *
+     * @param promptText Text to set as prompt text.
+     */
     public void setPrompt(String promptText) {
         this.promptText = promptText;
         this.enablePromptText(true);
     }
 
+    /**
+     * Enables or disables the display of the prompt text.
+     *
+     * @param enabled Should prompt text be enabled.
+     */
     public void enablePromptText(boolean enabled) {
         if (enabled) {
             this.setPromptText(this.promptText);
@@ -71,6 +118,11 @@ public class EditableLabel extends TextField {
         }
     }
 
+    /**
+     * Sets the textfield to the smallest width it can have without hiding content.
+     *
+     * @param observable Textfields observable text property.
+     */
     public void setToMinimumWidth(Observable observable) {
         Text helper = new Text();
         if (this.getText().isEmpty() || this.getText().length() < this.getPromptText().length()) {
@@ -85,24 +137,49 @@ public class EditableLabel extends TextField {
         this.setPrefWidth(Math.ceil(helper.getLayoutBounds().getWidth()) + 20);
     }
 
+    /**
+     * Gets the associated field.
+     *
+     * @return Associated field.
+     * @see Field
+     */
     public Field getField() {
         return this.field;
     }
 
+    /**
+     * Sets the associated field.
+     *
+     * @param field Field to associate with this textfield.
+     * @see Field
+     */
     public void setField(Field field) {
         this.field = field;
         this.setPrompt(field.getName().isEmpty() ? field.getType().name().toLowerCase() : field.getName());
         this.setText(field.getValue());
     }
 
+    /**
+     * Sets the text changed event.
+     *
+     * @param onTextChanged Text changed event.
+     */
     public void setOnTextChanged(Consumer<String> onTextChanged) {
         this.onTextChanged = onTextChanged;
     }
 
+    /**
+     * Sets the field text changed event.
+     *
+     * @param onTextFieldChanged Field text changed event.
+     */
     public void setOnTextFieldChanged(MyEventHandler<String, Field> onTextFieldChanged) {
         this.onTextFieldChanged = onTextFieldChanged;
     }
 
+    /**
+     * Sets the window focus to this control.
+     */
     public void setFocus() {
         Platform.runLater(() -> {
             if (!this.isFocused()) {
@@ -112,13 +189,20 @@ public class EditableLabel extends TextField {
         });
     }
 
-    @Override
-    public String toString() {
-        return this.getText().isEmpty() ? this.getPromptText() : this.getText();
-    }
-
+    /**
+     * Functional interface used for anonymous functions with two parameters.
+     *
+     * @param <A> Event parameter type 1.
+     * @param <B> Event parameter type 2.
+     */
     @FunctionalInterface
     public interface MyEventHandler<A, B> {
+        /**
+         * Runs the function with given parameters.
+         *
+         * @param a Parameter of type 1.
+         * @param b Parameter of type 2.
+         */
         void accept(A a, B b);
     }
 }

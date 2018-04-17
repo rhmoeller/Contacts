@@ -23,7 +23,9 @@
 
 .ContactNavigationTab.selected,
 .selected * {
-    -fx-background-color: #fc2f6a;
+    /*-fx-background-color: #fc2f6a;*/
+    /*-fx-background-color: #5d94fc;*/
+    -fx-background-color: #4AA88E;
     -fx-text-fill: #f6f6f6;
 }
 

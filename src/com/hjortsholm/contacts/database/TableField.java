@@ -4,7 +4,6 @@ import java.lang.annotation.Repeatable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-
 /**
  * <h1>Table Field</h1>
  * A annotation tag for defining table fields for a class

@@ -11,6 +11,7 @@ import com.hjortsholm.contacts.gui.style.Style;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.ContactList;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.Separator;
@@ -61,6 +62,10 @@ public class Start extends Application {
         stage.initStyle(StageStyle.UNIFIED);
         stage.setMinWidth(600);
         stage.setMinHeight(300);
+        stage.setOnCloseRequest(t -> {
+            Platform.exit();
+            System.exit(0);
+        });
 
         this.window = new AnchorPane();
         this.window.getChildren().add(this.contactNavigation);
@@ -113,9 +118,7 @@ public class Start extends Application {
         this.contactCard.setOnContactSave(contact -> {
             this.contacts.addContact(contact);
             this.contactNavigation.setContacts(this.contacts.getContacts());
-            if (contact.isNewContact()) {
-                this.contactNavigation.setSelected(contact);
-            }
+            this.contactNavigation.setSelected(contact);
         });
 
         Style.addStyleClass(this.verticalSeperator, "vr");

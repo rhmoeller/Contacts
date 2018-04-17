@@ -3,12 +3,9 @@ package com.hjortsholm.contacts.gui.panels;
 import com.hjortsholm.contacts.gui.controls.CategorisedListView;
 import com.hjortsholm.contacts.gui.controls.ContactNavigationTab;
 import com.hjortsholm.contacts.gui.controls.ScrollableView;
-import com.hjortsholm.contacts.gui.controls.Spacer;
 import com.hjortsholm.contacts.gui.parents.CustomGrid;
-import com.hjortsholm.contacts.gui.util.Anchor;
-import com.hjortsholm.contacts.gui.util.Style;
+import com.hjortsholm.contacts.gui.style.Style;
 import com.hjortsholm.contacts.models.Contact;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -16,6 +13,17 @@ import javafx.scene.layout.AnchorPane;
 import java.util.*;
 import java.util.function.Consumer;
 
+/**
+ * <h1>Contact Navigation</h1>
+ * This is a custom list that takes a list of contacts, sorts them
+ * and groups them by first letter in display title.
+ *
+ * @author Robert Moeller s5069583
+ * @version 1.0
+ * @see ContactNavigationTab
+ * @see Contact
+ * @since 10/04/2018
+ */
 public class ContactNavigation extends AnchorPane {
 
     private ContactNavigationTab selectedNavigationTab;
@@ -29,6 +37,9 @@ public class ContactNavigation extends AnchorPane {
 
     private ArrayList<Contact> contacts;
 
+    /**
+     * Creates all controls and binds events.
+     */
     public ContactNavigation() {
         this.contacts = new ArrayList<>();
         Style.addStylesheet(this, "ContactNavigation");
@@ -36,38 +47,50 @@ public class ContactNavigation extends AnchorPane {
 
         this.contactNavigation = new CustomGrid();
         this.searchField = new TextField();
-        Anchor.setTopAnchor(this.searchField, 10.);
-        Anchor.setRightAnchor(this.searchField, 15.);
-        Anchor.setLeftAnchor(this.searchField, 15.);
+        AnchorPane.setTopAnchor(this.searchField, 10.);
+        AnchorPane.setRightAnchor(this.searchField, 15.);
+        AnchorPane.setLeftAnchor(this.searchField, 15.);
 
 
         this.searchField.setPromptText("Search");
         this.searchField.setOnKeyReleased(this::onSearch);
-
         Style.addStylesheet(this.searchField, "TextFields");
         Style.addStyleClass(this.searchField, "SearchField");
 
         ScrollableView scrollContainer = new ScrollableView();
-        Anchor.setBottomAnchor(scrollContainer, 0.);
-        Anchor.setTopAnchor(scrollContainer, 40.);
+        AnchorPane.setBottomAnchor(scrollContainer, 0.);
+        AnchorPane.setTopAnchor(scrollContainer, 40.);
 
         scrollContainer.setContent(this.contactNavigation);
         this.getChildren().add(this.searchField);
-        this.getChildren().add(new Spacer(10, 10));
         this.getChildren().add(scrollContainer);
     }
 
-
+    /**
+     * Runs the search event.
+     *
+     * @param event Key pressed event.
+     */
     private void onSearch(KeyEvent event) {
         if (this.onSearch != null) {
             this.onSearch.accept(this.searchField.getText().replaceAll("  ", " ").split(" "));
         }
     }
 
+    /**
+     * Sets the search event.
+     *
+     * @param onSearch Search event.
+     */
     public void setOnSearch(Consumer<String[]> onSearch) {
         this.onSearch = onSearch;
     }
 
+    /**
+     * Sets the list of contacts to show.
+     *
+     * @param contacts List of contacts.
+     */
     public void setContacts(Collection<Contact> contacts) {
         HashMap<Character, ArrayList<Contact>> contactsCategorised = new HashMap<>();
         this.listViews = new ArrayList<>();
@@ -109,11 +132,21 @@ public class ContactNavigation extends AnchorPane {
         }
     }
 
+    /**
+     * Runs the tab selected event.
+     *
+     * @param navigationTab Selected tab.
+     */
     public void onTabSelected(ContactNavigationTab navigationTab) {
         if (this.onTabSelectedEvent != null && navigationTab != null)
             this.onTabSelectedEvent.accept(navigationTab);
     }
 
+    /**
+     * Sets the selected contact.
+     *
+     * @param contact Contact to select.
+     */
     public void setSelected(Contact contact) {
         for (CategorisedListView listView : this.listViews) {
             for (ContactNavigationTab navigationTab : listView.getNavigationTabs()) {
@@ -124,10 +157,21 @@ public class ContactNavigation extends AnchorPane {
         }
     }
 
+    /**
+     * Checks if the navigation list contains a specific contact.
+     *
+     * @param contact Contact to look for.
+     * @return Does the list contain specified contact.
+     */
     public boolean hasContact(Contact contact) {
         return this.contacts.contains(contact);
     }
 
+    /**
+     * Sets the selected navigation tab.
+     *
+     * @param navigationTab Navigation tab to select.
+     */
     public void setSelected(ContactNavigationTab navigationTab) {
         if (navigationTab.equals(this.selectedNavigationTab)) {
             return;
@@ -140,6 +184,11 @@ public class ContactNavigation extends AnchorPane {
 
     }
 
+    /**
+     * Sets the on tab select event.
+     *
+     * @param onTabSelectedEvent Selected event.
+     */
     public void setOnTabSelectedEvent(Consumer<ContactNavigationTab> onTabSelectedEvent) {
         this.onTabSelectedEvent = onTabSelectedEvent;
     }

@@ -5,8 +5,7 @@ import com.hjortsholm.contacts.gui.controls.ContactFieldRow;
 import com.hjortsholm.contacts.gui.controls.ContactFieldsList;
 import com.hjortsholm.contacts.gui.controls.ContactInfoHeader;
 import com.hjortsholm.contacts.gui.controls.ScrollableView;
-import com.hjortsholm.contacts.gui.util.Anchor;
-import com.hjortsholm.contacts.gui.util.Style;
+import com.hjortsholm.contacts.gui.style.Style;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.Field;
 import com.hjortsholm.contacts.models.FieldType;
@@ -26,6 +25,10 @@ import java.util.function.Consumer;
  *
  * @author robertmoller
  * @version 1.0
+ * @see Contact
+ * @see ContactFieldsList
+ * @see ContactInfoHeader
+ * @see ContactFieldRow
  * @since 2018-04-14
  */
 public class ContactCard extends AnchorPane {
@@ -47,65 +50,79 @@ public class ContactCard extends AnchorPane {
     private boolean isEditable;
     private Consumer<Contact> onContactSave;
 
+    /**
+     * Creates and adds all controls to pane.
+     */
     public ContactCard() {
-        Style.addStylesheet(this, "ContactCard");
         Style.addGenericStyleClass(this);
         Style.addStylesheet(this, "Buttons");
+        Style.addStylesheet(this, "ContactCard");
 
         this.isEditable = false;
         AnchorPane utilitiesContainer = new AnchorPane();
-        Anchor.setBottomAnchor(utilitiesContainer, 0.);
-        Anchor.setRightAnchor(utilitiesContainer, 0.);
-        Anchor.setLeftAnchor(utilitiesContainer, 0.);
+        AnchorPane.setBottomAnchor(utilitiesContainer, 0.);
+        AnchorPane.setRightAnchor(utilitiesContainer, 0.);
+        AnchorPane.setLeftAnchor(utilitiesContainer, 0.);
 
         this.contactInfoHeader = new ContactInfoHeader();
-        Anchor.anchorAll(this.contactInfoHeader, 0);
+        AnchorPane.setLeftAnchor(this.contactInfoHeader, 0.);
+        AnchorPane.setRightAnchor(this.contactInfoHeader, 0.);
+        AnchorPane.setTopAnchor(this.contactInfoHeader, 0.);
+        AnchorPane.setBottomAnchor(this.contactInfoHeader, 0.);
+
+
+        this.topSeparator = new Separator();
+        AnchorPane.setTopAnchor(this.topSeparator, 68.);
+        AnchorPane.setLeftAnchor(this.topSeparator, 21.);
+        AnchorPane.setRightAnchor(this.topSeparator, 27.);
+
+        this.bottomSeparator = new Separator();
+        AnchorPane.setBottomAnchor(this.bottomSeparator, 48.);
+        AnchorPane.setLeftAnchor(this.bottomSeparator, 21.);
+        AnchorPane.setRightAnchor(this.bottomSeparator, 27.);
 
         this.contactFieldsList = new ContactFieldsList();
-        this.topSeparator = new Separator();
-        this.bottomSeparator = new Separator();
-        Anchor.setTopAnchor(this.topSeparator, 68.);
-        Anchor.setLeftAnchor(this.topSeparator, 21.);
-        Anchor.setRightAnchor(this.topSeparator, 27.);
-        Anchor.setBottomAnchor(this.bottomSeparator, 48.);
-        Anchor.setLeftAnchor(this.bottomSeparator, 21.);
-        Anchor.setRightAnchor(this.bottomSeparator, 27.);
 
         this.scrollContainer = new ScrollableView(this.contactFieldsList);
         this.scrollContainer.setPrefHeight(Application.getWindowHeight() - 90);
         this.scrollContainer.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-
         this.scrollContainer.vvalueProperty().addListener((observable, oldValue, newValue) -> this.horisontalBarController());
         this.scrollContainer.setVvalue(1);
-        Anchor.anchorAll(this.scrollContainer, 0.);
-        Anchor.setTopAnchor(this.scrollContainer, 68.);
-        Anchor.setBottomAnchor(this.scrollContainer, 50.);
+        AnchorPane.setLeftAnchor(this.scrollContainer, 0.);
+        AnchorPane.setRightAnchor(this.scrollContainer, 0.);
+        AnchorPane.setTopAnchor(this.scrollContainer, 68.);
+        AnchorPane.setBottomAnchor(this.scrollContainer, 50.);
 
         this.noContactSelectedLabel = new Label("No contact selected");
         this.noContactSelectedLabel.setAlignment(Pos.CENTER);
-        Anchor.setRightAnchor(this.noContactSelectedLabel, 0.);
-        Anchor.setLeftAnchor(this.noContactSelectedLabel, 0.);
-        Anchor.setTopAnchor(this.noContactSelectedLabel, 0.);
-        Anchor.setBottomAnchor(this.noContactSelectedLabel, 0.);
+        AnchorPane.setRightAnchor(this.noContactSelectedLabel, 0.);
+        AnchorPane.setLeftAnchor(this.noContactSelectedLabel, 0.);
+        AnchorPane.setTopAnchor(this.noContactSelectedLabel, 0.);
+        AnchorPane.setBottomAnchor(this.noContactSelectedLabel, 0.);
 
         this.edit = new Button();
         this.edit.setOnMouseClicked(this::toggleEdit);
         Style.addStyleClass(this.edit, "default-button");
         Style.addStyleClass(this.edit, "edit");
-        Anchor.setRightAnchor(this.edit, 100.);
-        Anchor.setBottomAnchor(this.edit, 15.);
+        AnchorPane.setRightAnchor(this.edit, 100.);
+        AnchorPane.setBottomAnchor(this.edit, 15.);
+
+        this.delete = new Button("delete");
+        Style.addStyleClass(this.delete, "default-button");
+        Style.addStyleClass(this.delete, "delete");
+        AnchorPane.setRightAnchor(this.delete, 15.);
+        AnchorPane.setBottomAnchor(this.delete, 15.);
 
         this.add = new MenuButton();
         this.add.setText("+");
         this.add.setPopupSide(Side.TOP);
         Style.addStyleClass(this.add, "default-button");
         Style.addStyleClass(this.add, "add");
-        Anchor.setLeftAnchor(this.add, 15.);
-        Anchor.setBottomAnchor(this.add, 15.);
+        AnchorPane.setLeftAnchor(this.add, 15.);
+        AnchorPane.setBottomAnchor(this.add, 15.);
 
         this.addContactMenuItem = new MenuItem("Contact");
         this.add.getItems().addAll(this.addContactMenuItem, new SeparatorMenuItem());
-
         for (FieldType type : FieldType.values()) {
             if (type != FieldType.NAME) {
                 MenuItem item = new MenuItem(type.name().substring(0, 1).toUpperCase() + type.name().substring(1).toLowerCase());
@@ -121,12 +138,6 @@ public class ContactCard extends AnchorPane {
             }
         }
 
-        this.delete = new Button("delete");
-        Style.addStyleClass(this.delete, "default-button");
-        Style.addStyleClass(this.delete, "delete");
-        Anchor.setRightAnchor(this.delete, 15.);
-        Anchor.setBottomAnchor(this.delete, 15.);
-
 
         this.getChildren().addAll(
                 this.noContactSelectedLabel,
@@ -140,6 +151,9 @@ public class ContactCard extends AnchorPane {
         this.refresh();
     }
 
+    /**
+     * Intelligently controls visibility on the horisontal separators.
+     */
     private void horisontalBarController() {
         double verticalValue = this.scrollContainer.getVvalue(),
                 viewHeight = this.scrollContainer.getHeight(),
@@ -147,8 +161,12 @@ public class ContactCard extends AnchorPane {
         this.bottomSeparator.setVisible(contentHeight - (verticalValue * contentHeight) > 0 && contentHeight > viewHeight);
     }
 
+    /**
+     * Sets the delete buttons click event.
+     *
+     * @param event Delete button pressed event.
+     */
     public void setOnContactDelete(Consumer<Contact> event) {
-
         this.delete.setOnMouseClicked(event1 -> {
             event.accept(this.contact);
             this.contact = null;
@@ -157,10 +175,20 @@ public class ContactCard extends AnchorPane {
         });
     }
 
+    /**
+     * Sets the contact save event.
+     *
+     * @param event Contact save event.
+     */
     public void setOnContactSave(Consumer<Contact> event) {
         this.onContactSave = event;
     }
 
+    /**
+     * Sets the contact creation event.
+     *
+     * @param event Contact creation event.
+     */
     public void setOnNewContact(Consumer<Contact> event) {
         EventHandler<ActionEvent> handler = actionEvent -> {
             event.accept(new Contact(-1));
@@ -176,10 +204,21 @@ public class ContactCard extends AnchorPane {
         this.addContactMenuItem.setOnAction(handler);
     }
 
+    /**
+     * Gets the shown contact.
+     *
+     * @return Current contact.
+     * @see Contact
+     */
     public Contact getContact() {
         return this.contact;
     }
 
+    /**
+     * Sets the shown contact.
+     *
+     * @param contact Contact to show.
+     */
     public void setContact(Contact contact) {
         this.contact = contact;
         this.contactFieldsList.setContact(contact);
@@ -189,6 +228,9 @@ public class ContactCard extends AnchorPane {
 
     }
 
+    /**
+     * Refreshes controls and makes sure the right things are visible.
+     */
     private void refresh() {
         if (this.contact != null) {
             this.noContactSelectedLabel.setVisible(false);
@@ -199,8 +241,6 @@ public class ContactCard extends AnchorPane {
             this.contactFieldsList.setEditable(this.isEditable);
             this.contactInfoHeader.setEditable(this.isEditable);
             this.contactInfoHeader.setVisibility(true);
-
-
         } else {
             this.noContactSelectedLabel.setVisible(true);
             this.scrollContainer.setVisible(false);
@@ -211,33 +251,60 @@ public class ContactCard extends AnchorPane {
             this.contactInfoHeader.setVisibility(false);
             this.topSeparator.setVisible(false);
             this.bottomSeparator.setVisible(false);
-
         }
         this.horisontalBarController();
     }
 
+    /**
+     * Runs contact save event.
+     */
     private void save() {
         if (this.onContactSave != null && this.contact != null) {
             this.onContactSave.accept(this.contact);
         }
     }
 
+    /**
+     * Toggle editing the selected contact.
+     *
+     * @param mouseEvent Mouse click event
+     */
     private void toggleEdit(MouseEvent mouseEvent) {
         this.setEditable(!this.isEditable);
     }
 
+    /**
+     * Checks if the contact fields needed for a valid contact is not empty.
+     *
+     * @return Selected contact is valid.
+     */
     public boolean isValid() {
         return this.contactInfoHeader.isValid();
     }
 
+    /**
+     * Checks if there is a contact shown.
+     *
+     * @return Is the contact card empty.
+     */
     public boolean isEmpty() {
         return this.contact == null;
     }
 
+    /**
+     * Is the user editing a contact.
+     *
+     * @return Is the contact card currently editable.
+     */
     public boolean isEditable() {
         return this.isEditable;
     }
 
+    /**
+     * Sets weather or not the contact card is editable.
+     *
+     * @param editable Should the contact card be editable.
+     */
     public void setEditable(boolean editable) {
         if (this.contactInfoHeader.isValid()) {
             if (!editable && this.isEditable) {

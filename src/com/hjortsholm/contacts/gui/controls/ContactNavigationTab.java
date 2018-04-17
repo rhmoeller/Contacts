@@ -6,12 +6,29 @@ import javafx.scene.control.Label;
 
 import java.util.function.Consumer;
 
+/**
+ * <h1>Contact Navigation Tab</h1>
+ * This one list item of the {@link CategorisedListView categorised list view}.
+ * Shows the display title of a contact.
+ *
+ * @author robertmoller
+ * @version 1.0
+ * @see Contact
+ * @see CategorisedListView
+ * @since 10/04/2018
+ */
 public class ContactNavigationTab extends CustomGrid {
 
     private boolean selected;
     private Contact contact;
     private Consumer<ContactNavigationTab> onTabSelected;
 
+    /**
+     * Creates list item from contact with selected event.
+     *
+     * @param contact Contact to display information about.
+     * @param onTabSelected Selected event.
+     */
     public ContactNavigationTab(Contact contact, Consumer<ContactNavigationTab> onTabSelected) {
         this.contact = contact;
         this.selected = false;
@@ -24,6 +41,9 @@ public class ContactNavigationTab extends CustomGrid {
         this.setOnMouseClicked(event -> this.onTabSelected.accept(this));
     }
 
+    /**
+     * Toggles the selected class.
+     */
     public void toggleSelected() {
         this.selected = !this.selected;
         if (this.selected)
@@ -32,6 +52,11 @@ public class ContactNavigationTab extends CustomGrid {
             this.getStyleClass().remove("selected");
     }
 
+    /**
+     * Gets the contact used to create this list item.
+     *
+     * @return Contact.
+     */
     public Contact getContact() {
         return contact;
     }

@@ -1,7 +1,7 @@
 package com.hjortsholm.contacts.gui.controls;
 
 import com.hjortsholm.contacts.gui.parents.CustomGrid;
-import com.hjortsholm.contacts.gui.util.Style;
+import com.hjortsholm.contacts.gui.style.Style;
 import com.hjortsholm.contacts.models.Field;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -28,28 +28,27 @@ public class ContactFieldRow extends CustomGrid {
         this.name = new EditableLabel(field.getName(), field.getType().getDefaultName(), false);
         this.name.setPrefWidth(70);
         this.name.setAlignment(Pos.BASELINE_RIGHT);
-        Style.addStyleClass(this.name, "name");
+        this.name.setOnMouseClicked(this::onTextFieldCopy);
+        this.name.setOnTextChanged(this::onTextChanged);
 
         this.value = new EditableLabel(field);
+        this.value.setOnMouseClicked(this::onTextFieldCopy);
+        this.value.setOnTextChanged(this::onTextChanged);
         if (field.getValue().equals("¿?")) {
             this.value.setText(field.getType().name().toLowerCase());
             this.value.setFocus();
         }
-        Style.addStyleClass(this.value, "value");
 
         this.deleteRowButton = new Button();
         this.deleteRowButton.setVisible(false);
-        Style.addStyleClass(this.deleteRowButton, "row-delete");
 
         this.addColumn(this.deleteRowButton);
-        this.addColumn(new Spacer(30, 10));
         this.addColumn(this.name);
         this.addColumn(this.value);
 
-        this.name.setOnMouseClicked(this::onTextFieldCopy);
-        this.name.setOnTextChanged(this::onTextChanged);
-        this.value.setOnMouseClicked(this::onTextFieldCopy);
-        this.value.setOnTextChanged(this::onTextChanged);
+        Style.addStyleClass(this.value, "value");
+        Style.addStyleClass(this.name, "name");
+        Style.addStyleClass(this.deleteRowButton, "row-delete");
 
     }
 

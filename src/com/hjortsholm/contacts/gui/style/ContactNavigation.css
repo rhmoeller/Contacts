@@ -6,18 +6,22 @@
     -fx-padding: 0px;
     -fx-background-color: #f6eff0;
     -fx-background-radius: 0 0 0 5px;
-    /*-fx-padding: 5px 5px 0 5px;*/
 }
 
 .CategoryHeader {
-    -fx-padding: 10px 10px 0 10px;
+    -fx-padding: 10px 10px 0 15px;
 }
 
 .ContactNavigationTab {
     -fx-padding: 2px 25px;
 }
 
-.selected,
+.ContactNavigationTab:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #e6dfe0;
+}
+
+.ContactNavigationTab.selected,
 .selected * {
     -fx-background-color: #fc2f6a;
     -fx-text-fill: #f6f6f6;

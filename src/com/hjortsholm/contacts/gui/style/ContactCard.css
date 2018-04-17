@@ -31,6 +31,10 @@
     -fx-cursor: hand;
 }
 
+.ContactFieldsList .ContactFieldRow .EditableLabel{
+    -fx-translate-x: 25px;
+}
+
 .ContactFieldsList .ContactFieldRow .name {
     -fx-text-fill: #80868d;
     -fx-prompt-text-fill: #80868d;

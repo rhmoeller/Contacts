@@ -1,6 +1,6 @@
 package com.hjortsholm.contacts.gui.controls;
 
-import com.hjortsholm.contacts.gui.util.Style;
+import com.hjortsholm.contacts.gui.style.Style;
 import com.hjortsholm.contacts.models.Field;
 import javafx.application.Platform;
 import javafx.beans.Observable;

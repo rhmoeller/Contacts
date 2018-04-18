@@ -73,7 +73,7 @@ public class EditableLabel extends TextField {
      *
      * @param responsive Should the textfield grow and shrink in width with it's contents.
      */
-    public void setResponsive(boolean responsive) {
+    private void setResponsive(boolean responsive) {
         if (responsive) {
             this.textProperty().addListener(this::setToMinimumWidth);
         } else {
@@ -100,7 +100,7 @@ public class EditableLabel extends TextField {
      *
      * @param promptText Text to set as prompt text.
      */
-    public void setPrompt(String promptText) {
+    private void setPrompt(String promptText) {
         this.promptText = promptText;
         this.enablePromptText(true);
     }
@@ -110,7 +110,7 @@ public class EditableLabel extends TextField {
      *
      * @param enabled Should prompt text be enabled.
      */
-    public void enablePromptText(boolean enabled) {
+    private void enablePromptText(boolean enabled) {
         if (enabled) {
             this.setPromptText(this.promptText);
         } else {
@@ -123,7 +123,7 @@ public class EditableLabel extends TextField {
      *
      * @param observable Textfields observable text property.
      */
-    public void setToMinimumWidth(Observable observable) {
+    private void setToMinimumWidth(Observable observable) {
         Text helper = new Text();
         if (this.getText().isEmpty() || this.getText().length() < this.getPromptText().length()) {
             helper.setText(this.getPromptText());

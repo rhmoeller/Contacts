@@ -104,7 +104,7 @@ public class ProfilePicture extends AnchorPane {
     /**
      * Refreshes the visibility and all state dependant text.
      */
-    public void refresh() {
+    private void refresh() {
         if (this.profilePictureField == null) {
             this.setVisible(false);
         } else if (this.profilePictureField.isEmpty() || this.image == null || !this.image.exists()) {
@@ -126,7 +126,7 @@ public class ProfilePicture extends AnchorPane {
     /**
      * Loads the image on to the circle.
      */
-    public void refreshImage() {
+    private void refreshImage() {
         if (this.image != null && this.image.exists()) {
             this.pictureContainer.setFill(new ImagePattern(new Image("file:" + this.image.getPath())));
         }
@@ -145,7 +145,7 @@ public class ProfilePicture extends AnchorPane {
     /**
      * Gets a file from the file picker and saves that as profile picture.
      */
-    public void selectPicture() {
+    private void selectPicture() {
         if (this.isEditable) {
             File source = this.fileChooser.showOpenDialog(new Stage());
             if (source != null && source.exists()) {
@@ -175,7 +175,7 @@ public class ProfilePicture extends AnchorPane {
     /**
      * Deletes the picture from store and datbase.
      */
-    public void deletePicture() {
+    private void deletePicture() {
         if (this.image != null && this.image.exists()) {
             this.image.delete();
         }

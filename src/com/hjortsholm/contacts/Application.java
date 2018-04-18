@@ -30,7 +30,6 @@ public class Application {
     private static int windowWidth;
     private static int windowHeight;
     private static String title;
-    private static Database database;
 
     /**
      * Configures database and starts the GUI.
@@ -38,7 +37,7 @@ public class Application {
      * @param args Program arguments.
      */
     public static void main(String[] args) {
-        Database.configure("contacts.db");
+        Database.configure("data/contacts.db");
         Application app = new Application();
         app.checkDatabaseIntegrity();
         app.setTitle("Contacts");

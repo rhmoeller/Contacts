@@ -15,7 +15,8 @@ public enum FieldType {
     NAME("first"),
     DATE("birthday"),
     ADDRESS("home"),
-    NOTE("note");
+    NOTE("note"),
+    PICTURE("profile");
 
     private static int defaultIndex = 0;
     private int index;

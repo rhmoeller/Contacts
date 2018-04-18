@@ -73,7 +73,7 @@ public class ContactCard extends AnchorPane {
 
 
         this.topSeparator = new Separator();
-        AnchorPane.setTopAnchor(this.topSeparator, 68.);
+        AnchorPane.setTopAnchor(this.topSeparator, 108.);
         AnchorPane.setLeftAnchor(this.topSeparator, 16.);
         AnchorPane.setRightAnchor(this.topSeparator, 17.);
 
@@ -92,7 +92,7 @@ public class ContactCard extends AnchorPane {
         this.scrollContainer.setVvalue(1);
         AnchorPane.setLeftAnchor(this.scrollContainer, 0.);
         AnchorPane.setRightAnchor(this.scrollContainer, 0.);
-        AnchorPane.setTopAnchor(this.scrollContainer, 68.);
+        AnchorPane.setTopAnchor(this.scrollContainer, 108.);
         AnchorPane.setBottomAnchor(this.scrollContainer, 50.);
         Style.addStylesheet(this.scrollContainer, "ContactCard");
 

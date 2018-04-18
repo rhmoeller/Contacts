@@ -265,4 +265,25 @@ public class Contact extends DataModel implements Comparable {
     public Object[] getValues() {
         return new Object[]{this.getId()};
     }
+
+    /**
+     * Gets the contacts profile picture.
+     *
+     * @return Profile picture field.
+     */
+    public Field getProfilePicture() {
+        return this.getField(FieldType.PICTURE,"profile");
+    }
+
+    /**
+     * Gets the contacts first and last name initials.
+     *
+     * @return Contacts initials.
+     */
+    public String getInitials() {
+        Field firstname = this.getFirstName(),
+                lastname = this.getLastName();
+
+        return ((firstname.isEmpty() ? "": Character.toString(firstname.getValue().charAt(0))) + (lastname.isEmpty() ? "": Character.toString(lastname.getValue().charAt(0)))).toUpperCase();
+    }
 }

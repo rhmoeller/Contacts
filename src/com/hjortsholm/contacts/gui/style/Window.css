@@ -1,5 +1,5 @@
 .root {
     -fx-background-color: white;
     -fx-background-radius: 0 0 5px 5px;
-    -fx-font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    -fx-font-family: 'DejaVu Sans Mono', monospace;
 }

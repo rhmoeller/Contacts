@@ -4,6 +4,7 @@ import com.hjortsholm.contacts.gui.parents.CustomGrid;
 import com.hjortsholm.contacts.gui.style.Style;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.Field;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
 /**
@@ -18,8 +19,9 @@ import javafx.scene.layout.FlowPane;
  * @see ContactFieldRow
  * @since 2018-04-14
  */
-public class ContactInfoHeader extends CustomGrid {
+public class ContactInfoHeader extends AnchorPane {
 
+    private ProfilePicture profilePicture;
     private EditableLabel firstName;
     private EditableLabel lastName;
     private EditableLabel nickName;
@@ -28,7 +30,7 @@ public class ContactInfoHeader extends CustomGrid {
      * Creates controls, binds events and adds style classes.
      */
     public ContactInfoHeader() {
-        initialiseComponent();
+        Style.addGenericStyleClass(this);
 
         this.firstName = new EditableLabel("", "first");
         this.firstName.setOnTextFieldChanged(this::textChanged);
@@ -39,19 +41,30 @@ public class ContactInfoHeader extends CustomGrid {
         this.nickName = new EditableLabel("", "nickname");
         this.nickName.setOnTextFieldChanged(this::textChanged);
 
+        this.profilePicture = new ProfilePicture();
+        AnchorPane.setTopAnchor(this.profilePicture, 0.);
+        AnchorPane.setLeftAnchor(this.profilePicture, 0.);
+
+        FlowPane formalNames = new FlowPane(this.firstName, this.lastName);
+        AnchorPane.setLeftAnchor(formalNames, 85.);
+        AnchorPane.setTopAnchor(formalNames, 20.);
+
+        FlowPane informalNames = new FlowPane(this.nickName);
+        AnchorPane.setLeftAnchor(informalNames, 85.);
+        AnchorPane.setTopAnchor(informalNames, 45.);
+
         Style.addStyleClass(this.firstName, "first");
         Style.addStyleClass(this.lastName, "last");
         Style.addStyleClass(this.nickName, "nickname");
 
-        this.addRow(new FlowPane(this.firstName, this.lastName));
-        this.addRow(new FlowPane(this.nickName));
+        this.getChildren().addAll(this.profilePicture,formalNames,informalNames);
         this.setEditable(false);
     }
 
     /**
      * Sets the value of a field.
      *
-     * @param text What value to set.
+     * @param text  What value to set.
      * @param field What field to change the value in.
      */
     private void textChanged(String text, Field field) {
@@ -64,6 +77,7 @@ public class ContactInfoHeader extends CustomGrid {
      * @param contact Contact to display.
      */
     public void setContact(Contact contact) {
+        this.profilePicture.setContact(contact);
         this.firstName.setField(contact.getFirstName());
         this.lastName.setField(contact.getLastName());
         this.nickName.setField(contact.getNickName());
@@ -84,6 +98,7 @@ public class ContactInfoHeader extends CustomGrid {
      * @param editable Should fields be editable.
      */
     public void setEditable(boolean editable) {
+        this.profilePicture.setEditable(editable);
         this.firstName.setEdit(editable);
         this.lastName.setEdit(editable);
         this.nickName.setEdit(editable);

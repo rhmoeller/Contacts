@@ -6,7 +6,12 @@ import com.hjortsholm.contacts.models.Field;
 import com.hjortsholm.contacts.models.FieldType;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+import java.util.Base64;
 import java.util.Scanner;
 
 /**
@@ -29,7 +34,7 @@ public class Setup {
      * @throws IOException Database file not found.
      */
     public static void main(String[] args) throws IOException {
-        Database.configure("contacts.db");
+        Database.configure("data/contacts.db");
         Setup setup = new Setup();
         setup.flushDatabase();
         setup.createDatabase();
@@ -43,7 +48,7 @@ public class Setup {
      * @throws IOException Sample data file not found.
      */
     private void importSampleData() throws IOException {
-        File sampleDataCsv = new File("data/fields.csv");
+        File sampleDataCsv = new File("data/sampledata.csv");
         Scanner scanner = new Scanner(sampleDataCsv);
         scanner.nextLine();
         while (scanner.hasNext()) {

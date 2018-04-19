@@ -1,5 +1,6 @@
-package com.hjortsholm.contacts.util;
+package com.hjortsholm.contacts.tests;
 
+import com.hjortsholm.contacts.util.Resource;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

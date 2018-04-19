@@ -123,10 +123,12 @@ public class Database {
      * @return Closed connection.
      */
     public static boolean isClosed() {
-        try {
-            return Database.connection.isClosed();
-        } catch (SQLException exception) {
-            System.err.println("[ERROR]: " + exception.getMessage());
+        if (Database.connection != null) {
+            try {
+                return Database.connection.isClosed();
+            } catch (SQLException exception) {
+                System.err.println("[ERROR]: " + exception.getMessage());
+            }
         }
         return false;
     }
@@ -146,12 +148,14 @@ public class Database {
      * @return Valid connection.
      */
     public static boolean isValid() {
-        try {
-            File databaseFile = new File(Database.getPath());
-            if (databaseFile.exists() && Database.connection.isValid(30))
-                return true;
-        } catch (SQLException exception) {
-            System.err.println("[ERRROR]: " + exception);
+        if (Database.connection != null) {
+            try {
+                File databaseFile = new File(Database.getPath());
+                if (databaseFile.exists() && Database.connection.isValid(30))
+                    return true;
+            } catch (SQLException exception) {
+                System.err.println("[ERRROR]: " + exception);
+            }
         }
         return false;
 

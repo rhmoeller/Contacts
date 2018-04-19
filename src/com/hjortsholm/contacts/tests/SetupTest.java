@@ -1,4 +1,4 @@
-package com.hjortsholm.contacts;
+package com.hjortsholm.contacts.tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

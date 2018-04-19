@@ -23,7 +23,8 @@ public class ScrollableView extends ScrollPane {
 
     /**
      * Creates a scrollable view with passed content.
-     * @param content
+     *
+     * @param content Content to add as children.
      */
     public ScrollableView(Node content) {
         Style.addStyleClass(this, getClass().getSimpleName());

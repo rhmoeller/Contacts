@@ -54,15 +54,15 @@ public enum FieldType {
 
     /**
      * Gets the default name of this field type.
-     * @return
+     *
+     * @return Default name for field type.
      */
     public String getDefaultName() {
         return this.defaultName;
     }
 
     /**
-     *
-     * @return
+     * @return Index of field type.
      */
     public int getIndex() {
         return this.index;

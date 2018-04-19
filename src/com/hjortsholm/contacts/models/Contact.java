@@ -126,6 +126,8 @@ public class Contact extends DataModel implements Comparable {
      * Gets a specific field from the database that are associated with this contact.
      * Specified by type and name of the field.
      *
+     * @param name Name of field to get.
+     * @param type Type of field to get.
      * @return Field associated with this contact.
      * @see Field
      */

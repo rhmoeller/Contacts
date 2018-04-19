@@ -19,7 +19,7 @@ public class QuerySet extends ArrayList<QueryRow> {
      * Creates a list of {@link QueryRow query rows} from the table returned by a query.
      *
      * @param rows Query result.
-     * @throws SQLException
+     * @throws SQLException Result set error.
      */
     public QuerySet(ResultSet rows) throws SQLException {
         while (rows.next())

@@ -32,8 +32,8 @@ public class ContactFieldListType extends CustomGrid {
     /**
      * Gets all fields from contact with given type and adds them to a list.
      *
-     * @param contact
-     * @param type
+     * @param contact Contact to get the fields from.
+     * @param type    Field type to get.
      */
     public ContactFieldListType(Contact contact, FieldType type) {
         initialiseComponent();

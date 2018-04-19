@@ -134,7 +134,7 @@ public class EditableLabel extends TextField {
         helper.setWrappingWidth(0);
         helper.setLineSpacing(0);
         helper.setWrappingWidth(Math.ceil(Math.min(helper.prefWidth(-1), 0)));
-        this.setPrefWidth(Math.ceil(helper.getLayoutBounds().getWidth()) + 20);
+        this.setPrefWidth(Math.ceil(helper.getLayoutBounds().getWidth()) + 13);
     }
 
     /**

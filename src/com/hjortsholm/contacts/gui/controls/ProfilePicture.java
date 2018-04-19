@@ -2,7 +2,9 @@ package com.hjortsholm.contacts.gui.controls;
 
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.Field;
+import com.hjortsholm.contacts.util.MD5;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -149,23 +151,27 @@ public class ProfilePicture extends AnchorPane {
         if (this.isEditable) {
             File source = this.fileChooser.showOpenDialog(new Stage());
             if (source != null && source.exists()) {
-                String filename = "";
-                try {
-                    byte[] bytesOfMessage = source.getName().getBytes("UTF-8");
-                    MessageDigest md = MessageDigest.getInstance("MD5");
-                    filename = Base64.getEncoder().encodeToString(md.digest(bytesOfMessage)).replaceAll("/", "");
-                } catch (Exception e) {
-                    filename = source.getName();
+                String filepath = "data/profile-pictures/",
+                        filename = MD5.getDigest(source.getName());
+                File destination = new File(filepath+filename);
+                for (int i = 1; destination.exists(); i++) {
+                    destination = new File(filepath+MD5.getDigest(source.getName()+i));
                 }
-                File destination = new File("data/profile-pictures/" + filename);
-                try {
-                    Files.copy(source.toPath(), destination.toPath());
-                    this.image = destination;
-                    this.profilePictureField.setValue(this.image.toPath().toAbsolutePath().toString());
-
-                } catch (IOException e) {
-                    System.err.println("[ERROR]: Could not save profile picture..");
+                if (!destination.exists()) {
+                    try {
+                        Files.copy(source.toPath(), destination.toPath());
+                    } catch (IOException e) {
+                        System.err.println("[ERROR]: Could not save profile picture..");
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("Could not upload picture.\nTry again.");
+                        alert.showAndWait();
+                        this.selectPicture();
+                        return;
+                    }
                 }
+                this.image = destination;
+                this.profilePictureField.setValue(this.image.toPath().toAbsolutePath().toString());
             }
             this.refresh();
             this.refreshImage();

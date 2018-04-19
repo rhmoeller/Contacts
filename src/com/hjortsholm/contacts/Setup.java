@@ -4,6 +4,8 @@ import com.hjortsholm.contacts.database.Database;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.Field;
 import com.hjortsholm.contacts.models.FieldType;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
 
 import java.io.File;
 import java.io.FilenameFilter;

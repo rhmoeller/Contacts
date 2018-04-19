@@ -127,11 +127,11 @@ public class ContactCard extends AnchorPane {
         this.addContactMenuItem = new MenuItem("Contact");
         this.add.getItems().addAll(this.addContactMenuItem, new SeparatorMenuItem());
         for (FieldType type : FieldType.values()) {
-            if (type != FieldType.NAME) {
+            if (type != FieldType.NAME && type != FieldType.PICTURE) {
                 MenuItem item = new MenuItem(type.name().substring(0, 1).toUpperCase() + type.name().substring(1).toLowerCase());
                 item.setOnAction(action -> {
                     this.setEditable(true);
-                    Field field = new Field(-1, this.contact.getId(), type, ""/*type.getDefaultName()*/, "::focus");
+                    Field field = new Field(-1, this.contact.getId(), type, "", "::focus");
                     field.push();
                     this.focusedRow = new ContactFieldRow(field);
                     this.setContact(this.contact);

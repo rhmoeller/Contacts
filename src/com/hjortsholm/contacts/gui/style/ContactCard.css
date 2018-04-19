@@ -2,7 +2,7 @@
     -fx-padding: 0 0 10 15;
 }
 
-.ContactFieldsList .ContactFieldRow  {
+.ContactFieldsList .ContactFieldRow {
     -fx-padding: 5;
 }
 
@@ -26,7 +26,7 @@
     -fx-cursor: hand;
 }
 
-.ContactFieldsList .ContactFieldRow .EditableLabel{
+.ContactFieldsList .ContactFieldRow .EditableLabel {
     -fx-translate-x: 25px;
 }
 
@@ -70,7 +70,8 @@
 }
 
 .alt-text {
-    -fx-font-size: 24px;
-    -fx-font-weight: 500;
+    -fx-font-size: 28px;
+    -fx-font-weight: bolder;
     -fx-text-fill: white;
+    -fx-font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
 }

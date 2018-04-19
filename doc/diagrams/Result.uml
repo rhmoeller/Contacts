@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.hjortsholm.contacts</OriginalElement>
+  <nodes>
+    <node x="2456.7589285714284" y="748.0">com.hjortsholm.contacts.database.Database</node>
+    <node x="1908.7921296957015" y="3361.0">com.hjortsholm.contacts.gui.panels.ContactNavigation</node>
+    <node x="2128.2232142857147" y="298.5">com.hjortsholm.contacts.database.TableField</node>
+    <node x="102.5" y="2324.0">com.hjortsholm.contacts.gui.controls.ContactFieldRow</node>
+    <node x="409.86946406767765" y="879.5">com.hjortsholm.contacts.models.FieldType</node>
+    <node x="935.6852187495043" y="1765.5">com.hjortsholm.contacts.gui.parents.CustomGrid</node>
+    <node x="1090.4571894375476" y="4199.0">com.hjortsholm.contacts.util.ResourceTest</node>
+    <node x="1644.0033926391063" y="3121.5">com.hjortsholm.contacts.gui.controls.ScrollableView</node>
+    <node x="607.3411180089761" y="3088.0">com.hjortsholm.contacts.gui.controls.ContactFieldsList</node>
+    <node x="2154.4732142857147" y="0.0">com.hjortsholm.contacts.database.TableFields</node>
+    <node x="2252.807784675643" y="3908.0">com.hjortsholm.contacts.Application</node>
+    <node x="2773.345014311086" y="343.0">com.hjortsholm.contacts.database.QuerySet</node>
+    <node x="1192.2036180089763" y="3317.0">com.hjortsholm.contacts.gui.panels.ContactCard</node>
+    <node x="1234.9319640676777" y="1239.0">com.hjortsholm.contacts.models.Field</node>
+    <node x="3301.6302197802197" y="0.0">com.hjortsholm.contacts.SetupTest</node>
+    <node x="911.9319640676778" y="1338.5">com.hjortsholm.contacts.gui.style.Style</node>
+    <node x="542.6852187495042" y="1765.0">com.hjortsholm.contacts.gui.controls.EditableLabel</node>
+    <node x="1963.2232142857144" y="354.0">com.hjortsholm.contacts.models.DataModel</node>
+    <node x="1140.4571894375476" y="4120.0">com.hjortsholm.contacts.util.Resource</node>
+    <node x="2421.345014311086" y="101.0">com.hjortsholm.contacts.database.Query</node>
+    <node x="1973.4075143110858" y="3110.5">com.hjortsholm.contacts.gui.controls.CategorisedListView</node>
+    <node x="2689.327110587824" y="0.0">com.hjortsholm.contacts.database.QueryRow</node>
+    <node x="558.5855820766537" y="1371.5">com.hjortsholm.contacts.gui.controls.EditableLabel.MyEventHandler</node>
+    <node x="2507.8950143110856" y="2790.0">com.hjortsholm.contacts.models.ContactList</node>
+    <node x="2208.807784675643" y="3709.0">com.hjortsholm.contacts.gui.Start</node>
+    <node x="1381.967678353392" y="2790.0">com.hjortsholm.contacts.gui.controls.ProfilePicture</node>
+    <node x="936.1916666666668" y="2757.0">com.hjortsholm.contacts.gui.controls.ContactFieldListType</node>
+    <node x="2930.342487869274" y="2812.5">com.hjortsholm.contacts.Setup</node>
+    <node x="1340.4676783533919" y="3055.0">com.hjortsholm.contacts.gui.controls.ContactInfoHeader</node>
+    <node x="2252.99048431727" y="2203.0">com.hjortsholm.contacts.models.Contact</node>
+    <node x="2226.8241809777523" y="2834.0">com.hjortsholm.contacts.gui.controls.ContactNavigationTab</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.hjortsholm.contacts.gui.controls.CategorisedListView" target="com.hjortsholm.contacts.gui.controls.ContactNavigationTab">
+      <point x="89.75" y="-25.5" />
+      <point x="2242.657514311086" y="3035.0" />
+      <point x="2276.5741809777523" y="3035.0" />
+      <point x="-49.75" y="37.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.Start" target="com.hjortsholm.contacts.database.QueryRow">
+      <point x="157.85714285714266" y="-69.5" />
+      <point x="2536.6649275327854" y="3689.0" />
+      <point x="3222.8087912087913" y="3689.0" />
+      <point x="3222.8087912087913" y="71.0" />
+      <point x="2892.7271105878244" y="71.0" />
+      <point x="90.40000000000009" y="25.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.Setup" target="com.hjortsholm.contacts.models.Field">
+      <point x="-18.333333333333485" y="-58.5" />
+      <point x="3022.0091545359405" y="2737.0" />
+      <point x="3049.282514311086" y="2737.0" />
+      <point x="3049.282514311086" y="1585.0" />
+      <point x="1385.2319640676778" y="1585.0" />
+      <point x="66.79999999999995" y="158.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.panels.ContactNavigation" target="com.hjortsholm.contacts.gui.style.Style">
+      <point x="-61.384615384615245" y="-92.0" />
+      <point x="2046.9075143110863" y="3257.0" />
+      <point x="1861.6187772544909" y="3257.0" />
+      <point x="1861.6187772544909" y="1625.0" />
+      <point x="1169.4819640676778" y="1625.0" />
+      <point x="106.05000000000018" y="58.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.database.Database" target="com.hjortsholm.contacts.database.Query">
+      <point x="0.0" y="-190.5" />
+      <point x="2594.7589285714284" y="688.0" />
+      <point x="2653.0450143110857" y="688.0" />
+      <point x="66.19999999999982" y="278.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactFieldsList" target="com.hjortsholm.contacts.gui.controls.ContactFieldListType">
+      <point x="73.125" y="-48.0" />
+      <point x="797.4661180089761" y="3025.0" />
+      <point x="1167.025" y="3025.0" />
+      <point x="92.33333333333326" y="114.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.panels.ContactNavigation" target="com.hjortsholm.contacts.models.Contact">
+      <point x="122.76923076923094" y="-92.0" />
+      <point x="2231.0613604649325" y="3277.0" />
+      <point x="2442.3950143110856" y="3277.0" />
+      <point x="2442.3950143110856" y="2737.0" />
+      <point x="2430.96548431727" y="2737.0" />
+      <point x="8.474999999999909" y="202.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.Start" target="com.hjortsholm.contacts.database.QuerySet">
+      <point x="133.57142857142844" y="-69.5" />
+      <point x="2512.379213247071" y="3679.0" />
+      <point x="3201.4337912087913" y="3679.0" />
+      <point x="3201.4337912087913" y="678.0" />
+      <point x="2922.095014311086" y="678.0" />
+      <point x="63.75" y="36.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactInfoHeader" target="com.hjortsholm.contacts.gui.controls.EditableLabel">
+      <point x="-74.28571428571422" y="-81.0" />
+      <point x="1396.1819640676777" y="3025.0" />
+      <point x="1360.467678353392" y="3025.0" />
+      <point x="1360.467678353392" y="2123.0" />
+      <point x="868.1852187495042" y="2123.0" />
+      <point x="139.5" y="114.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.database.Database" target="com.hjortsholm.contacts.models.DataModel">
+      <point x="-118.28571428571422" y="-190.5" />
+      <point x="2476.4732142857147" y="688.0" />
+      <point x="2084.0565476190477" y="688.0" />
+      <point x="48.333333333333485" y="25.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactFieldListType" target="com.hjortsholm.contacts.models.Contact">
+      <point x="126.95833333333337" y="-114.0" />
+      <point x="1201.65" y="2647.0" />
+      <point x="2261.46548431727" y="2647.0" />
+      <point x="-161.0250000000001" y="202.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactFieldRow" target="com.hjortsholm.contacts.gui.style.Style">
+      <point x="-136.28571428571422" y="-81.0" />
+      <point x="125.21428571428578" y="2093.0" />
+      <point x="495.91021874950434" y="2093.0" />
+      <point x="495.91021874950434" y="1665.0" />
+      <point x="987.6819640676778" y="1665.0" />
+      <point x="-75.75" y="58.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.Start" target="com.hjortsholm.contacts.database.Query">
+      <point x="109.28571428571422" y="-69.5" />
+      <point x="2488.093498961357" y="3669.0" />
+      <point x="3171.842487869274" y="3669.0" />
+      <point x="3171.842487869274" y="688.0" />
+      <point x="2719.245014311086" y="688.0" />
+      <point x="132.4000000000001" y="278.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactFieldListType" target="com.hjortsholm.contacts.models.FieldType">
+      <point x="-57.70833333333326" y="-114.0" />
+      <point x="1016.9833333333336" y="2707.0" />
+      <point x="484.91021874950434" y="2707.0" />
+      <point x="484.91021874950434" y="1219.0" />
+      <point x="473.30696406767765" y="1219.0" />
+      <point x="-38.0625" y="59.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactFieldRow" target="com.hjortsholm.contacts.gui.controls.EditableLabel">
+      <point x="-45.42857142857133" y="-81.0" />
+      <point x="216.07142857142867" y="2123.0" />
+      <point x="589.1852187495042" y="2123.0" />
+      <point x="-139.5" y="114.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.database.Database" target="com.hjortsholm.contacts.database.QuerySet">
+      <point x="78.85714285714266" y="-190.5" />
+      <point x="2673.6160714285716" y="708.0" />
+      <point x="2794.595014311086" y="708.0" />
+      <point x="-63.75" y="36.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.models.Field" target="com.hjortsholm.contacts.database.Query">
+      <point x="41.75" y="-158.0" />
+      <point x="1360.1819640676777" y="1219.0" />
+      <point x="1352.0189154099871" y="1219.0" />
+      <point x="1352.0189154099871" y="718.0" />
+      <point x="2454.4450143110857" y="718.0" />
+      <point x="-132.4000000000001" y="278.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ProfilePicture" target="com.hjortsholm.contacts.models.Contact">
+      <point x="47.0" y="-81.0" />
+      <point x="1522.967678353392" y="2667.0" />
+      <point x="2295.36548431727" y="2667.0" />
+      <point x="-127.125" y="202.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.panels.ContactNavigation" target="com.hjortsholm.contacts.gui.parents.CustomGrid">
+      <point x="-122.76923076923094" y="-92.0" />
+      <point x="1985.5228989264706" y="3277.0" />
+      <point x="1839.6187772544909" y="3277.0" />
+      <point x="1839.6187772544909" y="2113.0" />
+      <point x="1124.1018854161712" y="2113.0" />
+      <point x="55.41666666666674" y="113.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactFieldListType" target="com.hjortsholm.contacts.gui.parents.CustomGrid">
+      <point x="11.541666666666742" y="-114.0" />
+      <point x="1086.2333333333336" y="2737.0" />
+      <point x="1068.7685520828377" y="2737.0" />
+      <point x="1068.7685520828377" y="2183.0" />
+      <point x="1057.6018854161712" y="2183.0" />
+      <point x="-11.083333333333258" y="113.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactNavigationTab" target="com.hjortsholm.contacts.gui.parents.CustomGrid">
+      <point x="-66.33333333333348" y="-37.0" />
+      <point x="2259.990847644419" y="2637.0" />
+      <point x="2242.49048431727" y="2637.0" />
+      <point x="2242.49048431727" y="2083.0" />
+      <point x="1190.6018854161712" y="2083.0" />
+      <point x="121.91666666666674" y="113.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.panels.ContactNavigation" target="com.hjortsholm.contacts.gui.controls.CategorisedListView">
+      <point x="0.0" y="-92.0" />
+      <point x="2108.2921296957015" y="3237.0" />
+      <point x="2152.907514311086" y="3237.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.panels.ContactCard" target="com.hjortsholm.contacts.models.Field">
+      <point x="0.0" y="-136.0" />
+      <point x="1335.7036180089763" y="3297.0" />
+      <point x="1329.4319640676777" y="3297.0" />
+      <point x="11.13333333333344" y="158.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.database.Database" target="com.hjortsholm.contacts.database.QueryRow">
+      <point x="39.42857142857156" y="-190.5" />
+      <point x="2634.1875" y="698.0" />
+      <point x="2762.845014311086" y="698.0" />
+      <point x="2762.845014311086" y="81.0" />
+      <point x="2757.127110587824" y="81.0" />
+      <point x="-45.19999999999982" y="25.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.panels.ContactCard" target="com.hjortsholm.contacts.gui.controls.ScrollableView">
+      <point x="133.9333333333334" y="-136.0" />
+      <point x="1469.6369513423097" y="3297.0" />
+      <point x="1695.0033926391063" y="3297.0" />
+      <point x="-17.0" y="14.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.models.Field" target="com.hjortsholm.contacts.database.Database">
+      <point x="69.58333333333326" y="-158.0" />
+      <point x="1388.0152974010111" y="1219.0" />
+      <point x="2484.358928571429" y="1219.0" />
+      <point x="-110.40000000000009" y="190.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.panels.ContactCard" target="com.hjortsholm.contacts.Application">
+      <point x="-95.66666666666674" y="136.0" />
+      <point x="1240.0369513423095" y="3878.0" />
+      <point x="2315.807784675643" y="3878.0" />
+      <point x="-63.0" y="-81.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.panels.ContactNavigation" target="com.hjortsholm.contacts.gui.controls.ScrollableView">
+      <point x="-184.1538461538462" y="-92.0" />
+      <point x="1924.1382835418553" y="3297.0" />
+      <point x="1729.0033926391063" y="3297.0" />
+      <point x="17.0" y="14.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.parents.CustomGrid" target="com.hjortsholm.contacts.gui.style.Style">
+      <point x="0.0" y="-113.5" />
+      <point x="1068.6852187495042" y="1675.0" />
+      <point x="1048.2819640676776" y="1675.0" />
+      <point x="-15.150000000000091" y="58.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactFieldsList" target="com.hjortsholm.contacts.models.Contact">
+      <point x="102.375" y="-48.0" />
+      <point x="826.7161180089761" y="3035.0" />
+      <point x="1226.5875" y="3035.0" />
+      <point x="1226.5875" y="2657.0" />
+      <point x="2278.41548431727" y="2657.0" />
+      <point x="-144.07499999999982" y="202.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.models.ContactList" target="com.hjortsholm.contacts.models.Contact">
+      <point x="-90.0" y="-81.0" />
+      <point x="2597.8950143110856" y="2737.0" />
+      <point x="2515.71548431727" y="2737.0" />
+      <point x="93.22499999999991" y="202.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.Start" target="com.hjortsholm.contacts.gui.panels.ContactNavigation">
+      <point x="-60.71428571428578" y="-69.5" />
+      <point x="2318.093498961357" y="3649.0" />
+      <point x="2208.0421296957015" y="3649.0" />
+      <point x="99.75" y="92.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.util.Resource" target="com.hjortsholm.contacts.Application">
+      <point x="26.25" y="-14.5" />
+      <point x="1219.2071894375476" y="4095.0" />
+      <point x="2378.807784675643" y="4095.0" />
+      <point x="0.0" y="81.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.Start" target="com.hjortsholm.contacts.gui.controls.ContactNavigationTab">
+      <point x="-36.42857142857156" y="-69.5" />
+      <point x="2342.379213247071" y="3609.0" />
+      <point x="2475.3950143110856" y="3609.0" />
+      <point x="2475.3950143110856" y="3035.0" />
+      <point x="2409.240847644419" y="3035.0" />
+      <point x="82.91666666666652" y="37.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.models.Field" target="com.hjortsholm.contacts.models.DataModel">
+      <point x="-13.916666666666742" y="-158.0" />
+      <point x="1304.5152974010111" y="1219.0" />
+      <point x="1321.3486307343444" y="1219.0" />
+      <point x="1321.3486307343444" y="698.0" />
+      <point x="1987.389880952381" y="698.0" />
+      <point x="-48.333333333333485" y="25.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.EditableLabel" target="com.hjortsholm.contacts.models.Field">
+      <point x="74.40000000000009" y="-114.0" />
+      <point x="803.0852187495043" y="1705.0" />
+      <point x="1262.7652974010111" y="1705.0" />
+      <point x="-55.66666666666674" y="158.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.models.Contact" target="com.hjortsholm.contacts.database.Query">
+      <point x="75.33333333333348" y="-202.0" />
+      <point x="2497.8238176506034" y="2013.0" />
+      <point x="2446.2589285714284" y="2013.0" />
+      <point x="2446.2589285714284" y="728.0" />
+      <point x="2520.645014311086" y="728.0" />
+      <point x="-66.19999999999982" y="278.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.Setup" target="com.hjortsholm.contacts.models.FieldType">
+      <point x="55.0" y="-58.5" />
+      <point x="3095.342487869274" y="2737.0" />
+      <point x="3071.282514311086" y="2737.0" />
+      <point x="3071.282514311086" y="1179.0" />
+      <point x="600.1819640676777" y="1179.0" />
+      <point x="88.8125" y="59.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.models.Contact" target="com.hjortsholm.contacts.database.Database">
+      <point x="113.0" y="-202.0" />
+      <point x="2535.49048431727" y="2173.0" />
+      <point x="2637.202110587824" y="2173.0" />
+      <point x="2637.202110587824" y="1219.0" />
+      <point x="2539.5589285714286" y="1219.0" />
+      <point x="-55.19999999999982" y="190.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.Start" target="com.hjortsholm.contacts.gui.style.Style">
+      <point x="-109.28571428571422" y="-69.5" />
+      <point x="2269.5220703899286" y="3669.0" />
+      <point x="1790.5033926391063" y="3669.0" />
+      <point x="1790.5033926391063" y="1635.0" />
+      <point x="1139.1819640676777" y="1635.0" />
+      <point x="75.75" y="58.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.models.Contact" target="com.hjortsholm.contacts.models.DataModel">
+      <point x="-37.666666666666515" y="-202.0" />
+      <point x="2384.8238176506034" y="2043.0" />
+      <point x="2131.741118008976" y="2043.0" />
+      <point x="2131.741118008976" y="698.0" />
+      <point x="2035.7232142857144" y="698.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactFieldListType" target="com.hjortsholm.contacts.gui.controls.ContactFieldRow">
+      <point x="-80.79166666666657" y="-114.0" />
+      <point x="993.9000000000003" y="2717.0" />
+      <point x="394.0" y="2717.0" />
+      <point x="132.5" y="81.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.Start" target="com.hjortsholm.contacts.Application">
+      <point x="85.0" y="69.5" />
+      <point x="2463.807784675643" y="3868.0" />
+      <point x="2399.807784675643" y="3868.0" />
+      <point x="21.0" y="-81.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.panels.ContactCard" target="com.hjortsholm.contacts.gui.controls.ContactInfoHeader">
+      <point x="19.13333333333344" y="-136.0" />
+      <point x="1354.8369513423095" y="3237.0" />
+      <point x="1405.4676783533919" y="3237.0" />
+      <point x="-65.0" y="81.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactInfoHeader" target="com.hjortsholm.contacts.gui.controls.ProfilePicture">
+      <point x="37.14285714285711" y="-81.0" />
+      <point x="1507.6105354962492" y="3035.0" />
+      <point x="1522.967678353392" y="3035.0" />
+      <point x="47.0" y="81.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.Start" target="com.hjortsholm.contacts.gui.panels.ContactCard">
+      <point x="-157.85714285714266" y="-69.5" />
+      <point x="2220.9506418185" y="3689.0" />
+      <point x="1335.7036180089763" y="3689.0" />
+      <point x="0.0" y="136.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactFieldListType" target="com.hjortsholm.contacts.models.Field">
+      <point x="103.875" y="-114.0" />
+      <point x="1178.5666666666668" y="2637.0" />
+      <point x="1225.4819640676778" y="2637.0" />
+      <point x="1225.4819640676778" y="1745.0" />
+      <point x="1307.2986307343444" y="1745.0" />
+      <point x="-11.13333333333344" y="158.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.models.Contact" target="com.hjortsholm.contacts.database.QueryRow">
+      <point x="37.666666666666515" y="-202.0" />
+      <point x="2460.1571509839364" y="2023.0" />
+      <point x="2372.241118008976" y="2023.0" />
+      <point x="2372.241118008976" y="81.0" />
+      <point x="2711.9271105878242" y="81.0" />
+      <point x="-90.40000000000009" y="25.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.panels.ContactCard" target="com.hjortsholm.contacts.gui.controls.ContactFieldsList">
+      <point x="-38.26666666666665" y="-136.0" />
+      <point x="1297.4369513423094" y="3247.0" />
+      <point x="782.8411180089761" y="3247.0" />
+      <point x="58.5" y="48.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactFieldRow" target="com.hjortsholm.contacts.models.Field">
+      <point x="45.42857142857133" y="-81.0" />
+      <point x="306.92857142857133" y="2143.0" />
+      <point x="925.1852187495043" y="2143.0" />
+      <point x="925.1852187495043" y="1725.0" />
+      <point x="1285.0319640676776" y="1725.0" />
+      <point x="-33.40000000000009" y="158.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.panels.ContactCard" target="com.hjortsholm.contacts.models.Contact">
+      <point x="76.5333333333333" y="-136.0" />
+      <point x="1412.2369513423096" y="3267.0" />
+      <point x="1622.5033926391063" y="3267.0" />
+      <point x="1622.5033926391063" y="2697.0" />
+      <point x="2346.21548431727" y="2697.0" />
+      <point x="-76.27500000000009" y="202.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.CategorisedListView" target="com.hjortsholm.contacts.gui.parents.CustomGrid">
+      <point x="-149.58333333333348" y="-25.5" />
+      <point x="2003.3241809777523" y="3035.0" />
+      <point x="1934.9113176506032" y="3035.0" />
+      <point x="1934.9113176506032" y="2093.0" />
+      <point x="1168.4352187495044" y="2093.0" />
+      <point x="99.75000000000011" y="113.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.models.Field" target="com.hjortsholm.contacts.models.FieldType">
+      <point x="-41.75" y="-158.0" />
+      <point x="1276.6819640676777" y="1199.0" />
+      <point x="549.4319640676777" y="1199.0" />
+      <point x="38.0625" y="59.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.panels.ContactNavigation" target="com.hjortsholm.contacts.gui.controls.ContactNavigationTab">
+      <point x="92.07692307692287" y="-92.0" />
+      <point x="2200.3690527726244" y="3267.0" />
+      <point x="2353.907514311086" y="3267.0" />
+      <point x="2353.907514311086" y="3035.0" />
+      <point x="2376.0741809777523" y="3035.0" />
+      <point x="49.75" y="37.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.CategorisedListView" target="com.hjortsholm.contacts.models.Contact">
+      <point x="-29.916666666666515" y="-25.5" />
+      <point x="2122.9908476444193" y="3035.0" />
+      <point x="2074.157514311086" y="3035.0" />
+      <point x="2074.157514311086" y="2717.0" />
+      <point x="2380.11548431727" y="2717.0" />
+      <point x="-42.375" y="202.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ProfilePicture" target="com.hjortsholm.contacts.models.Field">
+      <point x="-47.0" y="-81.0" />
+      <point x="1428.967678353392" y="1665.0" />
+      <point x="1340.6986307343445" y="1665.0" />
+      <point x="22.26666666666665" y="158.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactInfoHeader" target="com.hjortsholm.contacts.models.Field">
+      <point x="74.28571428571422" y="-81.0" />
+      <point x="1544.753392639106" y="3025.0" />
+      <point x="1580.467678353392" y="3025.0" />
+      <point x="1580.467678353392" y="1655.0" />
+      <point x="1351.8319640676777" y="1655.0" />
+      <point x="33.40000000000009" y="158.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.CategorisedListView" target="com.hjortsholm.contacts.gui.style.Style">
+      <point x="-89.75" y="-25.5" />
+      <point x="2063.157514311086" y="3025.0" />
+      <point x="1945.9113176506032" y="3025.0" />
+      <point x="1945.9113176506032" y="1615.0" />
+      <point x="1199.781964067678" y="1615.0" />
+      <point x="136.35000000000014" y="58.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ScrollableView" target="com.hjortsholm.contacts.gui.style.Style">
+      <point x="0.0" y="-14.5" />
+      <point x="1712.0033926391063" y="1645.0" />
+      <point x="1108.881964067678" y="1645.0" />
+      <point x="45.450000000000045" y="58.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.style.Style" target="com.hjortsholm.contacts.util.Resource">
+      <point x="-136.3499999999999" y="58.5" />
+      <point x="927.0819640676779" y="1645.0" />
+      <point x="81.0" y="1645.0" />
+      <point x="81.0" y="2073.0" />
+      <point x="26.0" y="2073.0" />
+      <point x="26.0" y="4095.0" />
+      <point x="1166.7071894375476" y="4095.0" />
+      <point x="-26.25" y="-14.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.models.Contact" target="com.hjortsholm.contacts.database.TableField">
+      <point x="0.0" y="-202.0" />
+      <point x="2422.49048431727" y="2033.0" />
+      <point x="2306.491118008976" y="2033.0" />
+      <point x="2306.491118008976" y="708.0" />
+      <point x="2238.2232142857147" y="708.0" />
+      <point x="0.0" y="81.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.database.TableField" target="com.hjortsholm.contacts.database.TableFields">
+      <point x="-55.0" y="-81.0" />
+      <point x="2183.2232142857147" y="81.0" />
+      <point x="2200.7232142857147" y="81.0" />
+      <point x="-46.25" y="25.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.Start" target="com.hjortsholm.contacts.database.Database">
+      <point x="85.0" y="-69.5" />
+      <point x="2463.807784675643" y="3659.0" />
+      <point x="3160.842487869274" y="3659.0" />
+      <point x="3160.842487869274" y="1159.0" />
+      <point x="2649.9589285714283" y="1159.0" />
+      <point x="55.19999999999982" y="190.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.panels.ContactCard" target="com.hjortsholm.contacts.models.FieldType">
+      <point x="-133.93333333333317" y="-136.0" />
+      <point x="1201.7702846756429" y="3297.0" />
+      <point x="48.0" y="3297.0" />
+      <point x="48.0" y="1209.0" />
+      <point x="422.55696406767765" y="1209.0" />
+      <point x="-88.8125" y="59.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.panels.ContactCard" target="com.hjortsholm.contacts.gui.style.Style">
+      <point x="-114.79999999999995" y="-136.0" />
+      <point x="1220.903618008976" y="3287.0" />
+      <point x="59.0" y="3287.0" />
+      <point x="59.0" y="2083.0" />
+      <point x="133.99679189857807" y="2083.0" />
+      <point x="133.99679189857807" y="1655.0" />
+      <point x="957.3819640676778" y="1655.0" />
+      <point x="-106.04999999999995" y="58.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.Application" target="com.hjortsholm.contacts.database.Database">
+      <point x="105.0" y="-81.0" />
+      <point x="2483.807784675643" y="3888.0" />
+      <point x="3250.6302197802197" y="3888.0" />
+      <point x="3250.6302197802197" y="1149.0" />
+      <point x="2705.158928571429" y="1149.0" />
+      <point x="110.40000000000009" y="190.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactFieldsList" target="com.hjortsholm.contacts.gui.parents.CustomGrid">
+      <point x="-43.875" y="-48.0" />
+      <point x="680.4661180089761" y="3015.0" />
+      <point x="431.0" y="3015.0" />
+      <point x="431.0" y="2173.0" />
+      <point x="991.101885416171" y="2173.0" />
+      <point x="-77.58333333333337" y="113.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactFieldsList" target="com.hjortsholm.contacts.models.FieldType">
+      <point x="-102.375" y="-48.0" />
+      <point x="621.9661180089761" y="3035.0" />
+      <point x="92.0" y="3035.0" />
+      <point x="92.0" y="1219.0" />
+      <point x="447.93196406767765" y="1219.0" />
+      <point x="-63.4375" y="59.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.Setup" target="com.hjortsholm.contacts.models.Contact">
+      <point x="-55.0" y="-58.5" />
+      <point x="2985.342487869274" y="2707.0" />
+      <point x="2566.5654843172697" y="2707.0" />
+      <point x="144.07499999999982" y="202.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactInfoHeader" target="com.hjortsholm.contacts.models.Contact">
+      <point x="111.42857142857156" y="-81.0" />
+      <point x="1581.8962497819634" y="3035.0" />
+      <point x="1591.467678353392" y="3035.0" />
+      <point x="1591.467678353392" y="2677.0" />
+      <point x="2312.3154843172697" y="2677.0" />
+      <point x="-110.17500000000018" y="202.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.Start" target="com.hjortsholm.contacts.models.Contact">
+      <point x="-12.142857142857338" y="-69.5" />
+      <point x="2366.6649275327854" y="3619.0" />
+      <point x="2486.3950143110856" y="3619.0" />
+      <point x="2486.3950143110856" y="2737.0" />
+      <point x="2481.8154843172697" y="2737.0" />
+      <point x="59.32499999999982" y="202.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.util.ResourceTest" target="com.hjortsholm.contacts.util.Resource">
+      <point x="51.25" y="-25.5" />
+      <point x="1244.2071894375476" y="4174.0" />
+      <point x="1219.2071894375476" y="4174.0" />
+      <point x="26.25" y="14.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.database.QuerySet" target="com.hjortsholm.contacts.database.QueryRow">
+      <point x="-42.5" y="-36.5" />
+      <point x="2815.845014311086" y="81.0" />
+      <point x="2802.327110587824" y="81.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.models.Contact" target="com.hjortsholm.contacts.models.FieldType">
+      <point x="-75.33333333333348" y="-202.0" />
+      <point x="2347.1571509839364" y="2053.0" />
+      <point x="2085.459868008976" y="2053.0" />
+      <point x="2085.459868008976" y="1189.0" />
+      <point x="574.8069640676777" y="1189.0" />
+      <point x="63.4375" y="59.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.models.Contact" target="com.hjortsholm.contacts.models.Field">
+      <point x="-150.66666666666652" y="-202.0" />
+      <point x="2271.8238176506034" y="2073.0" />
+      <point x="2049.7932013423097" y="2073.0" />
+      <point x="2049.7932013423097" y="1605.0" />
+      <point x="1362.965297401011" y="1605.0" />
+      <point x="44.5333333333333" y="158.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactNavigationTab" target="com.hjortsholm.contacts.models.Contact">
+      <point x="0.0" y="-37.0" />
+      <point x="2326.3241809777523" y="2727.0" />
+      <point x="2397.0654843172697" y="2727.0" />
+      <point x="-25.425000000000182" y="202.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.EditableLabel" target="com.hjortsholm.contacts.gui.controls.EditableLabel.MyEventHandler">
+      <point x="-148.79999999999995" y="-114.0" />
+      <point x="579.8852187495042" y="1635.0" />
+      <point x="602.3355820766537" y="1635.0" />
+      <point x="-43.75" y="25.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactInfoHeader" target="com.hjortsholm.contacts.gui.style.Style">
+      <point x="-37.14285714285711" y="-81.0" />
+      <point x="1433.324821210535" y="3015.0" />
+      <point x="1371.467678353392" y="3015.0" />
+      <point x="1371.467678353392" y="1675.0" />
+      <point x="1078.5819640676777" y="1675.0" />
+      <point x="15.150000000000091" y="58.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.Application" target="com.hjortsholm.contacts.models.Contact">
+      <point x="63.0" y="-81.0" />
+      <point x="2441.807784675643" y="3878.0" />
+      <point x="3239.6302197802197" y="3878.0" />
+      <point x="3239.6302197802197" y="2697.0" />
+      <point x="2583.51548431727" y="2697.0" />
+      <point x="161.0250000000001" y="202.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.panels.ContactCard" target="com.hjortsholm.contacts.gui.controls.ContactFieldRow">
+      <point x="-95.66666666666652" y="-136.0" />
+      <point x="1240.0369513423097" y="3277.0" />
+      <point x="70.0" y="3277.0" />
+      <point x="70.0" y="2727.0" />
+      <point x="129.0" y="2727.0" />
+      <point x="-132.5" y="81.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.EditableLabel" target="com.hjortsholm.contacts.gui.style.Style">
+      <point x="0.0" y="-114.0" />
+      <point x="728.6852187495042" y="1675.0" />
+      <point x="1017.9819640676777" y="1675.0" />
+      <point x="-45.450000000000045" y="58.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.Setup" target="com.hjortsholm.contacts.database.Database">
+      <point x="91.66666666666652" y="-58.5" />
+      <point x="3132.0091545359405" y="2727.0" />
+      <point x="3082.282514311086" y="2727.0" />
+      <point x="3082.282514311086" y="1169.0" />
+      <point x="2594.7589285714284" y="1169.0" />
+      <point x="0.0" y="190.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactFieldRow" target="com.hjortsholm.contacts.gui.parents.CustomGrid">
+      <point x="136.28571428571422" y="-81.0" />
+      <point x="397.7857142857142" y="2163.0" />
+      <point x="968.9352187495043" y="2163.0" />
+      <point x="-99.75" y="113.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.Application" target="com.hjortsholm.contacts.models.Field">
+      <point x="-105.0" y="-81.0" />
+      <point x="2273.807784675643" y="3888.0" />
+      <point x="37.0" y="3888.0" />
+      <point x="37.0" y="2103.0" />
+      <point x="506.91021874950434" y="2103.0" />
+      <point x="506.91021874950434" y="1685.0" />
+      <point x="1240.4986307343443" y="1685.0" />
+      <point x="-77.9333333333334" y="158.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.models.Contact" target="com.hjortsholm.contacts.database.QuerySet">
+      <point x="150.66666666666652" y="-202.0" />
+      <point x="2573.1571509839364" y="2183.0" />
+      <point x="2760.616118008976" y="2183.0" />
+      <point x="2760.616118008976" y="728.0" />
+      <point x="2879.595014311086" y="728.0" />
+      <point x="21.25" y="36.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.database.TableFields" target="com.hjortsholm.contacts.database.TableField">
+      <point x="46.25" y="25.5" />
+      <point x="55.0" y="-81.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.Start" target="com.hjortsholm.contacts.models.ContactList">
+      <point x="36.42857142857156" y="-69.5" />
+      <point x="2415.2363561042143" y="3639.0" />
+      <point x="2597.8950143110856" y="3639.0" />
+      <point x="-90.0" y="81.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.database.Database" target="com.hjortsholm.contacts.database.TableField">
+      <point x="-78.85714285714266" y="-190.5" />
+      <point x="2515.9017857142862" y="678.0" />
+      <point x="2311.5565476190477" y="678.0" />
+      <point x="73.33333333333348" y="81.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.Application" target="com.hjortsholm.contacts.gui.Start">
+      <point x="-21.0" y="-81.0" />
+      <point x="2357.807784675643" y="3868.0" />
+      <point x="2293.807784675643" y="3868.0" />
+      <point x="-85.0" y="69.5" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.gui.controls.ContactFieldsList" target="com.hjortsholm.contacts.gui.controls.ContactFieldRow">
+      <point x="-73.125" y="-48.0" />
+      <point x="651.2161180089761" y="3025.0" />
+      <point x="235.0" y="3025.0" />
+      <point x="-26.5" y="81.0" />
+    </edge>
+    <edge source="com.hjortsholm.contacts.models.Field" target="com.hjortsholm.contacts.database.TableField">
+      <point x="13.916666666666742" y="-158.0" />
+      <point x="1332.3486307343446" y="1219.0" />
+      <point x="1341.0189154099871" y="1219.0" />
+      <point x="1341.0189154099871" y="708.0" />
+      <point x="2164.8898809523807" y="708.0" />
+      <point x="-73.33333333333348" y="81.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.12957074721780604" x="1908.0" y="2506.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

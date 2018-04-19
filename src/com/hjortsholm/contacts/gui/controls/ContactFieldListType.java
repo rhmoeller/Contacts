@@ -99,7 +99,6 @@ public class ContactFieldListType extends CustomGrid {
         if (this.isEditable) {
             this.addEmptyRow();
         }
-
         for (ContactFieldRow row : emptyFieldRows)
             this.deleteRow(row);
         this.refreshSeperator();

@@ -43,6 +43,7 @@ public class ContactFieldsList extends CustomGrid {
             FieldType fieldType = FieldType.valueOf(i);
             if (fieldType != FieldType.NAME && fieldType != FieldType.PICTURE) {
                 ContactFieldListType fieldList = new ContactFieldListType(contact, fieldType);
+                System.err.println(this.contactFieldsLists.size() > 0);
                 fieldList.setSeperatorVisibility(this.contactFieldsLists.size() > 0);
                 if (!fieldList.isEmpty() && !foo) {
                     foo = true;

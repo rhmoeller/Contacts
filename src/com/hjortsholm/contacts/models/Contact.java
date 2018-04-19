@@ -198,7 +198,7 @@ public class Contact extends DataModel implements Comparable {
      * @return Title the contact is to be displayed with.
      */
     public String getDisplayTitle() {
-        String displayTitle = null;
+        String displayTitle = "No name";
         if (!this.getFirstName().isEmpty()) {
             displayTitle = this.getFirstName().getValue();
             if (!this.getLastName().isEmpty()) {

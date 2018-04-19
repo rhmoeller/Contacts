@@ -260,7 +260,6 @@ public class ContactCard extends AnchorPane {
             this.contactInfoHeader.setEditable(false);
             this.contactInfoHeader.setVisibility(false);
             this.topSeparator.setVisible(false);
-//            this.bottomSeparator.setVisible(false);
         }
         this.refreshHorisontalBar();
 

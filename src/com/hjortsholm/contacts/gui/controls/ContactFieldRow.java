@@ -49,7 +49,7 @@ public class ContactFieldRow extends CustomGrid {
 
         this.value = new EditableLabel(field);
         if (field.getValue().equals("::focus")) {
-            this.value.setText(field.getType().name().toLowerCase());
+            this.value.setText(" ");
             this.value.setFocus();
         }
         this.value.setOnMouseClicked(this::onTextFieldCopy);

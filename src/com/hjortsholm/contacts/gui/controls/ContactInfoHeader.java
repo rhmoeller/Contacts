@@ -110,6 +110,7 @@ public class ContactInfoHeader extends AnchorPane {
      * @param visible Should the text fields be visible.
      */
     public void setVisibility(boolean visible) {
+        this.profilePicture.setVisible(visible);
         this.firstName.setVisible(visible && (!this.firstName.getText().isEmpty() || (this.firstName.isEditable() && !this.firstName.getPromptText().isEmpty())));
         this.lastName.setVisible(visible && (!this.lastName.getText().isEmpty() || (this.lastName.isEditable() && !this.lastName.getPromptText().isEmpty())));
         this.nickName.setVisible(visible && (!this.nickName.getText().isEmpty() || (this.nickName.isEditable() && !this.nickName.getPromptText().isEmpty())));

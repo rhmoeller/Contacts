@@ -38,15 +38,14 @@ public class ContactFieldsList extends CustomGrid {
     public void setContact(Contact contact) {
         this.clear();
         this.contactFieldsLists = new ArrayList<>();
-        boolean foo = false;
+        boolean isFirstList = false;
         for (int i = 0; i < FieldType.values().length; i++) {
             FieldType fieldType = FieldType.valueOf(i);
             if (fieldType != FieldType.NAME && fieldType != FieldType.PICTURE) {
                 ContactFieldListType fieldList = new ContactFieldListType(contact, fieldType);
-                System.err.println(this.contactFieldsLists.size() > 0);
                 fieldList.setSeperatorVisibility(this.contactFieldsLists.size() > 0);
-                if (!fieldList.isEmpty() && !foo) {
-                    foo = true;
+                if (!fieldList.isEmpty() && !isFirstList) {
+                    isFirstList = true;
                     fieldList.setSeperatorVisibility(false);
                 }
 

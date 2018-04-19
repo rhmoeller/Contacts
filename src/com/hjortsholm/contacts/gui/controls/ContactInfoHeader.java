@@ -1,6 +1,5 @@
 package com.hjortsholm.contacts.gui.controls;
 
-import com.hjortsholm.contacts.gui.parents.CustomGrid;
 import com.hjortsholm.contacts.gui.style.Style;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.Field;
@@ -57,7 +56,7 @@ public class ContactInfoHeader extends AnchorPane {
         Style.addStyleClass(this.lastName, "last");
         Style.addStyleClass(this.nickName, "nickname");
 
-        this.getChildren().addAll(this.profilePicture,formalNames,informalNames);
+        this.getChildren().addAll(this.profilePicture, formalNames, informalNames);
         this.setEditable(false);
     }
 

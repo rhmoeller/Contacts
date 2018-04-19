@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * @since 10/04/2018
  */
 @TableField(name = "id", type = "INTEGER", primaryKey = true)
-public class Contact extends DataModel implements Comparable {
+public class Contact extends DataModel implements Comparable<Object> {
 
     private boolean newContact;
     private int id;

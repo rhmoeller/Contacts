@@ -3,7 +3,6 @@ package com.hjortsholm.contacts.database;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.util.Collection;
 import java.util.HashMap;
 
 /**

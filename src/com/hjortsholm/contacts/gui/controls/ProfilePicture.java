@@ -19,8 +19,6 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.security.MessageDigest;
-import java.util.Base64;
 
 /**
  * <h1>Profile Picture</h1>
@@ -153,9 +151,9 @@ public class ProfilePicture extends AnchorPane {
             if (source != null && source.exists()) {
                 String filepath = "data/profile-pictures/",
                         filename = MD5.getDigest(source.getName());
-                File destination = new File(filepath+filename);
+                File destination = new File(filepath + filename);
                 for (int i = 1; destination.exists(); i++) {
-                    destination = new File(filepath+MD5.getDigest(source.getName()+i));
+                    destination = new File(filepath + MD5.getDigest(source.getName() + i));
                 }
                 if (!destination.exists()) {
                     try {

@@ -163,7 +163,7 @@ public class Database {
      * @param dataModel {@link DataModel Table Model} for table.
      * @see TableField Table Field
      */
-    public static void createTable(Class dataModel) {
+    public static void createTable(Class<?> dataModel) {
         Database.createTable(dataModel.getSimpleName(), dataModel);
     }
 
@@ -174,7 +174,7 @@ public class Database {
      * @param dataModel {@link DataModel Table Model} for table.
      * @see TableField Table Field
      */
-    private static void createTable(String table, Class dataModel) {
+    private static void createTable(String table, Class<?> dataModel) {
         ArrayList<TableField> fields = new ArrayList<>();
         Collections.addAll(fields, (TableField[]) dataModel.getDeclaredAnnotationsByType(TableField.class));
         StringBuilder sql = new StringBuilder("CREATE TABLE " + table + " (\n");
@@ -200,7 +200,7 @@ public class Database {
      * @param dataModel {@link DataModel Table Model}.
      * @see TableField Table Field
      */
-    public static void dropTable(Class dataModel) {
+    public static void dropTable(Class<?> dataModel) {
         Database.dropTable(dataModel.getSimpleName());
     }
 
@@ -220,7 +220,7 @@ public class Database {
      * @return Table corresponds to data model.
      * @see TableField
      */
-    public static boolean verifyTable(Class dataModel) {
+    public static boolean verifyTable(Class<?> dataModel) {
         return Database.verifyTable(dataModel.getSimpleName(), dataModel);
     }
 
@@ -232,7 +232,7 @@ public class Database {
      * @return Table corresponds to data model.
      * @see TableField
      */
-    private static boolean verifyTable(String table, Class dataModel) {
+    private static boolean verifyTable(String table, Class<?> dataModel) {
         TableField[] fields = (TableField[]) dataModel.getDeclaredAnnotationsByType(TableField.class);
         QuerySet tableFields = Database.get(new Query().getInfo(table).toString());
         QuerySet iterableFields = (QuerySet) tableFields.clone();

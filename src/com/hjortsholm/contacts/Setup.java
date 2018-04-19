@@ -4,16 +4,9 @@ import com.hjortsholm.contacts.database.Database;
 import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.Field;
 import com.hjortsholm.contacts.models.FieldType;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
 
 import java.io.File;
-import java.io.FilenameFilter;
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
-import java.util.Base64;
 import java.util.Scanner;
 
 /**
@@ -69,6 +62,7 @@ public class Setup {
             }
             Database.insert(field);
         }
+        scanner.close();
     }
 
     /**

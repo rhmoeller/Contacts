@@ -61,7 +61,7 @@ public class Query {
      * @param table The data model of a table.
      * @return Instance of self.
      */
-    public Query drop(Class table) {
+    public Query drop(Class<?> table) {
         return this.drop(table.getSimpleName());
     }
 
@@ -82,7 +82,7 @@ public class Query {
      * @param table The data model of a table.
      * @return Instance of self.
      */
-    public Query getInfo(Class table) {
+    public Query getInfo(Class<?> table) {
         return this.getInfo(table.getSimpleName());
     }
 
@@ -103,7 +103,7 @@ public class Query {
      * @param table The data model of a table.
      * @return Instance of self.
      */
-    public Query deleteFrom(Class table) {
+    public Query deleteFrom(Class<?> table) {
         return this.deleteFrom(table);
     }
 
@@ -144,7 +144,7 @@ public class Query {
      * @param table The data model of a table.
      * @return Instance of self.
      */
-    public Query insertInto(Class table) {
+    public Query insertInto(Class<?> table) {
         return this.insertInto(table.getSimpleName());
     }
 
@@ -226,7 +226,7 @@ public class Query {
      * @param table The data model's table in which to perform statement.
      * @return Instance of self.
      */
-    public Query from(Class table) {
+    public Query from(Class<?> table) {
         return this.from(table.getSimpleName());
     }
 

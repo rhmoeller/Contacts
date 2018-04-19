@@ -5,6 +5,7 @@ import com.hjortsholm.contacts.models.Contact;
 import com.hjortsholm.contacts.models.Field;
 import com.hjortsholm.contacts.models.FieldType;
 import javafx.scene.control.Separator;
+import javafx.scene.input.KeyEvent;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;
@@ -126,7 +127,7 @@ public class ContactFieldListType extends CustomGrid {
      */
     private void addEmptyRow() {
         ContactFieldRow newFieldRow = this.createRow(new Field(this.contact, this.type));
-        Consumer newRowUsed = event -> this.addEmptyRow();
+        Consumer<KeyEvent> newRowUsed = event -> this.addEmptyRow();
 
         newFieldRow.setOnKeyReleased(event -> {
             newRowUsed.accept(event);

@@ -37,9 +37,12 @@ All documentation is located in doc/.
                 *                   - Screenshots of final product.
         diagrams/
             Class Diagram.pdf       - Class diagram made while planning.
+            Final Class Diagram.png - Written code's class diagram.
         documentation/     
             *                       - Generated javadoc documentation.
         Build Settings.png          - Screenshot of Eclipse build settings.
+        Self-Reflection Sheet.docx  - Self reflection sheet.
+        Basic Workflow.docx         - Basic walkthrough of the application workflow.
                 
                 
     

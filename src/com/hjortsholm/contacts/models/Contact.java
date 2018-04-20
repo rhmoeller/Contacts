@@ -24,15 +24,19 @@ public class Contact extends DataModel implements Comparable<Object> {
     private int id;
 
     /**
-     * Creates a new contact with a set id.
+     * Creates a new contact with a set id and links it with a contact in the database.
      *
      * @param id Identifier used in database.
      */
     public Contact(int id) {
-        if (id != -1) {
-            this.id = id;
-            this.newContact = false;
-        } else {
+        this.id = id;
+        this.newContact = false;
+        if (id > -1 && !this.exists()) {
+            this.newContact = true;
+            Database.post(new Query()
+                    .insertInto("Contact")
+                    .values(this.id));
+        } else if (!this.exists()) {
             Database.post(new Query()
                     .insertInto("Contact")
                     .defaultValues());
@@ -183,11 +187,10 @@ public class Contact extends DataModel implements Comparable<Object> {
      * @return Exists in database.
      */
     public boolean exists() {
-        int ID = this.getId();
         return Database.get(new Query()
                 .select()
                 .from("Contact")
-                .where("id = " + ID)
+                .where("id = " + this.getId())
         ).size() > 0;
     }
 
@@ -274,7 +277,7 @@ public class Contact extends DataModel implements Comparable<Object> {
      * @return Profile picture field.
      */
     public Field getProfilePicture() {
-        return this.getField(FieldType.PICTURE,"profile");
+        return this.getField(FieldType.PICTURE, "profile");
     }
 
     /**
@@ -286,6 +289,6 @@ public class Contact extends DataModel implements Comparable<Object> {
         Field firstname = this.getFirstName(),
                 lastname = this.getLastName();
 
-        return ((firstname.isEmpty() ? "": Character.toString(firstname.getValue().charAt(0))) + (lastname.isEmpty() ? "": Character.toString(lastname.getValue().charAt(0)))).toUpperCase();
+        return ((firstname.isEmpty() ? "" : Character.toString(firstname.getValue().charAt(0))) + (lastname.isEmpty() ? "" : Character.toString(lastname.getValue().charAt(0)))).toUpperCase();
     }
 }

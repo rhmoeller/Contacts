@@ -20,16 +20,14 @@ public class MD5 {
      * @param data String data to hash.
      * @return Base64 MD5 digest string.
      */
-    public static String getDigest(String data) {
+    public String getDigest(String data) {
         String result = data;
-        byte[] bytesOfMessage = new byte[0];
+        byte[] bytesOfMessage;
         try {
             bytesOfMessage = data.getBytes("UTF-8");
             MessageDigest md = MessageDigest.getInstance("MD5");
             result = Base64.getEncoder().encodeToString(md.digest(bytesOfMessage)).replaceAll("/", "");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
+        } catch (UnsupportedEncodingException | NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
 

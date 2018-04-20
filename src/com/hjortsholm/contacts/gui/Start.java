@@ -89,18 +89,6 @@ public class Start extends Application {
     @Override
     public void init() {
         this.contacts = new ContactList();
-        QuerySet set = Database.get(new Query()
-                .select("id")
-                .from("Contact")
-                .toString());
-
-        for (QueryRow row : set) {
-            Contact contact = new Contact((int) row.getColumn("id"));
-            if (!this.contacts.contactExists(contact)) {
-                this.contacts.addContact(contact);
-            }
-        }
-
         this.contactNavigation = new ContactNavigation();
         this.contactNavigation.setContacts(contacts.getContacts());
         this.contactNavigation.setOnTabSelectedEvent(this::onTabChanged);

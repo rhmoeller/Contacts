@@ -1,5 +1,10 @@
 package com.hjortsholm.contacts.models;
 
+import com.hjortsholm.contacts.database.Database;
+import com.hjortsholm.contacts.database.Query;
+import com.hjortsholm.contacts.database.QueryRow;
+import com.hjortsholm.contacts.database.QuerySet;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -21,6 +26,17 @@ public class ContactList {
      */
     public ContactList() {
         this.contacts = new HashMap<>();
+        QuerySet set = Database.get(new Query()
+                .select("id")
+                .from("Contact")
+                .toString());
+
+        for (QueryRow row : set) {
+            Contact contact = new Contact((int) row.getColumn("id"));
+            if (!this.contactExists(contact)) {
+                this.addContact(contact);
+            }
+        }
     }
 
     /**
@@ -72,7 +88,7 @@ public class ContactList {
      * @return A list of contacts that has mentioned values.
      * @see Contact
      */
-    public Collection<Contact> getContactsWith(String[] fieldValues) {
+    public Collection<Contact> getContactsWith(String... fieldValues) {
         Collection<Contact> relevantContacts = new ArrayList<>();
         for (Contact contact : this.getContacts()) {
             if (contact.hasValues(fieldValues))

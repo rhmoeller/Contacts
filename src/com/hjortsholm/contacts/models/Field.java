@@ -77,8 +77,8 @@ public class Field extends DataModel {
      *
      * @return If field exists in database.
      */
-    private boolean exists() {
-        if (this.id != -1)
+    public boolean exists() {
+        if (this.id > -1)
             return Database.get(new Query().select("id").from(Field.class).where("id = " + this.id)).size() > 0;
         else
             return false;
@@ -96,19 +96,27 @@ public class Field extends DataModel {
                     this.getValue()
             };
 
-            Database.post(new Query()
-                    .insertInto("Field")
-                    .fields("contact", "type", "name", "value")
-                    .values(fieldData));
+            if (this.id > -1) {
+                Database.post(new Query()
+                        .insertInto("Field")
+                        .fields("id","contact", "type", "name", "value")
+                        .values(this.id,fieldData));
+            } else {
+                Database.post(new Query()
+                        .insertInto("Field")
+                        .fields("contact", "type", "name", "value")
+                        .values(fieldData));
 
-            this.id = (int) Database.get(new Query()
-                    .select("id")
-                    .from("Field")
-                    .where("contact = " + fieldData[0],
-                            "type = " + fieldData[1],
-                            "name = \"" + fieldData[2] + "\"",
-                            "value = \"" + fieldData[3] + "\"")
-            ).last().getColumn("id");
+
+                this.id = (int) Database.get(new Query()
+                        .select("id")
+                        .from("Field")
+                        .where("contact = " + fieldData[0],
+                                "type = " + fieldData[1],
+                                "name = \"" + fieldData[2] + "\"",
+                                "value = \"" + fieldData[3] + "\"")
+                ).last().getColumn("id");
+            }
         }
     }
 
@@ -189,6 +197,7 @@ public class Field extends DataModel {
 
     /**
      * Gets the contact id associated with this field.
+     *
      * @return Associated contact's id.
      */
     public int getContact() {
@@ -215,6 +224,7 @@ public class Field extends DataModel {
 
     /**
      * Submits this field's values to the database.
+     *
      * @see Database
      */
     public void push() {
@@ -227,6 +237,7 @@ public class Field extends DataModel {
 
     /**
      * Deletes this field from the database.
+     *
      * @see Database
      */
     public void delete() {

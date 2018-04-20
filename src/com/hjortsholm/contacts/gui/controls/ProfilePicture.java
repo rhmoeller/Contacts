@@ -150,10 +150,10 @@ public class ProfilePicture extends AnchorPane {
             File source = this.fileChooser.showOpenDialog(new Stage());
             if (source != null && source.exists()) {
                 String filepath = "data/profile-pictures/",
-                        filename = MD5.getDigest(source.getName());
+                        filename = new MD5().getDigest(source.getName());
                 File destination = new File(filepath + filename);
                 for (int i = 1; destination.exists(); i++) {
-                    destination = new File(filepath + MD5.getDigest(source.getName() + i));
+                    destination = new File(filepath + new MD5().getDigest(source.getName() + i));
                 }
                 if (!destination.exists()) {
                     try {

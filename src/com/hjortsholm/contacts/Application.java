@@ -18,6 +18,7 @@ import com.hjortsholm.contacts.models.FieldType;
  * <li>Address</li>
  * <li>Note</li>
  * <li>Date</li>
+ * <li>Picture</li>
  * </ul>
  *
  * @author Robert Moeller s5069583
@@ -37,12 +38,13 @@ public class Application {
      * @param args Program arguments.
      */
     public static void main(String[] args) {
-        Database.configure("data/contacts.db");
-        Application app = new Application();
-        app.checkDatabaseIntegrity();
-        app.setTitle("Contacts");
-        app.setWindowSize(840, 440);
-        Start.show();
+        if (Database.configure("data/contacts.db")) {
+            Application app = new Application();
+            app.checkDatabaseIntegrity();
+            app.setTitle("Contacts");
+            app.setWindowSize(840, 440);
+            Start.show();
+        }
     }
 
     /**

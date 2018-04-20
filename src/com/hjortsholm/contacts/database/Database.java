@@ -11,7 +11,7 @@ import java.util.Collections;
  * <h1>Database</h1>
  * A programming interface for interacting with SQLite
  *
- * @author Rober Moeller s5069583
+ * @author Robert Moeller s5069583
  * @version 1.0
  * @since 10/04/2018
  */
@@ -25,14 +25,16 @@ public class Database {
     /**
      * Configure the database connection.
      *
-     * @param path Filepath to database.
+     * @param path File path to database.
      */
-    public static void configure(String path) {
+    public static boolean configure(String path) {
         try {
             Database.path = path;
             Database.connection = DriverManager.getConnection(Database.JDBC + path);
+            return true;
         } catch (SQLException exception) {
             System.err.println("[ERROR]: Failed to open database..");
+            return false;
         }
     }
 

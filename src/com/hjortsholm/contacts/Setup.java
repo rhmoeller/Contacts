@@ -2,11 +2,14 @@ package com.hjortsholm.contacts;
 
 import com.hjortsholm.contacts.database.Database;
 import com.hjortsholm.contacts.models.Contact;
+import com.hjortsholm.contacts.models.ContactList;
 import com.hjortsholm.contacts.models.Field;
 import com.hjortsholm.contacts.models.FieldType;
+import com.hjortsholm.contacts.util.MD5;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Scanner;
 
 /**
@@ -34,6 +37,7 @@ public class Setup {
         setup.flushDatabase();
         setup.createDatabase();
         setup.importSampleData();
+        setup.importProfilePictures();
         System.out.println("Database reset.");
     }
 
@@ -63,6 +67,27 @@ public class Setup {
             Database.insert(field);
         }
         scanner.close();
+    }
+
+    /**
+     * Flushes and imports sample profile pictures to appropriate directories and links to database.
+     */
+    private void importProfilePictures() {
+        File samplePictures = new File("data/sample-pictures");
+        File destination = new File("data/profile-pictures");
+        for (File file : destination.listFiles())
+            file.delete();
+
+        int contactIndex = 1;
+        for (File picture : samplePictures.listFiles()) {
+            File destinationFile = new File(destination.getPath()+"/"+new MD5().getDigest(picture.getName()));
+            try {
+                Files.copy(picture.toPath(), destinationFile.toPath());
+                new Field(-1, contactIndex++, FieldType.PICTURE, "profile",destinationFile.getPath()).push();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**

@@ -28,7 +28,7 @@ public class DataModelTest {
     }
 
     @Test
-    @DisplayName(value = "Test1")
+    @DisplayName(value = "Get data from data model")
     void getData() {
         Object[] values = this.dataModel.getValues();
         assertAll(() -> {

@@ -45,7 +45,7 @@ public class FieldTest {
     }
 
     @Test
-    @DisplayName(value = "New fields exists in database")
+    @DisplayName(value = "Field changes are stored in database")
     void fieldChangeSaved() {
         Field field = new Field(-1, this.contact.getId(), FieldType.NAME, "first", "Robert");
         field.push();

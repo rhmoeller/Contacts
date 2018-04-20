@@ -33,7 +33,7 @@ public class Database {
             Database.connection = DriverManager.getConnection(Database.JDBC + path);
             return true;
         } catch (SQLException exception) {
-            System.err.println("[ERROR]: Failed to open database..");
+            System.err.println("[ERROR]: Failed to open database at path "+Database.JDBC+path);
             return false;
         }
     }

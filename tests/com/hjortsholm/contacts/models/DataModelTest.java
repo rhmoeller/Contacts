@@ -1,4 +1,4 @@
-package com.hjortsholm.contacts.tests;
+package com.hjortsholm.contacts.models;
 
 import com.hjortsholm.contacts.models.DataModel;
 import com.hjortsholm.contacts.models.Field;

@@ -1,0 +1,9 @@
+com.hjortsholm.contacts
+com.hjortsholm.contacts.database
+com.hjortsholm.contacts.gui
+com.hjortsholm.contacts.gui.controls
+com.hjortsholm.contacts.gui.panels
+com.hjortsholm.contacts.gui.parents
+com.hjortsholm.contacts.gui.style
+com.hjortsholm.contacts.models
+com.hjortsholm.contacts.util

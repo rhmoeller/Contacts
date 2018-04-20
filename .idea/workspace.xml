@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Added some JUnit tests.">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/doc/documentation/allclasses-frame.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/doc/documentation/allclasses-noframe.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/doc/documentation/com/hjortsholm/contacts/Application.html" afterDir="false" />
@@ -121,6 +120,16 @@
       <change afterPath="$PROJECT_DIR$/doc/documentation/script.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/doc/documentation/serialized-form.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/doc/documentation/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/database/DatabaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/database/QueryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/models/ContactListTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/models/ContactTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/models/DataModelTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/models/FieldTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/models/FieldTypeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/util/MD5Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/util/ResourceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -497,6 +506,24 @@
             <path>
               <item name="Contacts" type="b2602c69:ProjectViewProjectNode" />
               <item name="Contacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Contacts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Contacts" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Contacts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Contacts" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Contacts" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Contacts" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -934,7 +961,7 @@
       <workItem from="1523181867972" duration="1993000" />
       <workItem from="1523379580572" duration="1435000" />
       <workItem from="1523391248880" duration="229643000" />
-      <workItem from="1524076929206" duration="36757000" />
+      <workItem from="1524076929206" duration="37203000" />
     </task>
     <task id="LOCAL-00001" summary="Created basic navigation gui.">
       <created>1521815529292</created>
@@ -1146,7 +1173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524234362705</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Added some JUnit tests.">
+      <created>1524234937343</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1524234937343</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1182,7 +1216,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="377642000" />
+    <option name="totallyTimeSpent" value="378088000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1195,7 +1229,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="778" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
